@@ -5,6 +5,7 @@ import Link from "next/link";
 import CardListWrapper from "../shared/CardListWrapper";
 import CardTitle from "../ui/CardTitle";
 import CardContainer from "../shared/CardContainer";
+import CardHeaderContainer from "../shared/CardHeaderContainer";
 
 export default function TopClanRank({
     clanLeaderboard,
@@ -13,7 +14,16 @@ export default function TopClanRank({
 }) {
     return (
         <CardContainer>
-            <CardTitle>Best clan in your region ⚔️</CardTitle>
+            <CardHeaderContainer>
+                <CardTitle>Clan statistics</CardTitle>
+                <Image
+                    src="/clan.png"
+                    alt="Clan illustration"
+                    width={216}
+                    height={216}
+                    className="w-10"
+                />
+            </CardHeaderContainer>
 
             <ul className="list">
                 {clanLeaderboard.map((clan) => (

@@ -111,7 +111,7 @@ export default async function page({ params }: { params: { tag: string } }) {
                     <CardTitle>Current deck</CardTitle>
                     <ul className="grid grid-cols-4 px-4">
                         {player.currentDeck.map((card, index) => (
-                            <li key={card.id} className="">
+                            <li key={card.id} className="mx-auto">
                                 <Image
                                     src={
                                         card.iconUrls.evolutionMedium &&
@@ -127,8 +127,28 @@ export default async function page({ params }: { params: { tag: string } }) {
                         ))}
                     </ul>
 
-                    <p>{getAverageElixir(player.currentDeck)}</p>
-                    <p>{getCycleElixirCost(player.currentDeck)}</p>
+                    <div className="my-4 mx-2 flex justify-center bg-base-300 gap-6 px-4 rounded-lg mt-auto">
+                        <div className="flex items-center">
+                            <p>{getAverageElixir(player.currentDeck)}</p>
+                            <Image
+                                src="/elixir.png"
+                                alt="Elixir image"
+                                width={288}
+                                height={288}
+                                className="w-10"
+                            />
+                        </div>
+                        <div className="flex items-center">
+                            <p>{getCycleElixirCost(player.currentDeck)}</p>
+                            <Image
+                                src="/four-card-cycle.png"
+                                alt="Four card cycle image"
+                                width={288}
+                                height={288}
+                                className="w-10"
+                            />
+                        </div>
+                    </div>
                 </CardContainer>
             </section>
         </div>

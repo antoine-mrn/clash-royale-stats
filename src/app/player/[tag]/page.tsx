@@ -10,6 +10,7 @@ import CardHeaderContainer from "@/components/shared/CardHeaderContainer";
 import ListRow from "@/components/shared/ListRow";
 import CardTitle from "@/components/ui/CardTitle";
 import { getPlayer } from "@/lib/serverMethod/player";
+import getPlayerBattlelog from "@/lib/serverMethod/playerBattlelog";
 import { getAverageElixir, getCycleElixirCost } from "@/utils/deckStats";
 import { splitString } from "@/utils/stringMethods";
 import Image from "next/image";
@@ -17,6 +18,8 @@ import Image from "next/image";
 export default async function page({ params }: { params: { tag: string } }) {
     const { tag } = await params;
     const player = await getPlayer(tag);
+    const playerBattlelog = await getPlayerBattlelog(tag);
+    console.log("🚀 ~ page ~ playerBattlelog:", playerBattlelog);
 
     return (
         <div className="mt-6 space-y-6">

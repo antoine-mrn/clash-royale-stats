@@ -20,7 +20,7 @@ export interface Player {
     currentDeck: Card[];
     currentDeckSupportCards: SupportCard[];
     arena: Arena;
-    role: any;
+    role: string;
     wins: number;
     losses: number;
     totalDonations: number;

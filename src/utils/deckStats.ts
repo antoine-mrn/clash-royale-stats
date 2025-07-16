@@ -1,6 +1,5 @@
 import { Card } from "@/types/card.interface";
 
-// TODO: Fixed le nombre de décimale
 export const getAverageElixir = (deck: Card[]): string =>
     (
         deck.reduce((acc, currentValue) => acc + currentValue.elixirCost, 0) /

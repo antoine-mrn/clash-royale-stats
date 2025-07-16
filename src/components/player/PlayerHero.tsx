@@ -15,7 +15,7 @@ export default function PlayerHero({ name, tag, clanName }: PlayerHeroProps) {
             <div className="hero-overlay bg-neutral-900/85"></div>
             <div className="hero-content justify-between w-full max-w-4xl">
                 <div className="">
-                    <p className="text-primary font-extrabold text-4xl text-shadow-lg/30">
+                    <p className="text-primary font-extrabold text-6xl text-shadow-lg/30">
                         {name}
                     </p>
                     <p className="text-neutral-content text-lg">{tag}</p>

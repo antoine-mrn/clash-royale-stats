@@ -1,6 +1,12 @@
+import PlayerBadges from "@/components/player/PlayerBadges";
+import PlayerClanStats from "@/components/player/PlayerClanStats";
+import PlayerCurrentDeck from "@/components/player/PlayerCurrentDeck";
 import PlayerHero from "@/components/player/PlayerHero";
+import PlayerLeagueResult from "@/components/player/PlayerLeagueResult";
+import PlayerStats from "@/components/player/PlayerStats";
 import SearchForm from "@/components/search/SearchForm";
 import CardContainer from "@/components/shared/CardContainer";
+import CardHeaderContainer from "@/components/shared/CardHeaderContainer";
 import ListRow from "@/components/shared/ListRow";
 import CardTitle from "@/components/ui/CardTitle";
 import { getPlayer } from "@/lib/serverMethod/player";
@@ -11,7 +17,6 @@ import Image from "next/image";
 export default async function page({ params }: { params: { tag: string } }) {
     const { tag } = await params;
     const player = await getPlayer(tag);
-    // console.log("🚀 ~ page ~ player:", player.currentDeck);
 
     return (
         <div className="mt-6 space-y-6">
@@ -24,132 +29,34 @@ export default async function page({ params }: { params: { tag: string } }) {
             />
 
             <section className="max-w-6xl grid justify-center gap-8 px-6 w-full mx-auto md:grid-cols-2">
-                <CardContainer>
-                    <CardTitle>Fighter statistics</CardTitle>
+                <PlayerStats
+                    wins={player.wins}
+                    losses={player.losses}
+                    battleCount={player.battleCount}
+                    threeCrownWins={player.threeCrownWins}
+                    starPoints={player.starPoints}
+                    totalExpPoints={player.totalExpPoints}
+                />
 
-                    <ul className="list">
-                        <ListRow label="Wins" value={player.wins} />
-                        <ListRow label="Losses" value={player.losses} />
-                        <ListRow
-                            label="Battlecount"
-                            value={player.battleCount}
-                        />
-                        <ListRow
-                            label="Three crown wins"
-                            value={player.threeCrownWins}
-                        />
-                        <ListRow
-                            label="Star points"
-                            value={player.starPoints}
-                        />
-                        <ListRow
-                            label="Total experience"
-                            value={player.totalExpPoints}
-                        />
-                    </ul>
-                </CardContainer>
+                <PlayerClanStats
+                    clan={player.clan}
+                    role={player.role}
+                    donations={player.donations}
+                    totalDonations={player.totalDonations}
+                />
 
-                <CardContainer>
-                    <CardTitle>Clan statistics</CardTitle>
+                <PlayerLeagueResult
+                    lastPathOfLegendSeasonResult={
+                        player.lastPathOfLegendSeasonResult
+                    }
+                    bestPathOfLegendSeasonResult={
+                        player.bestPathOfLegendSeasonResult
+                    }
+                />
 
-                    <ul className="list">
-                        {player.clan ? (
-                            <>
-                                <ListRow
-                                    label="Clan name"
-                                    value={player.clan?.name}
-                                />
-                                <ListRow
-                                    label="Clan tag"
-                                    value={player.clan?.tag}
-                                />
-                                <ListRow label="Role" value={player.role} />
-                                <ListRow
-                                    label="Donations this week"
-                                    value={player.donations}
-                                />
-                                <ListRow
-                                    label="Total donations"
-                                    value={player.totalDonations}
-                                />
-                            </>
-                        ) : (
-                            <p>
-                                You'll see your statistics when you'll join a
-                                clan
-                            </p>
-                        )}
-                    </ul>
-                </CardContainer>
+                <PlayerBadges badges={player.badges} />
 
-                <CardContainer>
-                    <CardTitle>Badges</CardTitle>
-
-                    <ul className="grid grid-cols-4">
-                        {player.badges.slice(0, 10).map((badge) => (
-                            <li
-                                key={badge.name}
-                                className="tooltip"
-                                data-tip={splitString(badge.name)}
-                            >
-                                <Image
-                                    src={badge.iconUrls.large || ""}
-                                    alt={`${badge.name} image`}
-                                    width={512}
-                                    height={512}
-                                />
-                            </li>
-                        ))}
-                    </ul>
-
-                    <button className="btn btn-soft btn-secondary my-4 mx-2">
-                        View all your badges
-                    </button>
-                </CardContainer>
-
-                <CardContainer>
-                    <CardTitle>Current deck</CardTitle>
-                    <ul className="grid grid-cols-4 px-4">
-                        {player.currentDeck.map((card, index) => (
-                            <li key={card.id} className="mx-auto">
-                                <Image
-                                    src={
-                                        card.iconUrls.evolutionMedium &&
-                                        index < 2
-                                            ? card.iconUrls.evolutionMedium
-                                            : card.iconUrls.medium
-                                    }
-                                    alt={`${card.name} image`}
-                                    width={285}
-                                    height={420}
-                                />
-                            </li>
-                        ))}
-                    </ul>
-
-                    <div className="my-4 mx-2 flex justify-center bg-base-300 gap-6 px-4 rounded-lg mt-auto">
-                        <div className="flex items-center">
-                            <p>{getAverageElixir(player.currentDeck)}</p>
-                            <Image
-                                src="/elixir.png"
-                                alt="Elixir image"
-                                width={288}
-                                height={288}
-                                className="w-10"
-                            />
-                        </div>
-                        <div className="flex items-center">
-                            <p>{getCycleElixirCost(player.currentDeck)}</p>
-                            <Image
-                                src="/four-card-cycle.png"
-                                alt="Four card cycle image"
-                                width={288}
-                                height={288}
-                                className="w-10"
-                            />
-                        </div>
-                    </div>
-                </CardContainer>
+                <PlayerCurrentDeck deck={player.currentDeck} />
             </section>
         </div>
     );

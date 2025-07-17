@@ -60,7 +60,7 @@ export default function PlayerRecentBattlePreview({
                 ))}
             </ul>
 
-            <button className="btn btn-soft btn-secondary my-4 mx-2">
+            <button className="btn btn-soft btn-secondary mx-2 mt-auto mb-2">
                 View all your recent battles
             </button>
         </CardContainer>

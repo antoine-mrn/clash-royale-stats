@@ -5,6 +5,7 @@ import CardHeaderContainer from "../shared/CardHeaderContainer";
 import CardTitle from "../ui/CardTitle";
 import Image from "next/image";
 import { Battle } from "@/types/battle.interface";
+import { formatDate } from "@/utils/dateMethods";
 
 interface PlayerRecentBattlePreviewProps {
     battlelog: Battle[];
@@ -27,7 +28,7 @@ export default function PlayerRecentBattlePreview({
             </CardHeaderContainer>
 
             <ul className="list">
-                {battlelog.slice(0, 5).map((battle: any) => (
+                {battlelog.slice(0, 5).map((battle) => (
                     <li
                         key={battle.battleTime}
                         className="flex justify-between items-center p-4"
@@ -37,7 +38,8 @@ export default function PlayerRecentBattlePreview({
                                 {splitString(battle.type)}
                             </p>
                             <p className="text-sm opacity-60">
-                                {"2025-07"} • Arena {battle.arena.name}
+                                {formatDate(battle.battleTime)} • Arena{" "}
+                                {battle.arena.name}
                             </p>
                         </div>
 

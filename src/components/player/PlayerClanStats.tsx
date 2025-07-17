@@ -8,14 +8,18 @@ import Image from "next/image";
 interface PlayerClanStatsProps {
     role: string;
     donations: number;
+    donationsReceived: number;
     totalDonations: number;
+    warDayWins: number;
     clan?: ClanPreview;
 }
 
 export default function PlayerClanStats({
     role,
     donations,
+    donationsReceived,
     totalDonations,
+    warDayWins,
     clan,
 }: PlayerClanStatsProps) {
     return (
@@ -42,9 +46,14 @@ export default function PlayerClanStats({
                             value={donations}
                         />
                         <ListRow
+                            label="Total donations received"
+                            value={donationsReceived}
+                        />
+                        <ListRow
                             label="Total donations"
                             value={totalDonations}
                         />
+                        <ListRow label="War day wins" value={warDayWins} />
                     </>
                 ) : (
                     <li>You'll see your statistics when you'll join a clan</li>

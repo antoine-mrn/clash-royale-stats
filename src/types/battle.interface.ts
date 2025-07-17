@@ -12,4 +12,5 @@ export interface Battle {
     leagueNumber: number;
     opponent: BattlePlayer[];
     team: BattlePlayer[];
+    type: string;
 }

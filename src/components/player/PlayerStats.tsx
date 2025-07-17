@@ -11,6 +11,8 @@ interface PlayerStatsProps {
     threeCrownWins: number;
     starPoints: number;
     totalExpPoints: number;
+    challengeMaxWins: number;
+    challengeCardsWon: number;
 }
 
 export default function PlayerStats({
@@ -20,6 +22,8 @@ export default function PlayerStats({
     threeCrownWins,
     starPoints,
     totalExpPoints,
+    challengeMaxWins,
+    challengeCardsWon,
 }: PlayerStatsProps) {
     return (
         <CardContainer>
@@ -41,6 +45,11 @@ export default function PlayerStats({
                 <ListRow label="Three crown wins" value={threeCrownWins} />
                 <ListRow label="Star points" value={starPoints} />
                 <ListRow label="Total experience" value={totalExpPoints} />
+                <ListRow label="Challenge max wins" value={challengeMaxWins} />
+                <ListRow
+                    label="Challenge cards won"
+                    value={challengeCardsWon}
+                />
             </ul>
         </CardContainer>
     );

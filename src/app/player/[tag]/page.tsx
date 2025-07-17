@@ -6,13 +6,8 @@ import PlayerLeagueResult from "@/components/player/PlayerLeagueResult";
 import PlayerRecentBattlePreview from "@/components/player/PlayerRecentBattlePreview";
 import PlayerStats from "@/components/player/PlayerStats";
 import SearchForm from "@/components/search/SearchForm";
-import CardContainer from "@/components/shared/CardContainer";
-import CardHeaderContainer from "@/components/shared/CardHeaderContainer";
-import CardTitle from "@/components/ui/CardTitle";
 import { getPlayer } from "@/lib/serverMethod/player";
 import getPlayerBattlelog from "@/lib/serverMethod/playerBattlelog";
-import { splitString } from "@/utils/stringMethods";
-import Image from "next/image";
 
 export default async function page({ params }: { params: { tag: string } }) {
     const { tag } = await params;
@@ -21,9 +16,9 @@ export default async function page({ params }: { params: { tag: string } }) {
         getPlayer(tag),
         getPlayerBattlelog(tag),
     ]);
-    // console.log("🚀 ~ page ~ player:", player.currentDeck);
+    // console.log("🚀 ~ page ~ player:", player);
 
-    console.log("🚀 ~ page ~ playerBattlelog:", playerBattlelog);
+    // console.log("🚀 ~ page ~ playerBattlelog:", playerBattlelog);
 
     return (
         <div className="mt-6 space-y-6">
@@ -31,6 +26,7 @@ export default async function page({ params }: { params: { tag: string } }) {
 
             <PlayerHero
                 name={player.name}
+                level={player.expLevel}
                 tag={player.tag}
                 clanName={player.clan?.name ?? "No clan"}
             />
@@ -43,13 +39,17 @@ export default async function page({ params }: { params: { tag: string } }) {
                     threeCrownWins={player.threeCrownWins}
                     starPoints={player.starPoints}
                     totalExpPoints={player.totalExpPoints}
+                    challengeMaxWins={player.challengeMaxWins}
+                    challengeCardsWon={player.challengeCardsWon}
                 />
 
                 <PlayerClanStats
                     clan={player.clan}
                     role={player.role}
                     donations={player.donations}
+                    donationsReceived={player.donationsReceived}
                     totalDonations={player.totalDonations}
+                    warDayWins={player.warDayWins}
                 />
 
                 <PlayerLeagueResult

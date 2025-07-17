@@ -27,7 +27,7 @@ export default function PlayerLeagueResult({
                 />
             </CardHeaderContainer>
 
-            <h3 className="text-lg px-4 font-semibold mt-4">Last season</h3>
+            <h3 className="text-lg px-4 font-bold mt-4">Last season</h3>
             <ul className="list">
                 <ListRow
                     label="League"
@@ -43,7 +43,7 @@ export default function PlayerLeagueResult({
                 />
             </ul>
 
-            <h3 className="text-lg px-4 font-semibold mt-4">Best season</h3>
+            <h3 className="text-lg px-4 font-bold mt-4">Best season</h3>
             <ul className="list">
                 <ListRow
                     label="League"

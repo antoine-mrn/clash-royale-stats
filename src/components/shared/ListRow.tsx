@@ -3,7 +3,7 @@ interface ListRowProps {
     value: string | number;
     key?: string | number;
 }
-
+//idem pour le spread des props
 export default function ListRow({ label, value, key }: ListRowProps) {
     return (
         <li key={key} className="list-row flex justify-between">

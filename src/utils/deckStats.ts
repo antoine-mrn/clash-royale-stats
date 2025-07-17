@@ -9,6 +9,8 @@ export const getAverageElixir = (deck: Card[]): string =>
 export const getCycleElixirCost = (deck: Card[]): string => {
     return (deck.sort((a, b) => a.elixirCost - b.elixirCost) || [])
         .reduce((acc, currentValue, currentIndex) => {
+            // possible de simplifier  en oneliner
+            // currentIndex < 5 ? acc + currentValue.elixirCost : acc;
             if (currentIndex < 5) {
                 return acc + currentValue.elixirCost;
             }

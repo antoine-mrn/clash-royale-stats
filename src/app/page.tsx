@@ -10,6 +10,7 @@ export default async function Home() {
         getClanRanking(),
     ]);
 
+    //Ça serait sympa une petit gestion si pas de données 
     return (
         <div className="space-y-6">
             <div

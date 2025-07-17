@@ -51,5 +51,6 @@ export interface Player {
     currentPathOfLegendSeasonResult: PathOfLegendResult;
     lastPathOfLegendSeasonResult: PathOfLegendResult;
     bestPathOfLegendSeasonResult: PathOfLegendResult;
+    //Pas oublier de vérifier le type de progress
     progress: any;
 }

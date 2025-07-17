@@ -2,7 +2,7 @@ interface CardListWrapperProps {
     title: string;
     children: React.ReactNode;
 }
-
+//idem pour le spread des props
 export default function CardListWrapper({
     title,
     children,

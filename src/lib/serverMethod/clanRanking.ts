@@ -4,6 +4,7 @@ import { Clan } from "@/types/clan.interface";
 const api = useApi();
 
 export async function getClanRanking(
+    //pas oublier de le dynamiser
     location: number = 57000000
 ): Promise<Clan[]> {
     try {

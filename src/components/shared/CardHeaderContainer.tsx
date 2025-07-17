@@ -2,6 +2,7 @@ interface CardHeaderContainerProps {
     children: React.ReactNode;
 }
 
+//idem pour le spread des props
 export default function CardHeaderContainer({
     children,
 }: CardHeaderContainerProps) {

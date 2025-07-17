@@ -5,14 +5,23 @@ import { FormEvent, useState } from "react"
 
 export default function SearchForm() {
 
+   //Pas tip top un message d'erreur à string vide par défaut j'aurai préférer un null 
+
+   // const [error, setError] = useState<string | null>(null)
     const [error, setError] = useState<string>("")
     const router = useRouter()
 
     function handleSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault()
+
+        //même chose 
         setError("")
 
         const formData = new FormData(e.currentTarget)
+
+        //J'aurai plus fait un truc comme ça pour éviter le probléme du possible null
+        //const type = (formData.get("type")?.toString().toLowerCase() || "")
+
         const type = (formData.get("type") as string).toLowerCase()
         const tag = (formData.get("tag") as string).trim().toUpperCase()
 

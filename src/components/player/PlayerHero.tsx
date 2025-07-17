@@ -8,6 +8,8 @@ export default function PlayerHero({ name, tag, clanName }: PlayerHeroProps) {
     return (
         <div
             className="hero min-h-72"
+            //Arf l'url en dur 
+            //Mieux avec tailwind <div class="bg-[url(/img/mountains.jpg)] ..."></div>
             style={{
                 backgroundImage: "url(../player-banner.jpg)",
             }}

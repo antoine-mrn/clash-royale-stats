@@ -10,6 +10,7 @@ export async function getPlayerRanking(): Promise<PlayerPreview[]> {
         );
         return data.items;
     } catch (err) {
+        console.error(err);
         throw new Error("Failed to fetch players rank");
     }
 }

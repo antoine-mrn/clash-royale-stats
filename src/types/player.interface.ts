@@ -53,3 +53,17 @@ export interface Player {
     bestPathOfLegendSeasonResult: PathOfLegendResult;
     progress: any;
 }
+
+// TODO: Check null for kingTowerHitPoints
+export interface BattlePlayer {
+    cards: Card[];
+    clan: ClanPreview;
+    crowns: number;
+    elixirLeaked: number;
+    globalRank: number | null;
+    kingTowerHitPoints: number | null;
+    name: string;
+    princessTowerHitPoints: number | null;
+    supportCards: SupportCard[];
+    tag: string;
+}

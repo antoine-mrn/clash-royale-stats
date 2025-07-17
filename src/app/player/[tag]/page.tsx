@@ -9,16 +9,19 @@ import SearchForm from "@/components/search/SearchForm";
 import { getPlayer } from "@/lib/serverMethod/player";
 import getPlayerBattlelog from "@/lib/serverMethod/playerBattlelog";
 
-export default async function page({ params }: { params: { tag: string } }) {
+export const revalidate = 60;
+
+export default async function page({
+    params,
+}: {
+    params: Promise<{ tag: string }>;
+}) {
     const { tag } = await params;
 
     const [player, playerBattlelog] = await Promise.all([
         getPlayer(tag),
         getPlayerBattlelog(tag),
     ]);
-    // console.log("🚀 ~ page ~ player:", player);
-
-    // console.log("🚀 ~ page ~ playerBattlelog:", playerBattlelog);
 
     return (
         <div className="mt-6 space-y-6">

@@ -1,7 +1,7 @@
-import { useApi } from "@/hooks/useApi";
 import { Clan } from "@/types/clan.interface";
+import { setupApi } from "../setupApi";
 
-const api = useApi();
+const api = setupApi();
 
 export async function getClanRanking(
     location: number = 57000000

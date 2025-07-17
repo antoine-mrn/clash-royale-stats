@@ -1,7 +1,7 @@
-import { useApi } from "@/hooks/useApi";
 import { PlayerPreview } from "@/types/player.interface";
+import { setupApi } from "../setupApi";
 
-const api = useApi();
+const api = setupApi();
 
 export async function getPlayerRanking(): Promise<PlayerPreview[]> {
     try {

@@ -1,6 +1,6 @@
 import axios, { AxiosInstance } from "axios";
 
-export function useApi() {
+export function setupApi() {
     const api: AxiosInstance = axios.create({
         baseURL: process.env.CR_BASE_URL,
         headers: {

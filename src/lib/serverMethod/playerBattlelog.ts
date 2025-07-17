@@ -1,7 +1,7 @@
-import { useApi } from "@/hooks/useApi";
 import { Battle } from "@/types/battle.interface";
+import { setupApi } from "../setupApi";
 
-const api = useApi();
+const api = setupApi();
 
 export default async function getPlayerBattlelog(
     tag: string

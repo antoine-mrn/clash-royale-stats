@@ -15,7 +15,7 @@ export default function TopPlayerRank({
     return (
         <CardContainer>
             <CardHeaderContainer>
-                <CardTitle>Fighter statistics</CardTitle>
+                <CardTitle>Previous season leaderboard</CardTitle>
                 <Image
                     src="/battle.png"
                     alt="Battle illustration"

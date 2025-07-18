@@ -4,7 +4,7 @@ interface PlayerHeroProps {
     name: string;
     level: number;
     tag: string;
-    clanName: string;
+    clanName: string | undefined;
 }
 
 export default function PlayerHero({

@@ -1,14 +1,18 @@
 
 import { Player } from "@/types/player.interface";
-import { setupApi } from "../setupApi";
-
-const api = setupApi()
+import { fetchApi } from "../fetchApi";
 
 export async function getPlayer(tag: string): Promise<Player> {
     try {
-        const { data } = await api.get(`/players/%23${tag}`)
+        const response = await fetchApi(`/players/%23${tag}`, {
+            next: {revalidate: 60},
+        })
 
-        return data
+        if(!response.ok) {
+            throw new Error('Failed to fecth player')
+        }
+
+        return await response.json()
     } catch(err) {
         throw new Error(`Failed to fetch play: ${err}`)
     }

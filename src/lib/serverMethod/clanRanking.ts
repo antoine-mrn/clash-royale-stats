@@ -1,16 +1,20 @@
 import { Clan } from "@/types/clan.interface";
-import { setupApi } from "../setupApi";
-
-const api = setupApi();
+import { fetchApi } from "../fetchApi";
 
 export async function getClanRanking(
     location: number = 57000000
 ): Promise<Clan[]> {
     try {
-        const { data } = await api.get(
-            `https://api.clashroyale.com/v1/locations/${location}/rankings/clanwars?limit=10`
+        const response = await fetchApi(
+            `/locations/${location}/rankings/clanwars?limit=10`
         );
-        return data.items;
+
+        if (!response.ok) {
+            throw new Error("Failed to fecth clan wars rank");
+        }
+
+        const { items } = await response.json();
+        return items;
     } catch (err) {
         throw new Error("Failed to fetch clan wars rank");
     }

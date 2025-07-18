@@ -68,7 +68,10 @@ export default async function page({
 
                 <PlayerCurrentDeck deck={player.currentDeck} />
 
-                <PlayerRecentBattlePreview battlelog={playerBattlelog} />
+                <PlayerRecentBattlePreview
+                    battlelog={playerBattlelog}
+                    tag={tag}
+                />
             </section>
         </div>
     );

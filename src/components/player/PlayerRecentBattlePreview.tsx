@@ -6,13 +6,16 @@ import CardTitle from "../ui/CardTitle";
 import Image from "next/image";
 import { Battle } from "@/types/battle.interface";
 import { formatDate } from "@/utils/dateMethods";
+import Link from "next/link";
 
 interface PlayerRecentBattlePreviewProps {
     battlelog: Battle[];
+    tag: string;
 }
 
 export default function PlayerRecentBattlePreview({
     battlelog,
+    tag,
 }: PlayerRecentBattlePreviewProps) {
     return (
         <CardContainer>
@@ -60,9 +63,12 @@ export default function PlayerRecentBattlePreview({
                 ))}
             </ul>
 
-            <button className="btn btn-soft btn-secondary mx-2 mt-auto mb-2">
+            <Link
+                href={`/player/${tag}/battlelog`}
+                className="btn btn-soft btn-secondary mx-2 mt-auto mb-2"
+            >
                 View all your recent battles
-            </button>
+            </Link>
         </CardContainer>
     );
 }

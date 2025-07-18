@@ -56,7 +56,9 @@ export default function PlayerClanStats({
                         <ListRow label="War day wins" value={warDayWins} />
                     </>
                 ) : (
-                    <li>You'll see your statistics when you'll join a clan</li>
+                    <li className="list-row font-semibold">
+                        You'll see your statistics when you'll join a clan
+                    </li>
                 )}
             </ul>
         </CardContainer>

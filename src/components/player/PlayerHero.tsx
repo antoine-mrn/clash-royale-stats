@@ -41,12 +41,15 @@ export default function PlayerHero({
                         </div>
                     </div>
                     <p className="text-neutral-content text-lg">{tag}</p>
-                    <Link
-                        href={"#"}
-                        className="link link-hover link-primary text-base-100 text-lg"
-                    >
-                        {clanName} <span className="font-bold text-xl">›</span>
-                    </Link>
+                    {clanName && (
+                        <Link
+                            href={"#"}
+                            className="link link-hover link-primary text-base-100 text-lg"
+                        >
+                            {clanName}{" "}
+                            <span className="font-bold text-xl">›</span>
+                        </Link>
+                    )}
                 </div>
                 {/* <Image src={player.currentFavouriteCard.iconUrls.medium} alt={`${player.currentFavouriteCard.name} image`} width={420} height={285} className="w-24" /> */}
             </div>

@@ -66,4 +66,7 @@ export interface BattlePlayer {
     princessTowerHitPoints: number | null;
     supportCards: SupportCard[];
     tag: string;
+    rounds?: any;
+    startingTrophies?: number;
+    trophyChange?: number;
 }

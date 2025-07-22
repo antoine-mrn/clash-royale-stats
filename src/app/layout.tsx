@@ -26,7 +26,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" data-theme="cmyk">
+        <html lang="en" data-theme="cmyk" className="h-full">
             <body
                 className={`${geistSans.variable} ${geistMono.variable} antialiased bg-neutral-50 flex min-h-full flex-col`}
             >

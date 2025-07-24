@@ -10,7 +10,6 @@ export default function BattlelogList({
 }) {
     const [numberMaxOfBattle, setNumberMaxOfBattle] = useState<number>(5);
     const battleToRender = playerBattlelog.slice(0, numberMaxOfBattle);
-    console.log("🚀 ~ battleToRender:", battleToRender.length);
     const [isMounted, setIsMounted] = useState<boolean>(false);
 
     const containerRef = useRef<HTMLDivElement>(null);
@@ -24,8 +23,8 @@ export default function BattlelogList({
 
     const options = {
         root: null,
-        rootMargin: "0px",
-        threshold: 1.0,
+        rootMargin: "200px",
+        threshold: 0.1,
     };
 
     useEffect(() => {
@@ -59,7 +58,9 @@ export default function BattlelogList({
                     </li>
                 ))}
             </ul>
-            <div ref={containerRef}></div>
+            {numberMaxOfBattle < playerBattlelog.length && (
+                <div className="h-10 w-full" ref={containerRef}></div>
+            )}
         </section>
     );
 }

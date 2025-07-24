@@ -1,8 +1,4 @@
 import { Battle } from "@/types/battle.interface";
-import Image from "next/image";
-import Link from "next/link";
-import DeckList from "../deck/DeckList";
-import { getAverageElixir, getCycleElixirCost } from "@/utils/deckStats";
 import BattleResultScore from "./BattleResultScore";
 import BattlePlayerCard from "./BattlePlayerCard";
 
@@ -16,12 +12,12 @@ export default function BattleCard({ battle }: { battle: Battle }) {
             />
 
             {/* Battle details */}
-            <div className="flex w-full p-4">
+            <div className="flex flex-col w-full p-4 sm:flex-row">
                 <BattlePlayerCard
                     battlePlayer={battle.player}
                     isOpponent={false}
                 />
-                <div className="divider divider-horizontal">VS</div>
+                <div className="divider sm:divider-horizontal">VS</div>
                 <BattlePlayerCard
                     battlePlayer={battle.opponent}
                     isOpponent={true}

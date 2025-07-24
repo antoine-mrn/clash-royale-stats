@@ -1,11 +1,8 @@
-import playerBattlelog from "@/lib/serverMethod/playerBattlelog";
-import { splitString } from "@/utils/stringMethods";
 import CardContainer from "../shared/CardContainer";
 import CardHeaderContainer from "../shared/CardHeaderContainer";
 import CardTitle from "../ui/CardTitle";
 import Image from "next/image";
 import { Battle } from "@/types/battle.interface";
-import { formatDate } from "@/utils/dateMethods";
 import Link from "next/link";
 
 interface PlayerRecentBattlePreviewProps {
@@ -37,21 +34,16 @@ export default function PlayerRecentBattlePreview({
                         className="flex justify-between items-center p-4"
                     >
                         <div>
-                            <p className="font-semibold">
-                                {splitString(battle.type)}
-                            </p>
+                            <p className="font-semibold">{battle.type}</p>
                             <p className="text-sm opacity-60">
-                                {formatDate(battle.battleTime)} • Arena{" "}
-                                {battle.arena}
+                                {battle.battleTime} • Arena {battle.arena}
                             </p>
                         </div>
 
                         <div className="flex items-center gap-2">
                             <span
                                 className={`badge font-semibold ${
-                                    battle.playerScore > battle.opponentScore
-                                        ? "bg-green-600"
-                                        : "bg-red-600"
+                                    battle.isWinner ? "bg-blue-50" : "bg-red-50"
                                 }`}
                             >
                                 {battle.playerScore} - {battle.opponentScore}

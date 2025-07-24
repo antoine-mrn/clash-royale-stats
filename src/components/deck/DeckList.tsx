@@ -38,7 +38,7 @@ export default function DeckList({
                             alt="Support card illustration"
                             width={285}
                             height={420}
-                            className="w-16"
+                            className="w-1/4"
                         />
                         <div>
                             <p className="text-sm font-semibold text-neutral-600">

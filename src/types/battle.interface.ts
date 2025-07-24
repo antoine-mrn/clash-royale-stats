@@ -22,6 +22,7 @@ export interface Battle {
     arena: string;
     playerScore: number;
     opponentScore: number;
+    isWinner: boolean;
     player: BattlePlayer;
     opponent: BattlePlayer;
 }

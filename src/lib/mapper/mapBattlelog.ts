@@ -1,12 +1,19 @@
 import { Battle, BattleFromApi } from "@/types/battle.interface";
+import { getBattleResult } from "@/utils/battleResult";
+import { formatDate } from "@/utils/dateMethods";
+import { splitString } from "@/utils/stringMethods";
 
 export function mapBattlelog(battleFromApi: BattleFromApi): Battle {
     return {
-        type: battleFromApi.type,
-        battleTime: battleFromApi.battleTime,
+        type: splitString(battleFromApi.type),
+        battleTime: formatDate(battleFromApi.battleTime),
         arena: battleFromApi.arena.name,
         playerScore: battleFromApi.team[0].crowns,
         opponentScore: battleFromApi.opponent[0].crowns,
+        isWinner: getBattleResult(
+            battleFromApi.team[0].crowns,
+            battleFromApi.opponent[0].crowns
+        ),
         player: {
             name: battleFromApi.team[0].name,
             tag: battleFromApi.team[0].tag,

@@ -3,14 +3,18 @@ import CardContainer from "../shared/CardContainer";
 import CardHeaderContainer from "../shared/CardHeaderContainer";
 import CardTitle from "../ui/CardTitle";
 import Image from "next/image";
-import { Card } from "@/types/card.interface";
+import { Card, SupportCard } from "@/types/card.interface";
 import DeckList from "../deck/DeckList";
 
 interface PlayerCurrentDeckProps {
     deck: Card[];
+    supportCard: SupportCard;
 }
 
-export default function PlayerCurrentDeck({ deck }: PlayerCurrentDeckProps) {
+export default function PlayerCurrentDeck({
+    deck,
+    supportCard,
+}: PlayerCurrentDeckProps) {
     return (
         <CardContainer>
             <CardHeaderContainer>
@@ -24,9 +28,9 @@ export default function PlayerCurrentDeck({ deck }: PlayerCurrentDeckProps) {
                 />
             </CardHeaderContainer>
 
-            <DeckList deck={deck} />
+            <DeckList deck={deck} supportCard={supportCard} />
 
-            <div className="mx-2 mt-auto mb-4 flex justify-center bg-base-300 gap-6 px-4 rounded-lg">
+            <div className="mx-2 mt-auto mb-2 flex justify-center bg-base-300 gap-6 px-4 rounded-lg">
                 <div className="flex items-center">
                     <p className="font-bold text-sm">
                         {getAverageElixir(deck)}

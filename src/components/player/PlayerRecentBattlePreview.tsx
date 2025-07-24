@@ -42,21 +42,19 @@ export default function PlayerRecentBattlePreview({
                             </p>
                             <p className="text-sm opacity-60">
                                 {formatDate(battle.battleTime)} • Arena{" "}
-                                {battle.arena.name}
+                                {battle.arena}
                             </p>
                         </div>
 
                         <div className="flex items-center gap-2">
                             <span
                                 className={`badge font-semibold ${
-                                    battle.team[0].crowns >
-                                    battle.opponent[0].crowns
+                                    battle.playerScore > battle.opponentScore
                                         ? "bg-green-600"
                                         : "bg-red-600"
                                 }`}
                             >
-                                {battle.team[0].crowns} -{" "}
-                                {battle.opponent[0].crowns}
+                                {battle.playerScore} - {battle.opponentScore}
                             </span>
                         </div>
                     </li>

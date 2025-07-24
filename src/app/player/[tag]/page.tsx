@@ -66,7 +66,10 @@ export default async function page({
 
                 <PlayerBadges badges={player.badges} />
 
-                <PlayerCurrentDeck deck={player.currentDeck} />
+                <PlayerCurrentDeck
+                    deck={player.currentDeck}
+                    supportCard={player.currentDeckSupportCards[0]}
+                />
 
                 <PlayerRecentBattlePreview
                     battlelog={playerBattlelog}

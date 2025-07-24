@@ -28,9 +28,9 @@ export default function PlayerRecentBattlePreview({
             </CardHeaderContainer>
 
             <ul className="list">
-                {battlelog.slice(0, 5).map((battle) => (
+                {battlelog.slice(0, 5).map((battle, index) => (
                     <li
-                        key={battle.battleTime}
+                        key={index}
                         className="flex justify-between items-center p-4"
                     >
                         <div>

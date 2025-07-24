@@ -10,6 +10,7 @@ export default function BattlelogList({
 }) {
     const [numberMaxOfBattle, setNumberMaxOfBattle] = useState<number>(5);
     const battleToRender = playerBattlelog.slice(0, numberMaxOfBattle);
+    console.log("🚀 ~ battleToRender:", battleToRender);
     const [isMounted, setIsMounted] = useState<boolean>(false);
 
     const containerRef = useRef<HTMLDivElement>(null);

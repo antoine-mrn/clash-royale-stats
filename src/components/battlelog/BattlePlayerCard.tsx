@@ -40,19 +40,21 @@ export default function BattlePlayerCard({
                 {battlePlayer.startingTrophies && (
                     <p className="text-lg font-semibold text-neutral-900 flex items-center gap-2 mt-2">
                         {battlePlayer.startingTrophies}{" "}
-                        <span
-                            className={`badge ${
-                                battlePlayer.trophyChange &&
-                                battlePlayer.trophyChange > 0
-                                    ? "badge-primary"
-                                    : "badge-error"
-                            }`}
-                        >
-                            {battlePlayer.trophyChange &&
-                                (battlePlayer.trophyChange > 0 ? "+" : "") +
-                                    battlePlayer.trophyChange}
-                        </span>
                     </p>
+                )}
+                {battlePlayer.trophyChange && (
+                    <span
+                        className={`badge ${
+                            battlePlayer.trophyChange &&
+                            battlePlayer.trophyChange > 0
+                                ? "badge-primary"
+                                : "badge-error"
+                        }`}
+                    >
+                        {battlePlayer.trophyChange &&
+                            (battlePlayer.trophyChange > 0 ? "+" : "") +
+                                battlePlayer.trophyChange}
+                    </span>
                 )}
             </div>
             <DeckList

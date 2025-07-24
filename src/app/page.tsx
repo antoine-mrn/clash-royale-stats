@@ -34,7 +34,7 @@ export default async function Home() {
 
             <SearchForm />
 
-            <section className="max-w-6xl grid justify-center gap-8 px-6 w-full mx-auto md:grid-cols-2">
+            <section className="max-w-6xl px-6 w-full mx-auto grid gap-8 md:grid-cols-2">
                 <TopPlayerRank playerLeaderboard={playerLeaderboard} />
                 <TopClanRank clanLeaderboard={clanLeaderboard} />
             </section>

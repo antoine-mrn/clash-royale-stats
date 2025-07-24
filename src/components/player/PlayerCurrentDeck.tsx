@@ -5,6 +5,7 @@ import CardTitle from "../ui/CardTitle";
 import Image from "next/image";
 import { Card, SupportCard } from "@/types/card.interface";
 import DeckList from "../deck/DeckList";
+import DeckStats from "../deck/DeckStats";
 
 interface PlayerCurrentDeckProps {
     deck: Card[];
@@ -30,32 +31,7 @@ export default function PlayerCurrentDeck({
 
             <DeckList deck={deck} supportCard={supportCard} />
 
-            <div className="mx-2 mt-auto mb-2 flex justify-center bg-base-300 gap-6 px-4 rounded-lg">
-                <div className="flex items-center">
-                    <p className="font-bold text-sm">
-                        {getAverageElixir(deck)}
-                    </p>
-                    <Image
-                        src="/elixir.png"
-                        alt="Elixir image"
-                        width={288}
-                        height={288}
-                        className="w-10"
-                    />
-                </div>
-                <div className="flex items-center">
-                    <p className="font-bold text-sm">
-                        {getCycleElixirCost(deck)}
-                    </p>
-                    <Image
-                        src="/four-card-cycle.png"
-                        alt="Four card cycle image"
-                        width={288}
-                        height={288}
-                        className="w-10"
-                    />
-                </div>
-            </div>
+            <DeckStats deck={deck} />
         </CardContainer>
     );
 }

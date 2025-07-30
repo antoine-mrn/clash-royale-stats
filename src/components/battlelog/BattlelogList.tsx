@@ -1,7 +1,7 @@
 "use client";
 import { Battle } from "@/types/battle.interface";
 import BattleCard from "./BattleCard";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 export default function BattlelogList({
@@ -24,7 +24,6 @@ export default function BattlelogList({
     useEffect(() => {
         if (isIntersecting) {
             setNumberMaxOfBattle((prev) => prev + 5);
-            console.log("RENDER");
         }
     }, [isIntersecting]);
 

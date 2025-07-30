@@ -2,6 +2,7 @@
 import { Battle } from "@/types/battle.interface";
 import BattleCard from "./BattleCard";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 export default function BattlelogList({
     playerBattlelog,
@@ -10,17 +11,6 @@ export default function BattlelogList({
 }) {
     const [numberMaxOfBattle, setNumberMaxOfBattle] = useState<number>(5);
     const battleToRender = playerBattlelog.slice(0, numberMaxOfBattle);
-    console.log("🚀 ~ battleToRender:", battleToRender);
-    const [isMounted, setIsMounted] = useState<boolean>(false);
-
-    const containerRef = useRef<HTMLDivElement>(null);
-
-    function addBattle(entries: IntersectionObserverEntry[]) {
-        const [entry] = entries;
-        if (entry.isIntersecting) {
-            setNumberMaxOfBattle((prev) => prev + 5);
-        }
-    }
 
     const options = {
         root: null,
@@ -28,22 +18,15 @@ export default function BattlelogList({
         threshold: 0.1,
     };
 
-    useEffect(() => {
-        setIsMounted(true);
-    }, []);
+    const { targetRef, isMounted, isIntersecting } =
+        useIntersectionObserver<HTMLDivElement>(options);
 
     useEffect(() => {
-        if (!isMounted) return;
-
-        const observer = new IntersectionObserver(addBattle, options);
-        if (containerRef.current) observer.observe(containerRef.current);
-
-        return () => {
-            if (containerRef.current) {
-                observer.unobserve(containerRef.current);
-            }
-        };
-    }, [containerRef.current, isMounted]);
+        if (isIntersecting) {
+            setNumberMaxOfBattle((prev) => prev + 5);
+            console.log("RENDER");
+        }
+    }, [isIntersecting]);
 
     if (!isMounted) return null;
 
@@ -60,7 +43,7 @@ export default function BattlelogList({
                 ))}
             </ul>
             {numberMaxOfBattle < playerBattlelog.length && (
-                <div className="h-10 w-full" ref={containerRef}></div>
+                <div className="h-10 w-full" ref={targetRef}></div>
             )}
         </section>
     );

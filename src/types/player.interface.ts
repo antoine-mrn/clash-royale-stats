@@ -79,7 +79,7 @@ export interface Player {
     };
     badges: BadgePreview[];
     deck: {
-        icon: Icon;
+        iconUrls: Icon;
         elixirCost: number;
-    };
+    }[];
 }

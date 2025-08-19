@@ -1,4 +1,3 @@
-import { getAverageElixir, getCycleElixirCost } from "@/utils/deckStats";
 import CardContainer from "../shared/CardContainer";
 import CardHeaderContainer from "../shared/CardHeaderContainer";
 import CardTitle from "../ui/CardTitle";

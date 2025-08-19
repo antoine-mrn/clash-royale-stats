@@ -16,7 +16,7 @@ export default function DeckList({
         <article>
             <ul className={`grid grid-cols-4 px-4 mb-4 ${className}`}>
                 {deck.map((card, index) => (
-                    <li key={card.id} className="mx-auto">
+                    <li key={card.id} className="mx-auto max-w-24">
                         <Image
                             src={
                                 card.iconUrls.evolutionMedium && index < 2
@@ -38,7 +38,7 @@ export default function DeckList({
                             alt="Support card illustration"
                             width={285}
                             height={420}
-                            className="w-1/4"
+                            className="w-1/4 max-w-24"
                         />
                         <div>
                             <p className="text-sm font-semibold text-neutral-600">

@@ -9,7 +9,7 @@ interface DeckStatsProps {
 
 export default function DeckStats({ deck, elixirLeaked }: DeckStatsProps) {
     return (
-        <article className="mx-2 mt-auto mb-4 flex justify-center bg-base-300 gap-6 px-4 rounded-lg">
+        <article className="mx-2 mt-auto mb-2 flex justify-center bg-base-300 gap-6 px-4 rounded-lg">
             <div
                 className="flex items-center tooltip"
                 data-tip="Average elixir"

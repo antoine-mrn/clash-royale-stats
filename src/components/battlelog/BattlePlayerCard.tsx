@@ -60,7 +60,7 @@ export default function BattlePlayerCard({
             <DeckList
                 deck={battlePlayer.cards}
                 supportCard={battlePlayer.supportCard}
-                className="w-fit"
+                className="mx-auto w-fit"
             />
 
             <DeckStats

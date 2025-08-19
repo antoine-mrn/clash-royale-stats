@@ -1,7 +1,8 @@
-import { Player } from "@/types/player.interface";
+import { PlayerFromApi } from "@/types/player.interface";
 import { fetchApi } from "../fetchApi";
+import { mapPlayer } from "../mapper/mapPlayer";
 
-export async function getPlayer(tag: string): Promise<Player> {
+export async function getPlayer(tag: string): Promise<PlayerFromApi> {
     try {
         const response = await fetchApi(`/players/%23${tag}`, {
             next: { revalidate: 60 },
@@ -10,6 +11,9 @@ export async function getPlayer(tag: string): Promise<Player> {
         if (!response.ok) {
             throw new Error("Failed to fecth player");
         }
+
+        const PlayerFromApi: PlayerFromApi = await response.json();
+        const cleanData = mapPlayer(PlayerFromApi);
 
         return await response.json();
     } catch (err) {

@@ -1,7 +1,8 @@
-import { Achievement, Badge } from "./achievement.interface";
+import { Achievement, Badge, BadgePreview } from "./achievement.interface";
 import { Arena } from "./arena.interface";
 import { Card, SupportCard } from "./card.interface";
 import { ClanPreview } from "./clan.interface";
+import { Icon } from "./icon.interface";
 import { PathOfLegendResult } from "./result.interface";
 import { statistics } from "./statistics.interface";
 
@@ -14,7 +15,7 @@ export interface PlayerPreview {
     eloRating: number;
 }
 
-export interface Player {
+export interface PlayerFromApi {
     clan?: ClanPreview;
     legacyTrophyRoadHighScore: number;
     currentDeck: Card[];
@@ -52,4 +53,33 @@ export interface Player {
     lastPathOfLegendSeasonResult: PathOfLegendResult;
     bestPathOfLegendSeasonResult: PathOfLegendResult;
     progress: any;
+}
+
+export interface Player {
+    name: string;
+    level: number;
+    tag: string;
+    wins: number;
+    losses: number;
+    battleCount: number;
+    threeCrownWins: number;
+    starPoint: number;
+    totalExpPoints: number;
+    challengeMaxWins: number;
+    challengeCardsWon: number;
+    lastPathOfLegendSeasonResult: PathOfLegendResult;
+    bestPathOfLegendSeasonResult: PathOfLegendResult;
+    clan: {
+        clanName?: string;
+        role: string;
+        donations: number;
+        donationsReceived: number;
+        totalDonations: number;
+        warDayWins: number;
+    };
+    badges: BadgePreview[];
+    deck: {
+        icon: Icon;
+        elixirCost: number;
+    };
 }

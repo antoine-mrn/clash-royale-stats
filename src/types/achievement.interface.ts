@@ -9,6 +9,11 @@ export interface Badge {
     name: string;
 }
 
+export interface BadgePreview {
+    iconUrls: Icon;
+    name: string;
+}
+
 export interface Achievement {
     completionInfo: string | null;
     info: string;

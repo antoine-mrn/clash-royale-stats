@@ -2,13 +2,13 @@ import CardContainer from "../shared/CardContainer";
 import CardHeaderContainer from "../shared/CardHeaderContainer";
 import CardTitle from "../ui/CardTitle";
 import Image from "next/image";
-import { Card, SupportCard } from "@/types/card.interface";
+import { CardPreview, SupportCardPreview } from "@/types/card.interface";
 import DeckList from "../deck/DeckList";
 import DeckStats from "../deck/DeckStats";
 
 interface PlayerCurrentDeckProps {
-    deck: Card[];
-    supportCard: SupportCard;
+    deck: CardPreview[];
+    supportCard: SupportCardPreview;
 }
 
 export default function PlayerCurrentDeck({

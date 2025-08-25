@@ -29,9 +29,9 @@ export default async function page({
 
             <PlayerHero
                 name={player.name}
-                level={player.expLevel}
+                level={player.level}
                 tag={player.tag}
-                clanName={player.clan?.name}
+                clanName={player.clan.name}
             />
 
             <section className="max-w-6xl grid justify-center gap-8 px-6 w-full mx-auto md:grid-cols-2">
@@ -68,7 +68,7 @@ export default async function page({
 
                 <PlayerCurrentDeck
                     deck={player.currentDeck}
-                    supportCard={player.currentDeckSupportCards[0]}
+                    supportCard={player.currentDeckSupportCards}
                 />
 
                 <PlayerRecentBattlePreview

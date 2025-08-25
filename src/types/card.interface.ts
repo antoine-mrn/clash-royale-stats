@@ -19,3 +19,15 @@ export type SupportCard = Pick<
     Card,
     "id" | "name" | "rarity" | "iconUrls" | "level" | "maxLevel" | "count"
 >;
+
+export type SupportCardPreview = Pick<
+    Card,
+    "id" | "name" | "iconUrls" | "level"
+>;
+
+export interface CardPreview {
+    iconUrls: Icon;
+    elixirCost: number;
+    id: number;
+    name: string;
+}

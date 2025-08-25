@@ -1,6 +1,11 @@
 import { Achievement, Badge, BadgePreview } from "./achievement.interface";
 import { Arena } from "./arena.interface";
-import { Card, SupportCard } from "./card.interface";
+import {
+    Card,
+    CardPreview,
+    SupportCard,
+    SupportCardPreview,
+} from "./card.interface";
 import { ClanPreview } from "./clan.interface";
 import { Icon } from "./icon.interface";
 import { PathOfLegendResult } from "./result.interface";
@@ -63,23 +68,22 @@ export interface Player {
     losses: number;
     battleCount: number;
     threeCrownWins: number;
-    starPoint: number;
+    starPoints: number;
     totalExpPoints: number;
     challengeMaxWins: number;
     challengeCardsWon: number;
     lastPathOfLegendSeasonResult: PathOfLegendResult;
     bestPathOfLegendSeasonResult: PathOfLegendResult;
     clan: {
-        clanName?: string;
-        role: string;
-        donations: number;
-        donationsReceived: number;
-        totalDonations: number;
-        warDayWins: number;
+        name: string | null;
+        tag: string | null;
     };
+    role: string;
+    donations: number;
+    donationsReceived: number;
+    totalDonations: number;
+    warDayWins: number;
     badges: BadgePreview[];
-    deck: {
-        iconUrls: Icon;
-        elixirCost: number;
-    }[];
+    currentDeck: CardPreview[];
+    currentDeckSupportCards: SupportCardPreview;
 }

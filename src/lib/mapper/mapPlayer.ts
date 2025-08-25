@@ -9,7 +9,7 @@ export function mapPlayer(playerFromApi: PlayerFromApi): Player {
         losses: playerFromApi.losses,
         battleCount: playerFromApi.battleCount,
         threeCrownWins: playerFromApi.threeCrownWins,
-        starPoint: playerFromApi.starPoints,
+        starPoints: playerFromApi.starPoints,
         totalExpPoints: playerFromApi.totalExpPoints,
         challengeMaxWins: playerFromApi.challengeMaxWins,
         challengeCardsWon: playerFromApi.challengeCardsWon,
@@ -18,13 +18,14 @@ export function mapPlayer(playerFromApi: PlayerFromApi): Player {
         bestPathOfLegendSeasonResult:
             playerFromApi.bestPathOfLegendSeasonResult,
         clan: {
-            clanName: playerFromApi.clan?.name || undefined,
-            role: playerFromApi.role,
-            donations: playerFromApi.donations,
-            donationsReceived: playerFromApi.donationsReceived,
-            totalDonations: playerFromApi.totalDonations,
-            warDayWins: playerFromApi.warDayWins,
+            name: playerFromApi.clan?.name ?? null,
+            tag: playerFromApi.clan?.tag ?? null,
         },
+        role: playerFromApi.role,
+        donations: playerFromApi.donations,
+        donationsReceived: playerFromApi.donationsReceived,
+        totalDonations: playerFromApi.totalDonations,
+        warDayWins: playerFromApi.warDayWins,
         badges: playerFromApi.badges.map((badge) => ({
             iconUrls: {
                 evolutionMedium: badge.iconUrls.evolutionMedium || undefined,
@@ -33,13 +34,28 @@ export function mapPlayer(playerFromApi: PlayerFromApi): Player {
             },
             name: badge.name,
         })),
-        deck: playerFromApi.cards.map((card) => ({
+        currentDeck: playerFromApi.currentDeck.map((card) => ({
             iconUrls: {
                 evolutionMedium: card.iconUrls.evolutionMedium || undefined,
                 medium: card.iconUrls.medium,
                 large: card.iconUrls.large || undefined,
             },
             elixirCost: card.elixirCost,
+            id: card.id,
+            name: card.name,
         })),
+        currentDeckSupportCards: {
+            iconUrls: {
+                evolutionMedium:
+                    playerFromApi.supportCards[0].iconUrls.evolutionMedium ||
+                    undefined,
+                medium: playerFromApi.supportCards[0].iconUrls.medium,
+                large:
+                    playerFromApi.supportCards[0].iconUrls.large || undefined,
+            },
+            id: playerFromApi.supportCards[0].id,
+            name: playerFromApi.supportCards[0].name,
+            level: playerFromApi.supportCards[0].level,
+        },
     };
 }

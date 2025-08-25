@@ -3,10 +3,10 @@ import CardContainer from "../shared/CardContainer";
 import CardHeaderContainer from "../shared/CardHeaderContainer";
 import CardTitle from "../ui/CardTitle";
 import Image from "next/image";
-import { Badge } from "@/types/achievement.interface";
+import { BadgePreview } from "@/types/achievement.interface";
 
 interface PlayerBadgesProps {
-    badges: Badge[];
+    badges: BadgePreview[];
 }
 
 export default function PlayerBadges({ badges }: PlayerBadgesProps) {

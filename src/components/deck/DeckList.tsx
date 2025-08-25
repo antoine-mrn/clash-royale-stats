@@ -1,9 +1,15 @@
-import { Card, SupportCard } from "@/types/card.interface";
+import {
+    Card,
+    CardPreview,
+    SupportCard,
+    SupportCardPreview,
+} from "@/types/card.interface";
+import { Icon } from "@/types/icon.interface";
 import Image from "next/image";
 
 interface DeckListProps {
-    deck: Card[];
-    supportCard: SupportCard;
+    deck: CardPreview[];
+    supportCard: SupportCardPreview;
     className?: string;
 }
 

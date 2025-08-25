@@ -1,9 +1,9 @@
-import { Card } from "@/types/card.interface";
+import { Card, CardPreview } from "@/types/card.interface";
 import { getAverageElixir, getCycleElixirCost } from "@/utils/deckStats";
 import Image from "next/image";
 
 interface DeckStatsProps {
-    deck: Card[];
+    deck: CardPreview[];
     elixirLeaked?: number;
 }
 

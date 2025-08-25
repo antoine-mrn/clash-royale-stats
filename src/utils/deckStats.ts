@@ -1,12 +1,12 @@
-import { Card } from "@/types/card.interface";
+import { CardPreview } from "@/types/card.interface";
 
-export const getAverageElixir = (deck: Card[]): string =>
+export const getAverageElixir = (deck: CardPreview[]): string =>
     (
         deck.reduce((acc, currentValue) => acc + currentValue.elixirCost, 0) /
         deck.length
     ).toFixed(1);
 
-export const getCycleElixirCost = (deck: Card[]): string => {
+export const getCycleElixirCost = (deck: CardPreview[]): string => {
     return (deck.sort((a, b) => a.elixirCost - b.elixirCost) || [])
         .reduce((acc, currentValue, currentIndex) => {
             if (currentIndex < 5) {

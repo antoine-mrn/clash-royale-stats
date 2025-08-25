@@ -1,4 +1,3 @@
-import { ClanPreview } from "@/types/clan.interface";
 import CardContainer from "../shared/CardContainer";
 import CardHeaderContainer from "../shared/CardHeaderContainer";
 import ListRow from "../shared/ListRow";
@@ -11,7 +10,7 @@ interface PlayerClanStatsProps {
     donationsReceived: number;
     totalDonations: number;
     warDayWins: number;
-    clan?: ClanPreview;
+    clan: { name: string | null; tag: string | null };
 }
 
 export default function PlayerClanStats({
@@ -36,30 +35,22 @@ export default function PlayerClanStats({
             </CardHeaderContainer>
 
             <ul className="list">
-                {clan ? (
-                    <>
-                        <ListRow label="Clan name" value={clan.name} />
-                        <ListRow label="Clan tag" value={clan.tag} />
-                        <ListRow label="Role" value={role} />
-                        <ListRow
-                            label="Donations this week"
-                            value={donations}
-                        />
-                        <ListRow
-                            label="Total donations received"
-                            value={donationsReceived}
-                        />
-                        <ListRow
-                            label="Total donations"
-                            value={totalDonations}
-                        />
-                        <ListRow label="War day wins" value={warDayWins} />
-                    </>
-                ) : (
-                    <li className="list-row font-semibold">
-                        You'll see your statistics when you'll join a clan
-                    </li>
-                )}
+                <ListRow
+                    label="Clan name"
+                    value={clan.name || "You need to join a clan"}
+                />
+                <ListRow
+                    label="Clan tag"
+                    value={clan.tag || "You need to join a clan"}
+                />
+                <ListRow label="Role" value={role} />
+                <ListRow label="Donations this week" value={donations} />
+                <ListRow
+                    label="Total donations received"
+                    value={donationsReceived}
+                />
+                <ListRow label="Total donations" value={totalDonations} />
+                <ListRow label="War day wins" value={warDayWins} />
             </ul>
         </CardContainer>
     );

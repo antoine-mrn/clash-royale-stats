@@ -6,5 +6,7 @@ export const rarityOffset: Record<string, number> = {
     champion: 10,
 };
 
-export const getNewLevel = (level: number, rarity: string): number =>
-    level + rarityOffset.rarity;
+export const getNewLevel = (level: number, rarity: string): number => {
+    const offset = rarityOffset[rarity] ?? 0;
+    return level + offset;
+};

@@ -15,10 +15,6 @@ export default async function getPlayerBattlelog(
         }
 
         const battles: BattleFromApi[] = await response.json();
-        console.log(
-            "🚀 ~ getPlayerBattlelog ~ battles:",
-            battles[0].team[0].cards
-        );
         return battles.map((battle) => mapBattlelog(battle));
     } catch (err) {
         console.log("🚀 ~ err:", err);

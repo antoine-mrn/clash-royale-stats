@@ -10,6 +10,7 @@ export default async function page({
     const { tag } = await params;
 
     const playerBattlelog = await getPlayerBattlelog(tag);
+    console.log("🚀 ~ page ~ playerBattlelog:", playerBattlelog);
 
     return (
         <div className="mt-6 space-y-6">

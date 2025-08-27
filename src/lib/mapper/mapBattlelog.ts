@@ -1,5 +1,6 @@
 import { Battle, BattleFromApi } from "@/types/battle.interface";
 import { getBattleResult } from "@/utils/battleResult";
+import { getNewLevel } from "@/utils/card";
 import { formatDate } from "@/utils/dateMethods";
 import { splitString } from "@/utils/stringMethods";
 
@@ -23,7 +24,13 @@ export function mapBattlelog(battleFromApi: BattleFromApi): Battle {
                 battleFromApi.team[0].startingTrophies ?? undefined,
             trophyChange: battleFromApi.team[0].trophyChange ?? undefined,
             cards: battleFromApi.team[0].cards,
-            supportCard: battleFromApi.team[0].supportCards[0],
+            supportCard: battleFromApi.team[0].supportCards[0] && {
+                ...battleFromApi.team[0].supportCards[0],
+                level: getNewLevel(
+                    battleFromApi.team[0].supportCards[0].level,
+                    battleFromApi.team[0].supportCards[0].rarity
+                ),
+            },
             elixirLeaked: battleFromApi.team[0].elixirLeaked,
         },
         opponent: {
@@ -35,7 +42,13 @@ export function mapBattlelog(battleFromApi: BattleFromApi): Battle {
                 battleFromApi.opponent[0].startingTrophies ?? undefined,
             trophyChange: battleFromApi.opponent[0].trophyChange ?? undefined,
             cards: battleFromApi.opponent[0].cards,
-            supportCard: battleFromApi.opponent[0].supportCards[0],
+            supportCard: battleFromApi.opponent[0].supportCards[0] && {
+                ...battleFromApi.opponent[0].supportCards[0],
+                level: getNewLevel(
+                    battleFromApi.opponent[0].supportCards[0].level,
+                    battleFromApi.opponent[0].supportCards[0].rarity
+                ),
+            },
             elixirLeaked: battleFromApi.opponent[0].elixirLeaked,
         },
     };

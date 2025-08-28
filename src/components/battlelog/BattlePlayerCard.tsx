@@ -22,7 +22,7 @@ export default function BattlePlayerCard({
         >
             <div
                 className={`p-4 flex flex-col ${
-                    isOpponent && "place-self-end"
+                    isOpponent && "md:place-self-end"
                 }`}
             >
                 <Link

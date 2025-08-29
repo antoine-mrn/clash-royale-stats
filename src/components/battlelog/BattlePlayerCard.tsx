@@ -22,12 +22,14 @@ export default function BattlePlayerCard({
         >
             <div
                 className={`p-4 flex flex-col ${
-                    isOpponent && "md:place-self-end"
+                    isOpponent && "place-self-end"
                 }`}
             >
                 <Link
                     href={`/player/${battlePlayer.tag}`}
-                    className="font-semibold hover:text-primary"
+                    className={`font-semibold hover:text-primary ${
+                        isOpponent && "text-end"
+                    }`}
                 >
                     {battlePlayer.name}
                 </Link>
@@ -37,25 +39,31 @@ export default function BattlePlayerCard({
                 >
                     {battlePlayer.clanName}
                 </Link>
-                {battlePlayer.startingTrophies && (
-                    <p className="text-lg font-semibold text-neutral-900 flex items-center gap-2 mt-2">
-                        {battlePlayer.startingTrophies}{" "}
-                    </p>
-                )}
-                {battlePlayer.trophyChange && (
-                    <span
-                        className={`badge ${
-                            battlePlayer.trophyChange &&
-                            battlePlayer.trophyChange > 0
-                                ? "badge-primary"
-                                : "badge-error"
-                        }`}
-                    >
-                        {battlePlayer.trophyChange &&
-                            (battlePlayer.trophyChange > 0 ? "+" : "") +
-                                battlePlayer.trophyChange}
-                    </span>
-                )}
+                <div
+                    className={`mt-2 flex gap-2 items-center ${
+                        isOpponent && "place-self-end"
+                    }`}
+                >
+                    {battlePlayer.startingTrophies && (
+                        <p className="text-lg font-semibold text-neutral-900">
+                            {battlePlayer.startingTrophies}{" "}
+                        </p>
+                    )}
+                    {battlePlayer.trophyChange && (
+                        <span
+                            className={`badge ${
+                                battlePlayer.trophyChange &&
+                                battlePlayer.trophyChange > 0
+                                    ? "badge-primary"
+                                    : "badge-error"
+                            }`}
+                        >
+                            {battlePlayer.trophyChange &&
+                                (battlePlayer.trophyChange > 0 ? "+" : "") +
+                                    battlePlayer.trophyChange}
+                        </span>
+                    )}
+                </div>
             </div>
             <DeckList
                 deck={battlePlayer.cards}

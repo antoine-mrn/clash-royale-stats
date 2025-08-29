@@ -9,9 +9,9 @@ interface DeckStatsProps {
 
 export default function DeckStats({ deck, elixirLeaked }: DeckStatsProps) {
     return (
-        <article className="mx-2 mt-auto mb-2 flex justify-center bg-base-300 gap-6 px-4 rounded-lg">
+        <article className="mx-2 mt-auto mb-2 flex justify-center gap-6 bg-base-300 px-4 py-1 rounded-lg">
             <div
-                className="flex items-center tooltip"
+                className="flex items-center tooltip flex-1 justify-center"
                 data-tip="Average elixir"
             >
                 <p className="font-bold text-sm">{getAverageElixir(deck)}</p>
@@ -20,11 +20,11 @@ export default function DeckStats({ deck, elixirLeaked }: DeckStatsProps) {
                     alt="Elixir image"
                     width={288}
                     height={288}
-                    className="w-10"
+                    className="w-8"
                 />
             </div>
             <div
-                className="flex items-center tooltip"
+                className="flex items-center tooltip flex-1 justify-center"
                 data-tip="Four cards cycle elixir"
             >
                 <p className="font-bold text-sm">{getCycleElixirCost(deck)}</p>
@@ -33,13 +33,13 @@ export default function DeckStats({ deck, elixirLeaked }: DeckStatsProps) {
                     alt="Four card cycle image"
                     width={288}
                     height={288}
-                    className="w-10"
+                    className="w-8"
                 />
             </div>
 
             {elixirLeaked && (
                 <div
-                    className="flex items-center tooltip"
+                    className="flex items-center tooltip flex-1 justify-center"
                     data-tip="Elixir leaked"
                 >
                     <p className="font-bold text-sm">{elixirLeaked}</p>
@@ -48,7 +48,7 @@ export default function DeckStats({ deck, elixirLeaked }: DeckStatsProps) {
                         alt="Elixir leaked image"
                         width={288}
                         height={288}
-                        className="w-10"
+                        className="w-8"
                     />
                 </div>
             )}

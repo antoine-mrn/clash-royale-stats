@@ -12,11 +12,22 @@ export default function BattleResultScore({
     playerScore,
     opponentScore,
 }: BattleResultScoreProps) {
+    const isPlayerWin = playerScore > opponentScore;
+
     return (
         <article>
-            <h2 className="text-center font-semibold text-2xl">
-                {splitString(battleType)}
-            </h2>
+            <div className="grid grid-cols-3 items-center">
+                <p
+                    className={`font-semibold ml-4 ${
+                        isPlayerWin ? "text-primary" : "text-error"
+                    }`}
+                >
+                    {isPlayerWin ? "Win" : "Lose"}
+                </p>
+                <h2 className="text-center font-semibold text-2xl">
+                    {splitString(battleType)}
+                </h2>
+            </div>
             <div className="flex items-center justify-center">
                 <Image
                     src="/crown.png"

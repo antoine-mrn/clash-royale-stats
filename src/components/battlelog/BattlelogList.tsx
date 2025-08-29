@@ -31,7 +31,7 @@ export default function BattlelogList({
 
     return (
         <section className="max-w-6xl px-6 mx-auto">
-            <ul className="max-w-6xl p-6 mx-auto space-y-4">
+            <ul className="w-full p-6 mx-auto grid lg:grid-cols-2 gap-4">
                 {battleToRender.map((battle, index) => (
                     <li
                         key={index}

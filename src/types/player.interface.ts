@@ -87,3 +87,10 @@ export interface Player {
     currentDeck: CardPreview[];
     currentDeckSupportCards: SupportCardPreview;
 }
+
+export interface PlayerHeroBanner {
+    tag: string;
+    name: string;
+    clan: { name: string | null; tag: string | null };
+    level: number;
+}

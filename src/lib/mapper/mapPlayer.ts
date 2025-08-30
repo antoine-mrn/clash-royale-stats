@@ -1,4 +1,8 @@
-import { Player, PlayerFromApi } from "@/types/player.interface";
+import {
+    Player,
+    PlayerFromApi,
+    PlayerHeroBanner,
+} from "@/types/player.interface";
 
 export function mapPlayer(playerFromApi: PlayerFromApi): Player {
     return {
@@ -57,5 +61,17 @@ export function mapPlayer(playerFromApi: PlayerFromApi): Player {
             name: playerFromApi.supportCards[0].name,
             level: playerFromApi.supportCards[0].level,
         },
+    };
+}
+
+export function mapHeroBannerPlayer(playerFromApi: Player): PlayerHeroBanner {
+    return {
+        tag: playerFromApi.tag,
+        name: playerFromApi.name,
+        clan: {
+            name: playerFromApi.clan?.name ?? null,
+            tag: playerFromApi.clan?.tag ?? null,
+        },
+        level: playerFromApi.level,
     };
 }

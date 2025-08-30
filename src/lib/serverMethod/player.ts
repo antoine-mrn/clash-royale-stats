@@ -1,6 +1,10 @@
-import { Player, PlayerFromApi } from "@/types/player.interface";
+import {
+    Player,
+    PlayerFromApi,
+    PlayerHeroBanner,
+} from "@/types/player.interface";
 import { fetchApi } from "../fetchApi";
-import { mapPlayer } from "../mapper/mapPlayer";
+import { mapHeroBannerPlayer, mapPlayer } from "../mapper/mapPlayer";
 
 export async function getPlayer(tag: string): Promise<Player> {
     try {
@@ -13,9 +17,7 @@ export async function getPlayer(tag: string): Promise<Player> {
         }
 
         const PlayerFromApi: PlayerFromApi = await response.json();
-        const cleanData = mapPlayer(PlayerFromApi);
-
-        return cleanData;
+        return mapPlayer(PlayerFromApi);
     } catch (err) {
         throw new Error(`Failed to fetch play: ${err}`);
     }

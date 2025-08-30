@@ -37,11 +37,11 @@ export default function PlayerClanStats({
             <ul className="list">
                 <ListRow
                     label="Clan name"
-                    value={clan.name || "You need to join a clan"}
+                    value={clan.name ?? "You need to join a clan"}
                 />
                 <ListRow
                     label="Clan tag"
-                    value={clan.tag || "You need to join a clan"}
+                    value={clan.tag ?? "You need to join a clan"}
                 />
                 <ListRow label="Role" value={role} />
                 <ListRow label="Donations this week" value={donations} />

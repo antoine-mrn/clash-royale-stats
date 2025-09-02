@@ -24,6 +24,11 @@ export default async function page({
         getPlayerBattlelog(tag),
     ]);
 
+    const chartData = [
+        { name: "wins", value: player.wins },
+        { name: "losses", value: player.losses },
+    ];
+
     return (
         <div className="mt-6 space-y-6">
             <SearchForm />
@@ -35,12 +40,7 @@ export default async function page({
                 clanName={player.clan.name}
             />
 
-            <WinRateCharts
-                data={[
-                    { name: "wins", value: player.wins },
-                    { name: "losses", value: player.losses },
-                ]}
-            />
+            <WinRateCharts data={chartData} />
 
             <section className="max-w-7xl grid justify-center gap-8 px-6 w-full mx-auto md:grid-cols-2">
                 <PlayerStats

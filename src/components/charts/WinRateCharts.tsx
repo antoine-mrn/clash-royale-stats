@@ -1,56 +1,106 @@
 "use client";
 
-import { Cell, Pie, PieChart } from "recharts";
+import {
+    Pie,
+    PieChart,
+    ResponsiveContainer,
+    Sector,
+    SectorProps,
+} from "recharts";
+import { PieSectorDataItem } from "recharts/types/polar/Pie";
 
-const data01 = [
-    {
-        name: "Group A",
-        value: 400,
-    },
-    {
-        name: "Group B",
-        value: 300,
-    },
-    {
-        name: "Group C",
-        value: 300,
-    },
-    {
-        name: "Group D",
-        value: 200,
-    },
-    {
-        name: "Group E",
-        value: 278,
-    },
-    {
-        name: "Group F",
-        value: 189,
-    },
-];
+const renderActiveShape = ({
+    cx,
+    cy,
+    midAngle,
+    innerRadius,
+    outerRadius,
+    startAngle,
+    endAngle,
+    fill,
+    payload,
+    percent,
+    value,
+}: PieSectorDataItem) => {
+    const RADIAN = Math.PI / 180;
+    const sin = Math.sin(-RADIAN * (midAngle ?? 1));
+    const cos = Math.cos(-RADIAN * (midAngle ?? 1));
+    const sx = (cx ?? 0) + ((outerRadius ?? 0) + 10) * cos;
+    const sy = (cy ?? 0) + ((outerRadius ?? 0) + 10) * sin;
+    const mx = (cx ?? 0) + ((outerRadius ?? 0) + 30) * cos;
+    const my = (cy ?? 0) + ((outerRadius ?? 0) + 30) * sin;
+    const ex = mx + (cos >= 0 ? 1 : -1) * 22;
+    const ey = my;
+    const textAnchor = cos >= 0 ? "start" : "end";
+
+    return (
+        <g>
+            <Sector
+                cx={cx}
+                cy={cy}
+                innerRadius={innerRadius}
+                outerRadius={outerRadius}
+                startAngle={startAngle}
+                endAngle={endAngle}
+                fill={fill}
+            />
+            <Sector
+                cx={cx}
+                cy={cy}
+                startAngle={startAngle}
+                endAngle={endAngle}
+                innerRadius={(outerRadius ?? 0) + 6}
+                outerRadius={(outerRadius ?? 0) + 10}
+                fill={fill}
+            />
+            <path
+                d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`}
+                stroke={fill}
+                fill="none"
+            />
+            <circle cx={ex} cy={ey} r={2} fill={fill} stroke="none" />
+            <text
+                x={ex + (cos >= 0 ? 1 : -1) * 12}
+                y={ey}
+                textAnchor={textAnchor}
+                fill="#333"
+            >{`${value} ${payload.name}`}</text>
+            <text
+                x={ex + (cos >= 0 ? 1 : -1) * 12}
+                y={ey}
+                dy={18}
+                textAnchor={textAnchor}
+                fill="#999"
+            >
+                {`(Rate ${((percent ?? 1) * 100).toFixed(2)}%)`}
+            </text>
+        </g>
+    );
+};
 
 export default function WinRateCharts({ data }: any) {
-    console.log("🚀 ~ WinRateCharts ~ data:", data);
     return (
         <div>
-            <PieChart width={800} height={400}>
+            <PieChart width={400} height={400}>
+                <text
+                    x={200}
+                    y={200}
+                    textAnchor="middle"
+                    dominantBaseline="middle"
+                    fill="#333"
+                >
+                    Win rate
+                </text>
                 <Pie
+                    activeShape={renderActiveShape}
                     data={data}
-                    cx={120}
-                    cy={200}
+                    cx="50%"
+                    cy="50%"
                     innerRadius={60}
                     outerRadius={80}
                     fill="#8884d8"
-                    paddingAngle={5}
                     dataKey="value"
-                >
-                    {/* {data.map((entry, index) => (
-                        <Cell
-                            key={`cell-${entry.name}`}
-                            fill={COLORS[index % COLORS.length]}
-                        />
-                    ))} */}
-                </Pie>
+                />
             </PieChart>
         </div>
     );

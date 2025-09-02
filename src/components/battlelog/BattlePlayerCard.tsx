@@ -22,14 +22,12 @@ export default function BattlePlayerCard({
         >
             <div
                 className={`p-4 flex flex-col ${
-                    isOpponent && "place-self-end"
+                    isOpponent && "place-self-end items-end"
                 }`}
             >
                 <Link
                     href={`/player/${battlePlayer.tag}`}
-                    className={`font-semibold hover:text-primary ${
-                        isOpponent && "text-end"
-                    }`}
+                    className="font-semibold hover:text-primary"
                 >
                     {battlePlayer.name}
                 </Link>
@@ -39,11 +37,7 @@ export default function BattlePlayerCard({
                 >
                     {battlePlayer.clanName}
                 </Link>
-                <div
-                    className={`mt-2 flex gap-2 items-center ${
-                        isOpponent && "place-self-end"
-                    }`}
-                >
+                <div className="mt-2 flex gap-2 items-center">
                     {battlePlayer.startingTrophies && (
                         <p className="text-lg font-semibold text-neutral-900">
                             {battlePlayer.startingTrophies}{" "}

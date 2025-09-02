@@ -1,3 +1,4 @@
+import WinRateCharts from "@/components/charts/WinRateCharts";
 import PlayerBadges from "@/components/player/PlayerBadges";
 import PlayerClanStats from "@/components/player/PlayerClanStats";
 import PlayerCurrentDeck from "@/components/player/PlayerCurrentDeck";
@@ -34,7 +35,14 @@ export default async function page({
                 clanName={player.clan.name}
             />
 
-            <section className="max-w-6xl grid justify-center gap-8 px-6 w-full mx-auto md:grid-cols-2">
+            <WinRateCharts
+                data={[
+                    { name: "wins", value: player.wins },
+                    { name: "losses", value: player.losses },
+                ]}
+            />
+
+            <section className="max-w-7xl grid justify-center gap-8 px-6 w-full mx-auto md:grid-cols-2">
                 <PlayerStats
                     wins={player.wins}
                     losses={player.losses}

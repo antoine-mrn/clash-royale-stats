@@ -30,7 +30,7 @@ export default function BattlelogList({
     if (!isMounted) return null;
 
     return (
-        <section className="max-w-6xl px-6 mx-auto">
+        <section className="max-w-7xl px-6 mx-auto">
             <ul className="w-full p-6 mx-auto grid lg:grid-cols-2 gap-4">
                 {battleToRender.map((battle, index) => (
                     <li

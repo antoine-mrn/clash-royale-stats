@@ -38,9 +38,8 @@ export default async function page({
                 level={player.level}
                 tag={player.tag}
                 clanName={player.clan.name}
+                chartData={chartData}
             />
-
-            <WinRateCharts data={chartData} />
 
             <section className="max-w-7xl grid justify-center gap-8 px-6 w-full mx-auto md:grid-cols-2">
                 <PlayerStats

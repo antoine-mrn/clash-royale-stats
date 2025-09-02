@@ -1,10 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
+import WinRateCharts from "../charts/WinRateCharts";
 interface PlayerHeroProps {
     name: string;
     level: number;
     tag: string;
     clanName: string | null;
+    chartData?: any;
 }
 
 export default function PlayerHero({
@@ -12,6 +14,7 @@ export default function PlayerHero({
     level,
     tag,
     clanName,
+    chartData,
 }: PlayerHeroProps) {
     return (
         <div
@@ -51,6 +54,7 @@ export default function PlayerHero({
                         </Link>
                     )}
                 </div>
+                <WinRateCharts data={chartData} />
                 {/* <Image src={player.currentFavouriteCard.iconUrls.medium} alt={`${player.currentFavouriteCard.name} image`} width={420} height={285} className="w-24" /> */}
             </div>
         </div>

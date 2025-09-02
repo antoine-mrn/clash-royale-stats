@@ -80,7 +80,7 @@ const renderActiveShape = ({
 
 export default function WinRateCharts({ data }: any) {
     return (
-        <div>
+        <ResponsiveContainer width={"100%"} height={300} min-width={300}>
             <PieChart width={400} height={400}>
                 <text
                     x={200}
@@ -102,6 +102,6 @@ export default function WinRateCharts({ data }: any) {
                     dataKey="value"
                 />
             </PieChart>
-        </div>
+        </ResponsiveContainer>
     );
 }

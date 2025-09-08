@@ -13,6 +13,7 @@ import CardHeaderContainer from "@/components/shared/CardHeaderContainer";
 import CardTitle from "@/components/ui/CardTitle";
 import { getPlayer } from "@/lib/serverMethod/player";
 import getPlayerBattlelog from "@/lib/serverMethod/playerBattlelog";
+import Image from "next/image";
 
 export const revalidate = 60;
 
@@ -47,12 +48,19 @@ export default async function page({
             />
 
             <section className="max-w-7xl mx-auto px-6">
-                <CardContainer className="w-full h-[300px]">
+                <CardContainer className="w-full h-[500px] sm:h-[300px]">
                     <CardHeaderContainer>
                         <CardTitle>Performance</CardTitle>
+                        <Image
+                            src="/king_chesscheck.png"
+                            alt="Battle illustration"
+                            width={640}
+                            height={640}
+                            className="w-10"
+                        />
                     </CardHeaderContainer>
 
-                    <article className="w-full h-full grid grid-cols-2">
+                    <article className="w-full h-full mt-4 flex flex-col justify-center sm:flex-row">
                         <PlayerWinLossChart playerStats={playerStats} />
                         <PlayerWinRateChart />
                     </article>

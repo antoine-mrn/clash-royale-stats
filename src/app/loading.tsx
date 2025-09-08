@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Loading() {
     return (
-        <div className="bg-base-100 h-full flex flex-1 flex-col items-center gap-4">
+        <div className="bg-base-200 h-full flex flex-1 flex-col items-center gap-4">
             <Image
                 src="/waiting-emote.png"
                 alt="Waiting goblin illustration"

@@ -1,36 +1,37 @@
 "use client";
 
+import { chartsColors } from "@/constants/colors";
+import { PlayerBattleStats } from "@/types/player.interface";
 import { Cell, Label, Pie, PieChart, ResponsiveContainer } from "recharts";
 
-const colors = {
-    primary: "#45AEEE", // bleu clair
-    secondary: "#E8488A", // rose/rouge
-    accent: "#FFF232", // jaune
-    info: "#64a6bd", // bleu canard
-};
+export default function PlayerWinRateChart({
+    playerStats,
+}: {
+    playerStats: PlayerBattleStats;
+}) {
+    const { wins, losses } = playerStats;
 
-const data = [
-    { name: "Wins", value: 13305, color: colors.primary },
-    { name: "Loss", value: 9496, color: colors.secondary },
-];
+    const pieData = [
+        { name: "Wins", value: wins, color: chartsColors.primary },
+        { name: "Loss", value: losses, color: chartsColors.secondary },
+    ];
 
-const winRate = ((13305 / (13305 + 9496)) * 100).toFixed(2);
+    const winRate = ((wins / (wins + losses)) * 100).toFixed(2);
 
-export default function Example() {
     return (
         <ResponsiveContainer width="50%" height="100%">
             <PieChart>
                 <Pie
-                    data={data}
+                    data={pieData}
                     cx="50%"
                     cy="50%"
-                    innerRadius={60}
-                    outerRadius={80}
+                    innerRadius={70}
+                    outerRadius={90}
                     fill="#8884d8"
-                    paddingAngle={5}
+                    paddingAngle={2}
                     dataKey="value"
                 >
-                    {data.map((entry, index) => (
+                    {pieData.map((entry, index) => (
                         <Cell key={`cell-${entry.name}`} fill={entry.color} />
                     ))}
                 </Pie>
@@ -39,7 +40,6 @@ export default function Example() {
                     offset={0}
                     position="center"
                     fontWeight={600}
-                    fontSize={12}
                 />
             </PieChart>
         </ResponsiveContainer>

@@ -1,5 +1,6 @@
 "use client";
 
+import { chartsColors } from "@/constants/colors";
 import { PlayerBattleStats } from "@/types/player.interface";
 import {
     BarChart,
@@ -12,13 +13,6 @@ import {
     Cell,
 } from "recharts";
 
-const colors = {
-    primary: "#45AEEE", // bleu clair
-    secondary: "#E8488A", // rose/rouge
-    accent: "#FFF232", // jaune
-    info: "#64a6bd", // bleu canard
-};
-
 export default function PlayerWinLossChart({
     playerStats,
 }: {
@@ -28,14 +22,18 @@ export default function PlayerWinLossChart({
         {
             name: "Total Battles",
             value: playerStats.battleCount,
-            color: colors.info,
+            color: chartsColors.info,
         },
-        { name: "Wins", value: playerStats.wins, color: colors.primary },
-        { name: "Losses", value: playerStats.losses, color: colors.secondary },
+        { name: "Wins", value: playerStats.wins, color: chartsColors.primary },
+        {
+            name: "Losses",
+            value: playerStats.losses,
+            color: chartsColors.secondary,
+        },
         {
             name: "3 Crown Wins",
             value: playerStats.threeCrownWins,
-            color: colors.accent,
+            color: chartsColors.accent,
         },
     ];
 

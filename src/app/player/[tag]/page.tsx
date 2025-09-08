@@ -62,7 +62,7 @@ export default async function page({
 
                     <article className="w-full h-full mt-4 flex flex-col justify-center items-center sm:flex-row">
                         <PlayerWinLossChart playerStats={playerStats} />
-                        <PlayerWinRateChart />
+                        <PlayerWinRateChart playerStats={playerStats} />
                     </article>
                 </CardContainer>
             </section>

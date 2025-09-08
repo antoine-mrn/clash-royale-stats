@@ -35,7 +35,7 @@ export default function BattlelogList({
                 {battleToRender.map((battle, index) => (
                     <li
                         key={index}
-                        className="rounded-box shadow-sm border border-neutral-100 py-4"
+                        className="rounded-box shadow-sm border border-neutral-100 py-4 bg-base-100"
                     >
                         <BattleCard battle={battle} />
                     </li>

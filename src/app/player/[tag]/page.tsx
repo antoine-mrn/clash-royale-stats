@@ -60,7 +60,7 @@ export default async function page({
                         />
                     </CardHeaderContainer>
 
-                    <article className="w-full h-full mt-4 flex flex-col justify-center sm:flex-row">
+                    <article className="w-full h-full mt-4 flex flex-col justify-center items-center sm:flex-row">
                         <PlayerWinLossChart playerStats={playerStats} />
                         <PlayerWinRateChart />
                     </article>

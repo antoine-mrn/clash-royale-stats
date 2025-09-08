@@ -18,7 +18,7 @@ const winRate = ((13305 / (13305 + 9496)) * 100).toFixed(2);
 
 export default function Example() {
     return (
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer width="50%" height="100%">
             <PieChart>
                 <Pie
                     data={data}
@@ -35,10 +35,11 @@ export default function Example() {
                     ))}
                 </Pie>
                 <Label
-                    value={`${winRate} win rate`}
+                    value={`${winRate}% win rate`}
                     offset={0}
                     position="center"
                     fontWeight={600}
+                    fontSize={12}
                 />
             </PieChart>
         </ResponsiveContainer>

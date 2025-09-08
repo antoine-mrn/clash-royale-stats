@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import WinRateCharts from "../charts/WinRateCharts";
 interface PlayerHeroProps {
     name: string;
     level: number;
@@ -14,7 +13,6 @@ export default function PlayerHero({
     level,
     tag,
     clanName,
-    chartData,
 }: PlayerHeroProps) {
     return (
         <div
@@ -27,10 +25,10 @@ export default function PlayerHero({
             <div className="hero-content justify-between w-full max-w-4xl">
                 <div>
                     <div className="flex items-center gap-4 sm:gap-6">
-                        <p className="text-primary font-extrabold text-4xl text-shadow-lg/30 sm:text-6xl">
+                        <p className="text-primary font-extrabold text-4xl text-shadow-lg/30 md:text-6xl">
                             {name}
                         </p>
-                        <div className="w-10 relative text-center sm:w-16">
+                        <div className="w-10 relative text-center md:w-16 sm:w-14">
                             <Image
                                 src="/experience-icon.png"
                                 alt="Experience icon"
@@ -54,7 +52,6 @@ export default function PlayerHero({
                         </Link>
                     )}
                 </div>
-                <WinRateCharts data={chartData} />
                 {/* <Image src={player.currentFavouriteCard.iconUrls.medium} alt={`${player.currentFavouriteCard.name} image`} width={420} height={285} className="w-24" /> */}
             </div>
         </div>

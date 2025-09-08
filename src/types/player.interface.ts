@@ -94,3 +94,10 @@ export interface PlayerHeroBanner {
     clan: { name: string | null; tag: string | null };
     level: number;
 }
+
+export interface PlayerBattleStats {
+    wins: number;
+    losses: number;
+    threeCrownWins: number;
+    battleCount: number;
+}

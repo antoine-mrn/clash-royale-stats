@@ -1,6 +1,7 @@
 "use client";
 
 import {
+    Label,
     Pie,
     PieChart,
     ResponsiveContainer,
@@ -63,14 +64,14 @@ const renderActiveShape = ({
                 x={ex + (cos >= 0 ? 1 : -1) * 12}
                 y={ey}
                 textAnchor={textAnchor}
-                fill="#333"
+                fill="#d1d5db"
             >{`${value} ${payload.name}`}</text>
             <text
                 x={ex + (cos >= 0 ? 1 : -1) * 12}
                 y={ey}
                 dy={18}
                 textAnchor={textAnchor}
-                fill="#999"
+                fill="#f0f0f0"
             >
                 {`(Rate ${((percent ?? 1) * 100).toFixed(2)}%)`}
             </text>
@@ -80,28 +81,28 @@ const renderActiveShape = ({
 
 export default function WinRateCharts({ data }: any) {
     return (
-        <ResponsiveContainer width={"100%"} height={300} min-width={300}>
-            <PieChart width={400} height={400}>
-                <text
-                    x={200}
-                    y={200}
-                    textAnchor="middle"
-                    dominantBaseline="middle"
-                    fill="#333"
-                >
-                    Win rate
-                </text>
-                <Pie
-                    activeShape={renderActiveShape}
-                    data={data}
-                    cx="50%"
-                    cy="50%"
-                    innerRadius={60}
-                    outerRadius={80}
-                    fill="#8884d8"
-                    dataKey="value"
-                />
-            </PieChart>
-        </ResponsiveContainer>
+        <div className="hidden w-2/5 sm:block bg-red-900">
+            <ResponsiveContainer width="100%" height={300}>
+                <PieChart>
+                    <Label
+                        value="Win rate"
+                        position="center"
+                        fill="#fff"
+                        fontSize={16}
+                        fontWeight={600}
+                    />
+                    <Pie
+                        activeShape={renderActiveShape}
+                        data={data}
+                        cx="50%"
+                        cy="50%"
+                        innerRadius={60}
+                        outerRadius={80}
+                        fill="#4CA4E5"
+                        dataKey="value"
+                    />
+                </PieChart>
+            </ResponsiveContainer>
+        </div>
     );
 }

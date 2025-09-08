@@ -1,4 +1,5 @@
-import WinRateCharts from "@/components/charts/WinRateCharts";
+import PlayerWinLossChart from "@/components/charts/PlayerWinLossChart";
+import PlayerWinRateChart from "@/components/charts/PlayerWinRateChart";
 import PlayerBadges from "@/components/player/PlayerBadges";
 import PlayerClanStats from "@/components/player/PlayerClanStats";
 import PlayerCurrentDeck from "@/components/player/PlayerCurrentDeck";
@@ -7,6 +8,9 @@ import PlayerLeagueResult from "@/components/player/PlayerLeagueResult";
 import PlayerRecentBattlePreview from "@/components/player/PlayerRecentBattlePreview";
 import PlayerStats from "@/components/player/PlayerStats";
 import SearchForm from "@/components/search/SearchForm";
+import CardContainer from "@/components/shared/CardContainer";
+import CardHeaderContainer from "@/components/shared/CardHeaderContainer";
+import CardTitle from "@/components/ui/CardTitle";
 import { getPlayer } from "@/lib/serverMethod/player";
 import getPlayerBattlelog from "@/lib/serverMethod/playerBattlelog";
 
@@ -24,10 +28,12 @@ export default async function page({
         getPlayerBattlelog(tag),
     ]);
 
-    const chartData = [
-        { name: "wins", value: player.wins },
-        { name: "losses", value: player.losses },
-    ];
+    const playerStats = {
+        battleCount: player.battleCount,
+        wins: player.wins,
+        losses: player.losses,
+        threeCrownWins: player.threeCrownWins,
+    };
 
     return (
         <div className="mt-6 space-y-6">
@@ -38,8 +44,20 @@ export default async function page({
                 level={player.level}
                 tag={player.tag}
                 clanName={player.clan.name}
-                chartData={chartData}
             />
+
+            <section className="max-w-7xl mx-auto px-6">
+                <CardContainer className="w-full h-[300px]">
+                    <CardHeaderContainer>
+                        <CardTitle>Performance</CardTitle>
+                    </CardHeaderContainer>
+
+                    <article className="w-full h-full grid grid-cols-2">
+                        <PlayerWinLossChart playerStats={playerStats} />
+                        <PlayerWinRateChart />
+                    </article>
+                </CardContainer>
+            </section>
 
             <section className="max-w-7xl grid justify-center gap-8 px-6 w-full mx-auto md:grid-cols-2">
                 <PlayerStats

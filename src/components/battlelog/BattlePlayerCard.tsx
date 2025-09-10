@@ -4,6 +4,7 @@ import DeckList from "../deck/DeckList";
 import { getAverageElixir, getCycleElixirCost } from "@/utils/deckStats";
 import { BattlePlayer } from "@/types/battle.interface";
 import DeckStats from "../deck/DeckStats";
+import { sanitizeTag } from "@/utils/stringMethods";
 
 interface BattlePlayerCardProps {
     battlePlayer: BattlePlayer;
@@ -26,7 +27,7 @@ export default function BattlePlayerCard({
                 }`}
             >
                 <Link
-                    href={`/player/${battlePlayer.tag}`}
+                    href={`/player/${sanitizeTag(battlePlayer.tag)}`}
                     className="font-semibold hover:text-primary"
                 >
                     {battlePlayer.name}

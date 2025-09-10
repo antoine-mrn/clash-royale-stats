@@ -3,7 +3,7 @@ import { Rarity } from "./rarity.enum";
 
 export interface Card {
     count: number;
-    elixirCost: number;
+    elixirCost?: number;
     evolutionLevel?: number;
     iconUrls: Icon;
     id: number;
@@ -27,7 +27,7 @@ export type SupportCardPreview = Pick<
 
 export interface CardPreview {
     iconUrls: Icon;
-    elixirCost: number;
+    elixirCost?: number;
     id: number;
     name: string;
 }

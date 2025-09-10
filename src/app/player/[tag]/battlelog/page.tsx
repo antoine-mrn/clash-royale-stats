@@ -16,6 +16,7 @@ export default async function page({
         getPlayer(tag),
         getPlayerBattlelog(tag),
     ]);
+    console.log("🚀 ~ page ~ getPlayerBattlelog:", playerBattlelog);
 
     const playerHeroBanner = mapHeroBannerPlayer(player);
 

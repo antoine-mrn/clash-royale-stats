@@ -41,7 +41,7 @@ export default function PlayerWinLossChart({
         <ResponsiveContainer width="100%" height="100%">
             <BarChart
                 data={barData}
-                margin={{ left: 10, right: 10, bottom: 35 }}
+                margin={{ top: 16, right: 10, bottom: 35, left: 10 }}
             >
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis

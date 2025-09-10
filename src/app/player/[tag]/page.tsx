@@ -5,6 +5,7 @@ import PlayerClanStats from "@/components/player/PlayerClanStats";
 import PlayerCurrentDeck from "@/components/player/PlayerCurrentDeck";
 import PlayerHero from "@/components/player/PlayerHero";
 import PlayerLeagueResult from "@/components/player/PlayerLeagueResult";
+import PlayerPerformance from "@/components/player/PlayerPerformance";
 import PlayerRecentBattlePreview from "@/components/player/PlayerRecentBattlePreview";
 import PlayerStats from "@/components/player/PlayerStats";
 import SearchForm from "@/components/search/SearchForm";
@@ -48,23 +49,7 @@ export default async function page({
             />
 
             <section className="max-w-7xl mx-auto px-6">
-                <CardContainer className="w-full h-[500px] sm:h-[300px]">
-                    <CardHeaderContainer>
-                        <CardTitle>Performance</CardTitle>
-                        <Image
-                            src="/king_chesscheck.png"
-                            alt="Battle illustration"
-                            width={640}
-                            height={640}
-                            className="w-10"
-                        />
-                    </CardHeaderContainer>
-
-                    <article className="w-full h-full mt-4 flex flex-col justify-center items-center sm:flex-row">
-                        <PlayerWinLossChart playerStats={playerStats} />
-                        <PlayerWinRateChart playerStats={playerStats} />
-                    </article>
-                </CardContainer>
+                <PlayerPerformance playerStats={playerStats} />
             </section>
 
             <section className="max-w-7xl grid justify-center gap-8 px-6 w-full mx-auto md:grid-cols-2">

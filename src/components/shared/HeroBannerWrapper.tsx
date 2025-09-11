@@ -1,15 +1,17 @@
 interface HeroBannerWrapperProps {
     children: React.ReactNode;
     backgroundImage: string;
+    imageClassName?: string;
 }
 
 export default function HeroBannerWrapper({
     children,
     backgroundImage,
+    imageClassName,
 }: HeroBannerWrapperProps) {
     return (
         <div
-            className="hero min-h-72"
+            className={`hero min-h-72 ${imageClassName}`}
             style={{
                 backgroundImage: `${backgroundImage}`,
             }}

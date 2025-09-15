@@ -9,6 +9,11 @@ export interface Clan {
     clanScore: number;
     members: number;
     badgeId: number;
+    clanWarTrophies: number;
+    donationsPerWeek: number;
+    requiredTrophies: number;
+    type: string;
+    description: string;
 }
 
 export interface ClanPreview {

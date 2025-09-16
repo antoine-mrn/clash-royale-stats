@@ -3,6 +3,8 @@ import Table from "../ui/table/Table";
 import TableHeader from "../ui/table/TableHeader";
 import { table } from "console";
 import RankMask from "../ui/RankMask";
+import { lastSeenTime } from "@/utils/dateMethods";
+import moment from "moment";
 
 interface ClanMembersProps {
     memberList: PlayerInClan[];
@@ -48,7 +50,7 @@ export default function ClanMembers({ memberList }: ClanMembersProps) {
                             <td>{member.role}</td>
                             <td>{member.donations}</td>
                             <td>{member.donationsReceived}</td>
-                            <td></td>
+                            <td>{moment(member.lastSeen).fromNow()}</td>
                         </tr>
                     ))}
                 </tbody>

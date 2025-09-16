@@ -1,9 +1,7 @@
 import { PlayerInClan } from "@/types/player.interface";
 import Table from "../ui/table/Table";
 import TableHeader from "../ui/table/TableHeader";
-import { table } from "console";
 import RankMask from "../ui/RankMask";
-import { lastSeenTime } from "@/utils/dateMethods";
 import moment from "moment";
 
 interface ClanMembersProps {

@@ -1,6 +1,7 @@
 import ClanDescription from "@/components/clan/ClanDescription";
 import ClanHero from "@/components/clan/ClanHero";
 import ClanInfo from "@/components/clan/ClanInfo";
+import ClanMembers from "@/components/clan/ClanMembers";
 import SearchForm from "@/components/search/SearchForm";
 import { getClan } from "@/lib/serverMethod/clan";
 
@@ -35,6 +36,7 @@ export default async function page({
 
                 <ClanDescription description={clan.description} />
             </section>
+            <ClanMembers memberList={clan.memberList} />
         </div>
     );
 }

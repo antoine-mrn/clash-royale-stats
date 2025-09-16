@@ -101,3 +101,18 @@ export interface PlayerBattleStats {
     threeCrownWins: number;
     battleCount: number;
 }
+
+export interface PlayerInClan {
+    arena: Arena;
+    clanChestPoints: number;
+    clanRank: number;
+    donations: number;
+    donationsReceived: number;
+    expLevel: number;
+    lastSeen: string;
+    name: string;
+    previousClanRank: number;
+    role: string;
+    tag: string;
+    trophies: number;
+}

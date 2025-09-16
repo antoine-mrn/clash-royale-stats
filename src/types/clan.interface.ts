@@ -1,4 +1,5 @@
 import { Location } from "./location.interface";
+import { PlayerInClan } from "./player.interface";
 
 export interface Clan {
     tag: string;
@@ -14,6 +15,7 @@ export interface Clan {
     requiredTrophies: number;
     type: string;
     description: string;
+    memberList: PlayerInClan[];
 }
 
 export interface ClanPreview {

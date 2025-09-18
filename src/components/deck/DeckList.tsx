@@ -22,7 +22,7 @@ export default function DeckList({
         <article>
             <ul className={`grid grid-cols-4 px-4 mb-4 ${className}`}>
                 {deck.map((card, index) => (
-                    <li key={card.id} className="mx-auto max-w-24">
+                    <li key={card.id} className="mx-auto max-w-16">
                         <Image
                             src={
                                 card.iconUrls.evolutionMedium && index < 2
@@ -35,16 +35,13 @@ export default function DeckList({
                         />
                     </li>
                 ))}
-            </ul>
-            <div className="px-4 pb-4 flex items-center gap-2">
                 {supportCard && (
-                    <>
+                    <li className="mx-auto max-w-16 flex items-center mt-4 md:mt-8">
                         <Image
                             src={supportCard?.iconUrls.medium}
                             alt="Support card illustration"
                             width={285}
                             height={420}
-                            className="w-1/4 max-w-24"
                         />
                         <div>
                             <p className="text-sm font-semibold text-neutral-600">
@@ -54,9 +51,10 @@ export default function DeckList({
                                 {`Level ${supportCard.level}`}
                             </p>
                         </div>
-                    </>
+                    </li>
                 )}
-            </div>
+            </ul>
+            <div className="px-4 pb-4 grid grid-cols-4"></div>
         </article>
     );
 }

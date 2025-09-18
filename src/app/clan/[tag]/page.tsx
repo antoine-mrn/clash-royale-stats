@@ -12,7 +12,6 @@ export default async function page({
 }) {
     const { tag } = await params;
     const clan = await getClan(tag);
-    console.log("🚀 ~ page ~ clan:", clan);
 
     return (
         <div className="mt-6 space-y-6">

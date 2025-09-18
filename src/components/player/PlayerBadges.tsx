@@ -24,7 +24,7 @@ export default function PlayerBadges({ badges }: PlayerBadgesProps) {
             </CardHeaderContainer>
 
             <ul className="grid grid-cols-4">
-                {badges.slice(0, 10).map((badge) => (
+                {badges.slice(0, 12).map((badge) => (
                     <li
                         key={badge.name}
                         className="tooltip"
@@ -35,13 +35,14 @@ export default function PlayerBadges({ badges }: PlayerBadgesProps) {
                             alt={`${badge.name} image`}
                             width={512}
                             height={512}
+                            className="w-28"
                         />
                     </li>
                 ))}
             </ul>
 
             <button className="btn btn-soft btn-secondary mx-2 mt-auto mb-2">
-                View all your badges
+                View all badges
             </button>
         </CardContainer>
     );

@@ -4,6 +4,8 @@ import RankMask from "../ui/RankMask";
 import Table from "../ui/table/Table";
 import TableHeader from "../ui/table/TableHeader";
 import { getRoleBgClass } from "@/utils/badgeClass";
+import Link from "next/link";
+import { sanitizeTag } from "@/utils/stringMethods";
 
 export default function ClanMembersTable({
     memberList,
@@ -35,10 +37,15 @@ export default function ClanMembersTable({
                         </td>
                         <td>
                             <div>
-                                <div className="font-bold">{member.name}</div>
-                                <div className="text-sm opacity-50">
+                                <Link
+                                    href={`player/${sanitizeTag(member.tag)}`}
+                                    className="font-bold link link-hover hover:link-primary"
+                                >
+                                    {member.name}
+                                </Link>
+                                <p className="text-sm opacity-50">
                                     {member.tag}
-                                </div>
+                                </p>
                             </div>
                         </td>
                         <td>{member.expLevel}</td>

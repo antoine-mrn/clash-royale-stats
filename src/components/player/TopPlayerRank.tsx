@@ -43,9 +43,14 @@ export default function TopPlayerRank({
                                 {player.name}
                             </Link>
                             {player?.clan?.name && (
-                                <p className="text-xs uppercase font-semibold opacity-60">
+                                <Link
+                                    href={`clan/${sanitizeTag(
+                                        player.clan?.tag
+                                    )}`}
+                                    className="text-xs uppercase font-semibold opacity-60"
+                                >
                                     {player?.clan?.name}
-                                </p>
+                                </Link>
                             )}
                         </div>
                         <div className="flex gap-2 items-center">

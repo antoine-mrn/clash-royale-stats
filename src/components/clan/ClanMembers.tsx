@@ -1,16 +1,12 @@
-import { PlayerInClan } from "@/types/player.interface";
-import Table from "../ui/table/Table";
-import TableHeader from "../ui/table/TableHeader";
-import RankMask from "../ui/RankMask";
-import moment from "moment";
 import CardContainer from "../shared/CardContainer";
 import CardHeaderContainer from "../shared/CardHeaderContainer";
 import CardTitle from "../ui/CardTitle";
 import Image from "next/image";
 import ClanMembersTable from "./ClanMembersTable";
+import { ClanMember } from "@/types/player.interface";
 
 interface ClanMembersProps {
-    memberList: PlayerInClan[];
+    memberList: ClanMember[];
     memberCount: number;
 }
 

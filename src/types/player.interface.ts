@@ -6,7 +6,7 @@ import {
     SupportCard,
     SupportCardPreview,
 } from "./card.interface";
-import { ClanPreview } from "./clan.interface";
+import { ClanPreview, ClanRole } from "./clan.interface";
 import { Icon } from "./icon.interface";
 import { PathOfLegendResult } from "./result.interface";
 import { statistics } from "./statistics.interface";
@@ -101,8 +101,7 @@ export interface PlayerBattleStats {
     threeCrownWins: number;
     battleCount: number;
 }
-
-export interface PlayerInClan {
+export interface ClanMemberFromApi {
     arena: Arena;
     clanChestPoints: number;
     clanRank: number;
@@ -112,7 +111,19 @@ export interface PlayerInClan {
     lastSeen: string;
     name: string;
     previousClanRank: number;
-    role: string;
+    role: ClanRole;
+    tag: string;
+    trophies: number;
+}
+
+export interface ClanMember {
+    clanRank: number;
+    donations: number;
+    donationsReceived: number;
+    expLevel: number;
+    lastSeen: string;
+    name: string;
+    role: ClanRole;
     tag: string;
     trophies: number;
 }

@@ -1,4 +1,3 @@
-import { PlayerInClan } from "@/types/player.interface";
 import moment from "moment";
 import RankMask from "../ui/RankMask";
 import Table from "../ui/table/Table";
@@ -6,11 +5,12 @@ import TableHeader from "../ui/table/TableHeader";
 import { getRoleBgClass } from "@/utils/badgeClass";
 import Link from "next/link";
 import { sanitizeTag } from "@/utils/stringMethods";
+import { ClanMember } from "@/types/player.interface";
 
 export default function ClanMembersTable({
     memberList,
 }: {
-    memberList: PlayerInClan[];
+    memberList: ClanMember[];
 }) {
     const tableColumns = [
         "Rank",
@@ -38,7 +38,7 @@ export default function ClanMembersTable({
                         <td>
                             <div>
                                 <Link
-                                    href={`player/${sanitizeTag(member.tag)}`}
+                                    href={`/player/${sanitizeTag(member.tag)}`}
                                     className="font-bold link link-hover hover:link-primary"
                                 >
                                     {member.name}
@@ -62,7 +62,7 @@ export default function ClanMembersTable({
                         </td>
                         <td>{member.donations}</td>
                         <td>{member.donationsReceived}</td>
-                        <td>{moment(member.lastSeen).fromNow()}</td>
+                        <td>{member.lastSeen}</td>
                     </tr>
                 ))}
             </tbody>

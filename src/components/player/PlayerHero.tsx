@@ -1,11 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import HeroBannerWrapper from "../shared/HeroBannerWrapper";
+import { sanitizeTag } from "@/utils/stringMethods";
 interface PlayerHeroProps {
     name: string;
     level: number;
     tag: string;
     clanName: string | null;
+    clanTag: string | null;
     chartData?: any;
 }
 
@@ -14,6 +16,7 @@ export default function PlayerHero({
     level,
     tag,
     clanName,
+    clanTag,
 }: PlayerHeroProps) {
     return (
         <HeroBannerWrapper backgroundImage="url(../player-banner.jpg)">
@@ -35,9 +38,9 @@ export default function PlayerHero({
                 </div>
             </div>
             <p className="text-neutral-content text-lg">{tag}</p>
-            {clanName && (
+            {clanTag && (
                 <Link
-                    href={"#"}
+                    href={`/clan/${sanitizeTag(clanTag)}`}
                     className="link link-hover link-primary text-base-100 text-lg"
                 >
                     {clanName} <span className="font-bold text-xl">›</span>

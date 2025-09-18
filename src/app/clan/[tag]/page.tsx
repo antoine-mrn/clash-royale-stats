@@ -31,7 +31,7 @@ export default async function page({
                     donationsPerWeek={clan.donationsPerWeek}
                     requiredTrophies={clan.requiredTrophies}
                     type={clan.type}
-                    location={clan.location}
+                    locationName={clan.locationName}
                 />
 
                 <ClanDescription description={clan.description} />

@@ -46,6 +46,7 @@ export default async function page({
                 level={player.level}
                 tag={player.tag}
                 clanName={player.clan.name}
+                clanTag={player.clan.tag}
             />
 
             <section className="max-w-7xl mx-auto px-6">

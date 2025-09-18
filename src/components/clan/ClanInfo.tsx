@@ -11,7 +11,7 @@ interface ClanInfoPorps {
     donationsPerWeek: number;
     requiredTrophies: number;
     type: string;
-    location: Location;
+    locationName: string;
 }
 
 export default function ClanInfo({
@@ -20,7 +20,7 @@ export default function ClanInfo({
     donationsPerWeek,
     requiredTrophies,
     type,
-    location,
+    locationName,
 }: ClanInfoPorps) {
     return (
         <CardContainer>
@@ -41,7 +41,7 @@ export default function ClanInfo({
                 <ListRow label="Donation per week" value={donationsPerWeek} />
                 <ListRow label="Required trophies" value={requiredTrophies} />
                 <ListRow label="Type" value={type} />
-                <ListRow label="Location" value={location.name} />
+                <ListRow label="Location" value={locationName} />
             </ul>
         </CardContainer>
     );

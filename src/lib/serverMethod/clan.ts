@@ -1,5 +1,6 @@
-import { Clan } from "@/types/clan.interface";
+import { Clan, ClanFromApi } from "@/types/clan.interface";
 import { fetchApi } from "../fetchApi";
+import { mapClan } from "../mapper/mapClan";
 
 export async function getClan(tag: string): Promise<Clan> {
     try {
@@ -11,7 +12,9 @@ export async function getClan(tag: string): Promise<Clan> {
             throw new Error("Failed to fecth player");
         }
 
-        return response.json();
+        const ClanFromApi: ClanFromApi = await response.json();
+
+        return mapClan(ClanFromApi);
     } catch (err) {
         throw new Error(`Failed to fetch play: ${err}`);
     }

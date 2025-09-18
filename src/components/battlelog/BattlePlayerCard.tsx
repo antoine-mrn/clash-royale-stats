@@ -32,12 +32,15 @@ export default function BattlePlayerCard({
                 >
                     {battlePlayer.name}
                 </Link>
-                <Link
-                    href={`/clan/${battlePlayer.clanTag}`}
-                    className="text-blue-500 hover:text-blue-800"
-                >
-                    {battlePlayer.clanName}
-                </Link>
+                {battlePlayer.clanTag && (
+                    <Link
+                        href={`/clan/${sanitizeTag(battlePlayer.clanTag)}`}
+                        className="text-blue-500 hover:text-blue-800"
+                    >
+                        {battlePlayer.clanName}
+                    </Link>
+                )}
+
                 <div className="mt-2 flex gap-2 items-center">
                     {battlePlayer.startingTrophies && (
                         <p className="text-lg font-semibold text-neutral-900">

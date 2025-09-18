@@ -29,6 +29,7 @@ export default async function page({
                 level={playerHeroBanner.level}
                 tag={playerHeroBanner.tag}
                 clanName={playerHeroBanner.clan.name}
+                clanTag={playerHeroBanner.clan.tag}
             />
 
             <BattlelogList playerBattlelog={playerBattlelog} />

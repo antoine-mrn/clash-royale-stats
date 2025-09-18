@@ -37,7 +37,7 @@ export function mapBattlelog(battleFromApi: BattleFromApi): Battle {
             name: battleFromApi.opponent[0].name,
             tag: battleFromApi.opponent[0].tag,
             clanName: battleFromApi.opponent[0].clan?.name || "No clan",
-            clanTag: battleFromApi.team[0].clan?.tag ?? undefined,
+            clanTag: battleFromApi.opponent[0].clan?.tag ?? undefined,
             startingTrophies:
                 battleFromApi.opponent[0].startingTrophies ?? undefined,
             trophyChange: battleFromApi.opponent[0].trophyChange ?? undefined,

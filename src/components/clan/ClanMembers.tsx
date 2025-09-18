@@ -3,59 +3,36 @@ import Table from "../ui/table/Table";
 import TableHeader from "../ui/table/TableHeader";
 import RankMask from "../ui/RankMask";
 import moment from "moment";
+import CardContainer from "../shared/CardContainer";
+import CardHeaderContainer from "../shared/CardHeaderContainer";
+import CardTitle from "../ui/CardTitle";
+import Image from "next/image";
+import ClanMembersTable from "./ClanMembersTable";
 
 interface ClanMembersProps {
     memberList: PlayerInClan[];
+    memberCount: number;
 }
 
-export default function ClanMembers({ memberList }: ClanMembersProps) {
-    const tableColumns = [
-        "Rank",
-        "Name",
-        "Level",
-        "Trophies",
-        "Role",
-        "Donation",
-        "Donation received",
-        "Last seen",
-    ];
-
+export default function ClanMembers({
+    memberList,
+    memberCount,
+}: ClanMembersProps) {
     return (
-        <div className="overflow-x-auto max-w-7-xl mx-auto">
-            <Table>
-                {/* head */}
-                <thead>
-                    <TableHeader tableColumns={tableColumns} />
-                </thead>
-                <tbody>
-                    {memberList.map((member, index) => (
-                        <tr key={index}>
-                            <td>
-                                <RankMask rank={member.clanRank} />
-                            </td>
-                            <td>
-                                <div>
-                                    <div className="font-bold">
-                                        {member.name}
-                                    </div>
-                                    <div className="text-sm opacity-50">
-                                        {member.tag}
-                                    </div>
-                                </div>
-                            </td>
-                            <td>{member.expLevel}</td>
-                            <td>{member.trophies}</td>
-                            <td>{member.role}</td>
-                            <td>{member.donations}</td>
-                            <td>{member.donationsReceived}</td>
-                            <td>{moment(member.lastSeen).fromNow()}</td>
-                        </tr>
-                    ))}
-                </tbody>
-                <tfoot>
-                    <TableHeader tableColumns={tableColumns} />
-                </tfoot>
-            </Table>
-        </div>
+        <CardContainer className="col-span-2">
+            <CardHeaderContainer>
+                <Image
+                    src="/members.png"
+                    alt="Clan member icon"
+                    height={120}
+                    width={114}
+                    className="w-10"
+                />
+                <CardTitle>Members {memberCount}/50</CardTitle>
+            </CardHeaderContainer>
+            <div className="overflow-x-auto px-6">
+                <ClanMembersTable memberList={memberList} />
+            </div>
+        </CardContainer>
     );
 }

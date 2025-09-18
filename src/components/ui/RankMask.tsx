@@ -1,4 +1,4 @@
-import { getRankingBgClass } from "@/utils/rankingBgClass";
+import { getRankingBgClass } from "@/utils/badgeClass";
 
 export default function RankMask({ rank }: { rank: number }) {
     return (

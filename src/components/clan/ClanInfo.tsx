@@ -28,7 +28,7 @@ export default function ClanInfo({
                 <CardTitle>Clan info</CardTitle>
                 <Image
                     src="/clan.png"
-                    alt="Clan illustration"
+                    alt="Clan illustration icon"
                     width={216}
                     height={216}
                     className="w-10"

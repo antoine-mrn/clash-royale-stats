@@ -5,8 +5,8 @@ export default function TableHeader({
 }) {
     return (
         <tr>
-            {tableColumns.map((column) => (
-                <th>{column}</th>
+            {tableColumns.map((column, index) => (
+                <th key={index}>{column}</th>
             ))}
         </tr>
     );

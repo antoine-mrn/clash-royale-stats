@@ -35,8 +35,11 @@ export default async function page({
                 />
 
                 <ClanDescription description={clan.description} />
+                <ClanMembers
+                    memberList={clan.memberList}
+                    memberCount={clan.members}
+                />
             </section>
-            <ClanMembers memberList={clan.memberList} />
         </div>
     );
 }

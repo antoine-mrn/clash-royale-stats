@@ -1,11 +1,11 @@
 import { PlayerPreview } from "@/types/player.interface";
-import { getRankingBgClass } from "@/utils/rankingBgClass";
 import Image from "next/image";
 import Link from "next/link";
 import CardContainer from "../shared/CardContainer";
 import CardTitle from "../ui/CardTitle";
 import { sanitizeTag } from "@/utils/stringMethods";
 import CardHeaderContainer from "../shared/CardHeaderContainer";
+import { getRankingBgClass } from "@/utils/badgeClass";
 
 export default function TopPlayerRank({
     playerLeaderboard,

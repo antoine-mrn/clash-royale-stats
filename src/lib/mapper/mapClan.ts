@@ -1,7 +1,10 @@
 import { Clan, ClanFromApi } from "@/types/clan.interface";
+import { getSortedClanMembers } from "@/utils/clan";
 import moment from "moment";
 
 export function mapClan(ClanFromApi: ClanFromApi): Clan {
+    const memberListSorted = getSortedClanMembers(ClanFromApi.memberList);
+
     return {
         tag: ClanFromApi.tag,
         name: ClanFromApi.name,
@@ -14,12 +17,12 @@ export function mapClan(ClanFromApi: ClanFromApi): Clan {
         requiredTrophies: ClanFromApi.requiredTrophies,
         type: ClanFromApi.type,
         description: ClanFromApi.description,
-        memberList: ClanFromApi.memberList.map((member) => ({
+        memberList: memberListSorted.map((member) => ({
             clanRank: member.clanRank,
             donations: member.donations,
             donationsReceived: member.donationsReceived,
             expLevel: member.expLevel,
-            lastSeen: moment(member.lastSeen).fromNow(),
+            lastSeen: member.lastSeen,
             name: member.name,
             role: member.role,
             tag: member.tag,

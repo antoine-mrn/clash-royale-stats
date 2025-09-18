@@ -62,7 +62,7 @@ export default function ClanMembersTable({
                         </td>
                         <td>{member.donations}</td>
                         <td>{member.donationsReceived}</td>
-                        <td>{member.lastSeen}</td>
+                        <td>{moment(member.lastSeen).fromNow()}</td>
                     </tr>
                 ))}
             </tbody>

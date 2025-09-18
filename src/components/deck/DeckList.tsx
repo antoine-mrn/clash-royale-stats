@@ -54,7 +54,6 @@ export default function DeckList({
                     </li>
                 )}
             </ul>
-            <div className="px-4 pb-4 grid grid-cols-4"></div>
         </article>
     );
 }

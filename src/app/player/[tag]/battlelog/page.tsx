@@ -1,9 +1,5 @@
 import BattlelogList from "@/components/battlelog/BattlelogList";
-import PlayerHero from "@/components/player/PlayerHero";
-import SearchForm from "@/components/search/SearchForm";
 import getPlayerBattlelog from "@/lib/serverMethod/playerBattlelog";
-import { mapHeroBannerPlayer } from "@/lib/mapper/mapPlayer";
-import { getPlayer } from "@/lib/serverMethod/player";
 
 export default async function page({
     params,
@@ -12,26 +8,10 @@ export default async function page({
 }) {
     const { tag } = await params;
 
-    const [player, playerBattlelog] = await Promise.all([
-        getPlayer(tag),
-        getPlayerBattlelog(tag),
-    ]);
-    console.log("🚀 ~ page ~ getPlayerBattlelog:", playerBattlelog);
-
-    const playerHeroBanner = mapHeroBannerPlayer(player);
+    const playerBattlelog = await getPlayerBattlelog(tag);
 
     return (
         <div className="mt-6 space-y-6">
-            <SearchForm />
-
-            <PlayerHero
-                name={playerHeroBanner.name}
-                level={playerHeroBanner.level}
-                tag={playerHeroBanner.tag}
-                clanName={playerHeroBanner.clan.name}
-                clanTag={playerHeroBanner.clan.tag}
-            />
-
             <BattlelogList playerBattlelog={playerBattlelog} />
         </div>
     );

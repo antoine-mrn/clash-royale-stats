@@ -1,5 +1,3 @@
-import PlayerWinLossChart from "@/components/charts/PlayerWinLossChart";
-import PlayerWinRateChart from "@/components/charts/PlayerWinRateChart";
 import PlayerBadges from "@/components/player/PlayerBadges";
 import PlayerClanStats from "@/components/player/PlayerClanStats";
 import PlayerCurrentDeck from "@/components/player/PlayerCurrentDeck";
@@ -9,14 +7,8 @@ import PlayerPerformance from "@/components/player/PlayerPerformance";
 import PlayerRecentBattlePreview from "@/components/player/PlayerRecentBattlePreview";
 import PlayerStats from "@/components/player/PlayerStats";
 import SearchForm from "@/components/search/SearchForm";
-import CardContainer from "@/components/shared/CardContainer";
-import CardHeaderContainer from "@/components/shared/CardHeaderContainer";
-import CardTitle from "@/components/ui/CardTitle";
 import { getPlayer } from "@/lib/serverMethod/player";
 import getPlayerBattlelog from "@/lib/serverMethod/playerBattlelog";
-import Image from "next/image";
-
-export const revalidate = 60;
 
 export default async function page({
     params,
@@ -39,16 +31,6 @@ export default async function page({
 
     return (
         <div className="mt-6 space-y-6">
-            <SearchForm />
-
-            <PlayerHero
-                name={player.name}
-                level={player.level}
-                tag={player.tag}
-                clanName={player.clan.name}
-                clanTag={player.clan.tag}
-            />
-
             <section className="max-w-7xl mx-auto px-6">
                 <PlayerPerformance playerStats={playerStats} />
             </section>

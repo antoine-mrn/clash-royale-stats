@@ -37,6 +37,17 @@ export interface Clan {
     description: string;
     memberList: ClanMember[];
 }
+
+export interface ClanLeaderboard {
+    rank: number;
+    previousRank: number;
+    name: string;
+    tag: string;
+    members: number;
+    clanScore: number;
+    badgeId: number;
+    location: Location;
+}
 export interface ClanPreview {
     badgeId: string;
     name: string;

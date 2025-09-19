@@ -1,4 +1,4 @@
-import { Clan } from "@/types/clan.interface";
+import { ClanLeaderboard } from "@/types/clan.interface";
 import Image from "next/image";
 import Link from "next/link";
 import CardListWrapper from "../shared/CardListWrapper";
@@ -10,7 +10,7 @@ import { getRankingBgClass } from "@/utils/badgeClass";
 export default function TopClanRank({
     clanLeaderboard,
 }: {
-    clanLeaderboard: Clan[];
+    clanLeaderboard: ClanLeaderboard[];
 }) {
     return (
         <CardContainer>

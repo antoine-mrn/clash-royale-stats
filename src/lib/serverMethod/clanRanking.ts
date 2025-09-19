@@ -1,9 +1,9 @@
-import { Clan } from "@/types/clan.interface";
+import { ClanLeaderboard } from "@/types/clan.interface";
 import { fetchApi } from "../fetchApi";
 
 export async function getClanRanking(
     location: number = 57000000
-): Promise<Clan[]> {
+): Promise<ClanLeaderboard[]> {
     try {
         const response = await fetchApi(
             `/locations/${location}/rankings/clanwars?limit=10`

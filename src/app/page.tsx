@@ -9,6 +9,7 @@ export default async function Home() {
         getPlayerRanking(),
         getClanRanking(),
     ]);
+    console.log("🚀 ~ Home ~ playerLeaderboard:", clanLeaderboard);
 
     return (
         <div className="space-y-6">

@@ -1,3 +1,8 @@
+import DeckList from "@/components/deck/DeckList";
+import CardContainer from "@/components/shared/CardContainer";
+import CardHeaderContainer from "@/components/shared/CardHeaderContainer";
+import ListRow from "@/components/shared/ListRow";
+import CardTitle from "@/components/ui/CardTitle";
 import getRecentDecks from "@/lib/serverMethod/deck";
 
 export default async function page({
@@ -9,5 +14,24 @@ export default async function page({
 
     const recentDecks = await getRecentDecks(tag);
     console.log("🚀 ~ page ~ recentDecks:", recentDecks);
-    return <div>page</div>;
+    return (
+        <section className="max-w-7xl grid sm:grid-cols-2 gap-8 px-6 w-full mx-auto md:justify-center md:grid-cols-3">
+            {recentDecks.map((deck, index) => (
+                <CardContainer key={index}>
+                    <CardHeaderContainer>
+                        <CardTitle>Deck stats</CardTitle>
+                    </CardHeaderContainer>
+                    <DeckList
+                        deck={deck.cards}
+                        supportCard={deck.supportCard}
+                    />
+                    <ul className="list">
+                        <ListRow label="Wins" value={deck.win} />
+                        <ListRow label="Losses" value={deck.lose} />
+                        <ListRow label="Win rate" value={`${deck.winRate}%`} />
+                    </ul>
+                </CardContainer>
+            ))}
+        </section>
+    );
 }

@@ -21,22 +21,26 @@ export default function PlayerTabs({ tag }: { tag: string }) {
         },
     ];
     return (
-        <div
-            role="tablist"
-            className="tabs tabs-box rounded-t-none bg-base-300"
-        >
-            {tabs.map((tab, index) => (
-                <Link
-                    key={index}
-                    href={tab.url}
-                    role="tab"
-                    className={`tab ${
-                        pathname === tab.url ? "tab-active font-semibold" : ""
-                    }`}
-                >
-                    {tab.name}
-                </Link>
-            ))}
+        <div className="bg-info/10">
+            <div
+                role="tablist"
+                className="tabs tabs-lg tabs-box rounded-t-none max-w-7xl mx-auto px-6 bg-primary/0"
+            >
+                {tabs.map((tab, index) => (
+                    <Link
+                        key={index}
+                        href={tab.url}
+                        role="tab"
+                        className={`tab ${
+                            pathname === tab.url
+                                ? "tab-active font-semibold"
+                                : ""
+                        }`}
+                    >
+                        {tab.name}
+                    </Link>
+                ))}
+            </div>
         </div>
     );
 }

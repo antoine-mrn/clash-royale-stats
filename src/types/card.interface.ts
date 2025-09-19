@@ -34,7 +34,7 @@ export interface CardPreview {
 
 export interface RecentDeck {
     cards: Card[];
-    supportCard?: SupportCardPreview;
+    supportCard: SupportCardPreview | null;
     win: number;
     lose: number;
     winRate: number;

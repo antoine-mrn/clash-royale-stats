@@ -9,7 +9,7 @@ import Image from "next/image";
 
 interface DeckListProps {
     deck: CardPreview[];
-    supportCard: SupportCardPreview;
+    supportCard: SupportCardPreview | null;
     className?: string;
 }
 

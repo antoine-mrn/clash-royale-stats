@@ -5,7 +5,7 @@ import { mapClan } from "../mapper/mapClan";
 export async function getClan(tag: string): Promise<Clan> {
     try {
         const response = await fetchApi(`/clans/%23${tag}`, {
-            next: { revalidate: 60 },
+            next: { revalidate: 1800 },
         });
 
         if (!response.ok) {

@@ -6,6 +6,8 @@ import CardTitle from "../ui/CardTitle";
 import CardContainer from "../shared/CardContainer";
 import CardHeaderContainer from "../shared/CardHeaderContainer";
 import { getRankingBgClass } from "@/utils/badgeClass";
+import RankMask from "../ui/RankMask";
+import { sanitizeTag } from "@/utils/stringMethods";
 
 export default function TopClanRank({
     clanLeaderboard,
@@ -28,16 +30,10 @@ export default function TopClanRank({
             <ul className="list">
                 {clanLeaderboard.map((clan) => (
                     <li key={clan.tag} className="list-row">
-                        <p
-                            className={`mask mask-squircle text-2xl font-bold p-2 ${getRankingBgClass(
-                                clan.rank
-                            )}`}
-                        >
-                            {clan.rank}
-                        </p>
+                        <RankMask rank={clan.rank} />
                         <div className="list-col-grow flex flex-col justify-center gap-2">
                             <Link
-                                href={`clan/${clan.tag}`}
+                                href={`clan/${sanitizeTag(clan.tag)}`}
                                 className="font-bold link link-hover hover:link-primary"
                             >
                                 {clan.name}

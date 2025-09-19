@@ -7,7 +7,6 @@ import {
     SupportCardPreview,
 } from "./card.interface";
 import { ClanPreview, ClanRole } from "./clan.interface";
-import { Icon } from "./icon.interface";
 import { PathOfLegendResult } from "./result.interface";
 import { statistics } from "./statistics.interface";
 

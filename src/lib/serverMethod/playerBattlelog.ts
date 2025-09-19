@@ -7,7 +7,7 @@ export default async function getPlayerBattlelog(
 ): Promise<Battle[]> {
     try {
         const response = await fetchApi(`/players/%23${tag}/battlelog`, {
-            next: { revalidate: 60 },
+            next: { revalidate: 300 },
         });
 
         if (!response.ok) {

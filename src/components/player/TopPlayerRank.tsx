@@ -6,6 +6,7 @@ import CardTitle from "../ui/CardTitle";
 import { sanitizeTag } from "@/utils/stringMethods";
 import CardHeaderContainer from "../shared/CardHeaderContainer";
 import { getRankingBgClass } from "@/utils/badgeClass";
+import RankMask from "../ui/RankMask";
 
 export default function TopPlayerRank({
     playerLeaderboard,
@@ -28,13 +29,7 @@ export default function TopPlayerRank({
             <ul className="list">
                 {playerLeaderboard.map((player) => (
                     <li key={player.tag} className="list-row">
-                        <p
-                            className={`mask mask-squircle text-2xl font-bold p-2 ${getRankingBgClass(
-                                player.rank
-                            )}`}
-                        >
-                            {player.rank}
-                        </p>
+                        <RankMask rank={player.rank} />
                         <div className="list-col-grow flex flex-col justify-center gap-2">
                             <Link
                                 href={`player/${sanitizeTag(player.tag)}`}

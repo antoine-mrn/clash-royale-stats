@@ -9,7 +9,7 @@ import { mapHeroBannerPlayer, mapPlayer } from "../mapper/mapPlayer";
 export async function getPlayer(tag: string): Promise<Player> {
     try {
         const response = await fetchApi(`/players/%23${tag}`, {
-            next: { revalidate: 60 },
+            next: { revalidate: 300 },
         });
 
         if (!response.ok) {

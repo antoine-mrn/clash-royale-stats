@@ -7,7 +7,10 @@ export async function getPlayerRanking(): Promise<PlayerPreview[]> {
         const lastSeasonId = await getLastSeasonId();
 
         const response = await fetchApi(
-            `/locations/global/pathoflegend/${lastSeasonId}/rankings/players?limit=10`
+            `/locations/global/pathoflegend/${lastSeasonId}/rankings/players?limit=10`,
+            {
+                next: { revalidate: 86400 },
+            }
         );
 
         if (!response.ok) {

@@ -1,27 +1,21 @@
-import {
-    Card,
-    CardPreview,
-    SupportCard,
-    SupportCardPreview,
-} from "@/types/card.interface";
-import { Icon } from "@/types/icon.interface";
+import { CardPreview, Deck, SupportCardPreview } from "@/types/card.interface";
 import Image from "next/image";
 
 interface DeckListProps {
-    deck: CardPreview[];
+    cards: CardPreview[];
     supportCard: SupportCardPreview | null;
     className?: string;
 }
 
 export default function DeckList({
-    deck,
+    cards,
     supportCard,
     className,
 }: DeckListProps) {
     return (
         <article>
             <ul className={`grid grid-cols-4 px-4 mb-4 ${className}`}>
-                {deck.map((card, index) => (
+                {cards.map((card, index) => (
                     <li key={card.id} className="mx-auto max-w-16">
                         <Image
                             src={

@@ -33,9 +33,15 @@ export interface CardPreview {
 }
 
 export interface RecentDeck {
-    cards: Card[];
+    cards: CardPreview[];
     supportCard: SupportCardPreview | null;
     win: number;
     lose: number;
     winRate: number;
+}
+
+export interface Deck {
+    cards: CardPreview[];
+    elixirFourCardCycle: number;
+    averageElixir: number;
 }

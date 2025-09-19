@@ -3,6 +3,7 @@ import { getBattleResult } from "@/utils/battleResult";
 import { getNewLevel } from "@/utils/card";
 import { formatDate } from "@/utils/dateMethods";
 import { splitString } from "@/utils/stringMethods";
+import { getAverageElixir, getCycleElixirCost } from "../services/deck.service";
 
 export function mapBattlelog(battleFromApi: BattleFromApi): Battle {
     return {
@@ -23,7 +24,15 @@ export function mapBattlelog(battleFromApi: BattleFromApi): Battle {
             startingTrophies:
                 battleFromApi.team[0].startingTrophies ?? undefined,
             trophyChange: battleFromApi.team[0].trophyChange ?? undefined,
-            cards: battleFromApi.team[0].cards,
+            deck: {
+                cards: battleFromApi.team[0].cards,
+                elixirFourCardCycle: getCycleElixirCost(
+                    battleFromApi.team[0].cards.map((card) => card.elixirCost)
+                ),
+                averageElixir: getAverageElixir(
+                    battleFromApi.team[0].cards.map((card) => card.elixirCost)
+                ),
+            },
             supportCard: battleFromApi.team[0].supportCards[0] && {
                 ...battleFromApi.team[0].supportCards[0],
                 level: getNewLevel(
@@ -41,7 +50,19 @@ export function mapBattlelog(battleFromApi: BattleFromApi): Battle {
             startingTrophies:
                 battleFromApi.opponent[0].startingTrophies ?? undefined,
             trophyChange: battleFromApi.opponent[0].trophyChange ?? undefined,
-            cards: battleFromApi.opponent[0].cards,
+            deck: {
+                cards: battleFromApi.opponent[0].cards,
+                elixirFourCardCycle: getCycleElixirCost(
+                    battleFromApi.opponent[0].cards.map(
+                        (card) => card.elixirCost
+                    )
+                ),
+                averageElixir: getAverageElixir(
+                    battleFromApi.opponent[0].cards.map(
+                        (card) => card.elixirCost
+                    )
+                ),
+            },
             supportCard: battleFromApi.opponent[0].supportCards[0] && {
                 ...battleFromApi.opponent[0].supportCards[0],
                 level: getNewLevel(

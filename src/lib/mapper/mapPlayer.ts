@@ -3,6 +3,7 @@ import {
     PlayerFromApi,
     PlayerHeroBanner,
 } from "@/types/player.interface";
+import { getAverageElixir, getCycleElixirCost } from "../services/deck.service";
 
 export function mapPlayer(playerFromApi: PlayerFromApi): Player {
     return {
@@ -38,16 +39,24 @@ export function mapPlayer(playerFromApi: PlayerFromApi): Player {
             },
             name: badge.name,
         })),
-        currentDeck: playerFromApi.currentDeck.map((card) => ({
-            iconUrls: {
-                evolutionMedium: card.iconUrls.evolutionMedium || undefined,
-                medium: card.iconUrls.medium,
-                large: card.iconUrls.large || undefined,
-            },
-            elixirCost: card.elixirCost,
-            id: card.id,
-            name: card.name,
-        })),
+        currentDeck: {
+            cards: playerFromApi.currentDeck.map((card) => ({
+                iconUrls: {
+                    evolutionMedium: card.iconUrls.evolutionMedium || undefined,
+                    medium: card.iconUrls.medium,
+                    large: card.iconUrls.large || undefined,
+                },
+                elixirCost: card.elixirCost,
+                id: card.id,
+                name: card.name,
+            })),
+            elixirFourCardCycle: getCycleElixirCost(
+                playerFromApi.currentDeck.map((card) => card.elixirCost)
+            ),
+            averageElixir: getAverageElixir(
+                playerFromApi.currentDeck.map((card) => card.elixirCost)
+            ),
+        },
         currentDeckSupportCards: {
             iconUrls: {
                 evolutionMedium:

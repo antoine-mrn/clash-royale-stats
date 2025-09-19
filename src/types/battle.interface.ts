@@ -1,5 +1,5 @@
 import { Arena } from "./arena.interface";
-import { Card, CardPreview, SupportCard } from "./card.interface";
+import { Card, Deck, SupportCard } from "./card.interface";
 import { ClanPreview } from "./clan.interface";
 import { GameMode } from "./gameMode.interface";
 
@@ -51,7 +51,7 @@ export interface BattlePlayer {
     clanTag?: string;
     startingTrophies?: number;
     trophyChange?: number;
-    cards: CardPreview[];
+    deck: Deck;
     supportCard: SupportCard;
     elixirLeaked: number;
 }

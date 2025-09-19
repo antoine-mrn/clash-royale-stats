@@ -1,7 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
 import DeckList from "../deck/DeckList";
-import { getAverageElixir, getCycleElixirCost } from "@/utils/deckStats";
 import { BattlePlayer } from "@/types/battle.interface";
 import DeckStats from "../deck/DeckStats";
 import { sanitizeTag } from "@/utils/stringMethods";
@@ -64,13 +62,14 @@ export default function BattlePlayerCard({
                 </div>
             </div>
             <DeckList
-                deck={battlePlayer.cards}
+                cards={battlePlayer.deck.cards}
                 supportCard={battlePlayer.supportCard}
                 className="mx-auto w-fit"
             />
 
             <DeckStats
-                deck={battlePlayer.cards}
+                averageElixir={battlePlayer.deck.averageElixir}
+                elixirFourCardCycle={battlePlayer.deck.elixirFourCardCycle}
                 elixirLeaked={battlePlayer.elixirLeaked}
             />
         </section>

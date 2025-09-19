@@ -3,6 +3,7 @@ import { Arena } from "./arena.interface";
 import {
     Card,
     CardPreview,
+    Deck,
     SupportCard,
     SupportCardPreview,
 } from "./card.interface";
@@ -83,7 +84,7 @@ export interface Player {
     totalDonations: number;
     warDayWins: number;
     badges: BadgePreview[];
-    currentDeck: CardPreview[];
+    currentDeck: Deck;
     currentDeckSupportCards: SupportCardPreview;
 }
 

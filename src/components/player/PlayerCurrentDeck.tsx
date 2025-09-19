@@ -2,12 +2,12 @@ import CardContainer from "../shared/CardContainer";
 import CardHeaderContainer from "../shared/CardHeaderContainer";
 import CardTitle from "../ui/CardTitle";
 import Image from "next/image";
-import { CardPreview, SupportCardPreview } from "@/types/card.interface";
+import { CardPreview, Deck, SupportCardPreview } from "@/types/card.interface";
 import DeckList from "../deck/DeckList";
 import DeckStats from "../deck/DeckStats";
 
 interface PlayerCurrentDeckProps {
-    deck: CardPreview[];
+    deck: Deck;
     supportCard: SupportCardPreview;
 }
 
@@ -28,9 +28,12 @@ export default function PlayerCurrentDeck({
                 />
             </CardHeaderContainer>
 
-            <DeckList deck={deck} supportCard={supportCard} />
+            <DeckList cards={deck.cards} supportCard={supportCard} />
 
-            <DeckStats deck={deck} />
+            <DeckStats
+                averageElixir={deck.averageElixir}
+                elixirFourCardCycle={deck.elixirFourCardCycle}
+            />
         </CardContainer>
     );
 }

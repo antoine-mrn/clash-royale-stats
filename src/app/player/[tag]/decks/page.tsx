@@ -22,7 +22,7 @@ export default async function page({
                         <CardTitle>Deck stats</CardTitle>
                     </CardHeaderContainer>
                     <DeckList
-                        deck={deck.cards}
+                        cards={deck.cards}
                         supportCard={deck.supportCard}
                     />
                     <ul className="list">

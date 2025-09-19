@@ -35,7 +35,7 @@ export default async function page({
                 <PlayerPerformance playerStats={playerStats} />
             </section>
 
-            <section className="max-w-7xl grid justify-center gap-8 px-6 w-full mx-auto md:grid-cols-2">
+            <section className="max-w-7xl grid gap-8 px-6 w-full mx-auto md:justify-center md:grid-cols-2">
                 <PlayerStats
                     wins={player.wins}
                     losses={player.losses}

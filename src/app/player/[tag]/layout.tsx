@@ -1,4 +1,5 @@
 import PlayerHero from "@/components/player/PlayerHero";
+import PlayerTabs from "@/components/player/PlayerTabs";
 import SearchForm from "@/components/search/SearchForm";
 import { mapHeroBannerPlayer } from "@/lib/mapper/mapPlayer";
 import { getPlayer } from "@/lib/serverMethod/player";
@@ -20,14 +21,16 @@ export default async function playerLayout({
         <div className="mt-6 space-y-6">
             <SearchForm />
 
-            <PlayerHero
-                name={playerHeroBanner.name}
-                level={playerHeroBanner.level}
-                tag={playerHeroBanner.tag}
-                clanName={playerHeroBanner.clan.name}
-                clanTag={playerHeroBanner.clan.tag}
-            />
-
+            <div>
+                <PlayerHero
+                    name={playerHeroBanner.name}
+                    level={playerHeroBanner.level}
+                    tag={playerHeroBanner.tag}
+                    clanName={playerHeroBanner.clan.name}
+                    clanTag={playerHeroBanner.clan.tag}
+                />
+                <PlayerTabs tag={tag} />
+            </div>
             {children}
         </div>
     );

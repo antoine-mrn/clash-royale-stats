@@ -31,3 +31,11 @@ export interface CardPreview {
     id: number;
     name: string;
 }
+
+export interface RecentDeck {
+    cards: Card[];
+    supportCard?: SupportCardPreview;
+    win: number;
+    lose: number;
+    winRate: number;
+}

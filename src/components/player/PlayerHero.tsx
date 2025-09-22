@@ -8,7 +8,6 @@ interface PlayerHeroProps {
     tag: string;
     clanName: string | null;
     clanTag: string | null;
-    chartData?: any;
 }
 
 export default function PlayerHero({

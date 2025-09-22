@@ -21,10 +21,10 @@ export default function PlayerTabs({ tag }: { tag: string }) {
         },
     ];
     return (
-        <div className="bg-info/10">
+        <div className="bg-neutral-900/10 backdrop-blur-sm border-t border-primary/40">
             <div
                 role="tablist"
-                className="tabs tabs-lg tabs-box rounded-t-none max-w-7xl mx-auto px-6 bg-primary/0"
+                className="tabs tabs-lg tabs-box rounded-t-none max-w-4xl mx-auto bg-primary/0"
             >
                 {tabs.map((tab, index) => (
                     <Link
@@ -33,8 +33,8 @@ export default function PlayerTabs({ tag }: { tag: string }) {
                         role="tab"
                         className={`tab ${
                             pathname === tab.url
-                                ? "tab-active font-semibold"
-                                : ""
+                                ? "tab-active text-primary font-semibold hover:text-primary/80"
+                                : "text-base-content hover:text-primary/80"
                         }`}
                     >
                         {tab.name}

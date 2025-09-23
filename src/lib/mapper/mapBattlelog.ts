@@ -1,76 +1,74 @@
 import { Battle, BattleFromApi } from "@/types/battle.interface";
-import { getBattleResult } from "@/utils/battleResult";
-import { getNewLevel } from "@/utils/card";
 import { formatDate } from "@/utils/dateMethods";
 import { splitString } from "@/utils/stringMethods";
 import { getAverageElixir, getCycleElixirCost } from "../services/deck.service";
+import { getBattleResult } from "../services/battle.service";
+import { getNewLevel } from "../services/card.service";
 
 export function mapBattlelog(battleFromApi: BattleFromApi): Battle {
     return {
         type: splitString(battleFromApi.type),
         battleTime: formatDate(battleFromApi.battleTime),
         arena: battleFromApi.arena.name,
-        playerScore: battleFromApi.team[0].crowns,
-        opponentScore: battleFromApi.opponent[0].crowns,
-        isWinner: getBattleResult(
+        result: getBattleResult(
             battleFromApi.team[0].crowns,
             battleFromApi.opponent[0].crowns
         ),
-        player: {
-            name: battleFromApi.team[0].name,
-            tag: battleFromApi.team[0].tag,
-            clanName: battleFromApi.team[0].clan?.name || "No clan",
-            clanTag: battleFromApi.team[0].clan?.tag ?? undefined,
-            startingTrophies:
-                battleFromApi.team[0].startingTrophies ?? undefined,
-            trophyChange: battleFromApi.team[0].trophyChange ?? undefined,
-            deck: {
-                cards: battleFromApi.team[0].cards,
-                elixirFourCardCycle: getCycleElixirCost(
-                    battleFromApi.team[0].cards.map((card) => card.elixirCost)
-                ),
-                averageElixir: getAverageElixir(
-                    battleFromApi.team[0].cards.map((card) => card.elixirCost)
-                ),
-            },
-            supportCard: battleFromApi.team[0].supportCards[0] && {
-                ...battleFromApi.team[0].supportCards[0],
-                level: getNewLevel(
-                    battleFromApi.team[0].supportCards[0].level,
-                    battleFromApi.team[0].supportCards[0].rarity
-                ),
-            },
-            elixirLeaked: battleFromApi.team[0].elixirLeaked,
+        team: {
+            crowns: battleFromApi.team[0].crowns,
+            player: battleFromApi.team.map((player) => ({
+                name: player.name,
+                tag: player.tag,
+                clanName: player.clan?.name || "No clan",
+                clanTag: player.clan?.tag ?? undefined,
+                startingTrophies: player.startingTrophies ?? undefined,
+                trophyChange: player.trophyChange ?? undefined,
+                deck: {
+                    cards: player.cards,
+                    elixirFourCardCycle: getCycleElixirCost(
+                        player.cards.map((card) => card.elixirCost)
+                    ),
+                    averageElixir: getAverageElixir(
+                        player.cards.map((card) => card.elixirCost)
+                    ),
+                },
+                supportCard: player.supportCards[0] && {
+                    ...player.supportCards[0],
+                    level: getNewLevel(
+                        player.supportCards[0].level,
+                        player.supportCards[0].rarity
+                    ),
+                },
+                elixirLeaked: battleFromApi.opponent[0].elixirLeaked,
+            })),
         },
         opponent: {
-            name: battleFromApi.opponent[0].name,
-            tag: battleFromApi.opponent[0].tag,
-            clanName: battleFromApi.opponent[0].clan?.name || "No clan",
-            clanTag: battleFromApi.opponent[0].clan?.tag ?? undefined,
-            startingTrophies:
-                battleFromApi.opponent[0].startingTrophies ?? undefined,
-            trophyChange: battleFromApi.opponent[0].trophyChange ?? undefined,
-            deck: {
-                cards: battleFromApi.opponent[0].cards,
-                elixirFourCardCycle: getCycleElixirCost(
-                    battleFromApi.opponent[0].cards.map(
-                        (card) => card.elixirCost
-                    )
-                ),
-                averageElixir: getAverageElixir(
-                    battleFromApi.opponent[0].cards.map(
-                        (card) => card.elixirCost
-                    )
-                ),
-            },
-            supportCard: battleFromApi.opponent[0].supportCards[0] && {
-                ...battleFromApi.opponent[0].supportCards[0],
-                level: getNewLevel(
-                    battleFromApi.opponent[0].supportCards[0].level,
-                    battleFromApi.opponent[0].supportCards[0].rarity
-                ),
-            },
-            elixirLeaked: battleFromApi.opponent[0].elixirLeaked,
+            crowns: battleFromApi.opponent[0].crowns,
+            player: battleFromApi.opponent.map((player) => ({
+                name: player.name,
+                tag: player.tag,
+                clanName: player.clan?.name || "No clan",
+                clanTag: player.clan?.tag ?? undefined,
+                startingTrophies: player.startingTrophies ?? undefined,
+                trophyChange: player.trophyChange ?? undefined,
+                deck: {
+                    cards: player.cards,
+                    elixirFourCardCycle: getCycleElixirCost(
+                        player.cards.map((card) => card.elixirCost)
+                    ),
+                    averageElixir: getAverageElixir(
+                        player.cards.map((card) => card.elixirCost)
+                    ),
+                },
+                supportCard: player.supportCards[0] && {
+                    ...player.supportCards[0],
+                    level: getNewLevel(
+                        player.supportCards[0].level,
+                        player.supportCards[0].rarity
+                    ),
+                },
+                elixirLeaked: battleFromApi.opponent[0].elixirLeaked,
+            })),
         },
     };
 }

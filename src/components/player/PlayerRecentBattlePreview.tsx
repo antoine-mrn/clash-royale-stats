@@ -43,10 +43,12 @@ export default function PlayerRecentBattlePreview({
                         <div className="flex items-center gap-2">
                             <span
                                 className={`badge font-semibold ${
-                                    battle.isWinner ? "bg-blue-50" : "bg-red-50"
+                                    battle.result === "win"
+                                        ? "bg-blue-50"
+                                        : "bg-red-50"
                                 }`}
                             >
-                                {battle.playerScore} - {battle.opponentScore}
+                                {battle.team.crowns} - {battle.opponent.crowns}
                             </span>
                         </div>
                     </li>

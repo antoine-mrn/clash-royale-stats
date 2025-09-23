@@ -5,7 +5,7 @@ import DeckStats from "../deck/DeckStats";
 import { sanitizeTag } from "@/utils/stringMethods";
 
 interface BattlePlayerCardProps {
-    battlePlayer: BattlePlayer;
+    battlePlayer: BattlePlayer[];
     isOpponent: boolean;
 }
 
@@ -19,59 +19,63 @@ export default function BattlePlayerCard({
                 isOpponent ? "bg-red-50" : "bg-blue-50"
             }`}
         >
-            <div
-                className={`p-4 flex flex-col ${
-                    isOpponent && "place-self-end items-end"
-                }`}
-            >
-                <Link
-                    href={`/player/${sanitizeTag(battlePlayer.tag)}`}
-                    className="font-semibold hover:text-primary"
-                >
-                    {battlePlayer.name}
-                </Link>
-                {battlePlayer.clanTag && (
-                    <Link
-                        href={`/clan/${sanitizeTag(battlePlayer.clanTag)}`}
-                        className="text-blue-500 hover:text-blue-800"
+            {battlePlayer.map((player, index) => (
+                <div key={index}>
+                    <div
+                        className={`p-4 flex flex-col ${
+                            isOpponent && "place-self-end items-end"
+                        }`}
                     >
-                        {battlePlayer.clanName}
-                    </Link>
-                )}
-
-                <div className="mt-2 flex gap-2 items-center">
-                    {battlePlayer.startingTrophies && (
-                        <p className="text-lg font-semibold text-neutral-900">
-                            {battlePlayer.startingTrophies}{" "}
-                        </p>
-                    )}
-                    {battlePlayer.trophyChange && (
-                        <span
-                            className={`badge ${
-                                battlePlayer.trophyChange &&
-                                battlePlayer.trophyChange > 0
-                                    ? "badge-primary"
-                                    : "badge-error"
-                            }`}
+                        <Link
+                            href={`/player/${sanitizeTag(player.tag)}`}
+                            className="font-semibold hover:text-primary"
                         >
-                            {battlePlayer.trophyChange &&
-                                (battlePlayer.trophyChange > 0 ? "+" : "") +
-                                    battlePlayer.trophyChange}
-                        </span>
-                    )}
-                </div>
-            </div>
-            <DeckList
-                cards={battlePlayer.deck.cards}
-                supportCard={battlePlayer.supportCard}
-                className="mx-auto w-fit"
-            />
+                            {player.name}
+                        </Link>
+                        {player.clanTag && (
+                            <Link
+                                href={`/clan/${sanitizeTag(player.clanTag)}`}
+                                className="text-blue-500 hover:text-blue-800"
+                            >
+                                {player.clanName}
+                            </Link>
+                        )}
 
-            <DeckStats
-                averageElixir={battlePlayer.deck.averageElixir}
-                elixirFourCardCycle={battlePlayer.deck.elixirFourCardCycle}
-                elixirLeaked={battlePlayer.elixirLeaked}
-            />
+                        <div className="mt-2 flex gap-2 items-center">
+                            {player.startingTrophies && (
+                                <p className="text-lg font-semibold text-neutral-900">
+                                    {player.startingTrophies}{" "}
+                                </p>
+                            )}
+                            {player.trophyChange && (
+                                <span
+                                    className={`badge ${
+                                        player.trophyChange &&
+                                        player.trophyChange > 0
+                                            ? "badge-primary"
+                                            : "badge-error"
+                                    }`}
+                                >
+                                    {player.trophyChange &&
+                                        (player.trophyChange > 0 ? "+" : "") +
+                                            player.trophyChange}
+                                </span>
+                            )}
+                        </div>
+                    </div>
+                    <DeckList
+                        cards={player.deck.cards}
+                        supportCard={player.supportCard}
+                        className="mx-auto w-fit"
+                    />
+
+                    <DeckStats
+                        averageElixir={player.deck.averageElixir}
+                        elixirFourCardCycle={player.deck.elixirFourCardCycle}
+                        elixirLeaked={player.elixirLeaked}
+                    />
+                </div>
+            ))}
         </section>
     );
 }

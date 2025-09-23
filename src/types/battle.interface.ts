@@ -20,11 +20,15 @@ export interface Battle {
     type: string;
     battleTime: string;
     arena: string;
-    playerScore: number;
-    opponentScore: number;
-    isWinner: boolean;
-    player: BattlePlayer;
-    opponent: BattlePlayer;
+    result: BattleResult;
+    team: {
+        crowns: number;
+        player: BattlePlayer[];
+    };
+    opponent: {
+        crowns: number;
+        player: BattlePlayer[];
+    };
 }
 
 // TODO: Check null for kingTowerHitPoints
@@ -55,3 +59,5 @@ export interface BattlePlayer {
     supportCard: SupportCard;
     elixirLeaked: number;
 }
+
+export type BattleResult = "win" | "lose" | "draw";

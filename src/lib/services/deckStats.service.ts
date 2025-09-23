@@ -1,6 +1,6 @@
 import { BattleFromApi } from "@/types/battle.interface";
 import { RecentDeck } from "@/types/card.interface";
-import { getBattleResult } from "@/utils/battleResult";
+import { getBattleResult } from "./battle.service";
 
 export default function computeDeckStats(
     tag: string,
@@ -18,13 +18,13 @@ export default function computeDeckStats(
             );
         });
 
-        const isWin = getBattleResult(
+        const result = getBattleResult(
             battle.team[0].crowns,
             battle.opponent[0].crowns
         );
 
-        const win = isWin ? 1 : 0;
-        const lose = !isWin ? 1 : 0;
+        const win = result === "win" ? 1 : 0;
+        const lose = result === "lose" ? 1 : 0;
 
         if (indexDeckFind === -1 && currentDeck) {
             const winRate = parseFloat(((win / (win + lose)) * 100).toFixed(2));

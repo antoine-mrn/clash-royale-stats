@@ -7,19 +7,19 @@ export default function BattleCard({ battle }: { battle: Battle }) {
         <>
             <BattleResultScore
                 battleType={battle.type}
-                playerScore={battle.playerScore}
-                opponentScore={battle.opponentScore}
+                playerScore={battle.team.crowns}
+                opponentScore={battle.opponent.crowns}
             />
 
             {/* Battle details */}
-            <div className="flex flex-col w-full p-2 sm:flex-row">
+            <div className="flex flex-col w-full p-2 sm:flex-row sm:items-stretch">
                 <BattlePlayerCard
-                    battlePlayer={battle.player}
+                    battlePlayer={battle.team.player}
                     isOpponent={false}
                 />
                 <div className="divider sm:divider-horizontal">VS</div>
                 <BattlePlayerCard
-                    battlePlayer={battle.opponent}
+                    battlePlayer={battle.opponent.player}
                     isOpponent={true}
                 />
             </div>

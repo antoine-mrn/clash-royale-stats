@@ -12,7 +12,7 @@ export default function BattleCard({ battle }: { battle: Battle }) {
             />
 
             {/* Battle details */}
-            <div className="flex flex-col w-full p-2 sm:flex-row sm:items-stretch">
+            <div className="flex flex-col w-full p-2 sm:flex-row">
                 <BattlePlayerCard
                     battlePlayer={battle.team.player}
                     isOpponent={false}

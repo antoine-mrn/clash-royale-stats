@@ -23,31 +23,33 @@ export default function computeDeckStats(
             battle.opponent[0].crowns
         );
 
-        const win = result === "win" ? 1 : 0;
-        const lose = result === "lose" ? 1 : 0;
+        const wins = result === "win" ? 1 : 0;
+        const losses = result === "lose" ? 1 : 0;
 
         if (indexDeckFind === -1 && currentDeck) {
-            const winRate = parseFloat(((win / (win + lose)) * 100).toFixed(2));
+            const winRate = parseFloat(
+                ((wins / (wins + losses)) * 100).toFixed(2)
+            );
 
             const deckObj = {
                 cards: currentDeck.cards,
                 supportCard: currentDeck.supportCards[0] || null,
-                win,
-                lose,
+                wins,
+                losses,
                 winRate,
             };
             decks.push(deckObj);
         } else if (indexDeckFind !== -1 && currentDeck) {
-            const winUpdate = decks[indexDeckFind].win + win;
-            const loseUpdate = decks[indexDeckFind].lose + lose;
+            const winUpdate = decks[indexDeckFind].wins + wins;
+            const loseUpdate = decks[indexDeckFind].losses + losses;
             const winRateUpdate = parseFloat(
                 ((winUpdate / (winUpdate + loseUpdate)) * 100).toFixed(2)
             );
 
             decks[indexDeckFind] = {
                 ...decks[indexDeckFind],
-                win: winUpdate,
-                lose: loseUpdate,
+                wins: winUpdate,
+                losses: loseUpdate,
                 winRate: winRateUpdate,
             };
         }

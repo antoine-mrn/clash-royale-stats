@@ -9,6 +9,7 @@ import PlayerStats from "@/components/player/PlayerStats";
 import SearchForm from "@/components/search/SearchForm";
 import { getPlayer } from "@/lib/serverMethod/player";
 import getPlayerBattlelog from "@/lib/serverMethod/playerBattlelog";
+import { PlayerBattleStats } from "@/types/player.interface";
 
 export default async function page({
     params,
@@ -22,11 +23,12 @@ export default async function page({
         getPlayerBattlelog(tag),
     ]);
 
-    const playerStats = {
+    const playerStats: PlayerBattleStats = {
         battleCount: player.battleCount,
         wins: player.wins,
         losses: player.losses,
         threeCrownWins: player.threeCrownWins,
+        winRate: player.winRate,
     };
 
     return (

@@ -14,6 +14,14 @@ export function mapPlayer(playerFromApi: PlayerFromApi): Player {
         losses: playerFromApi.losses,
         battleCount: playerFromApi.battleCount,
         threeCrownWins: playerFromApi.threeCrownWins,
+        winRate:
+            playerFromApi.battleCount > 0
+                ? (
+                      (playerFromApi.wins /
+                          (playerFromApi.wins + playerFromApi.losses)) *
+                      100
+                  ).toFixed(2)
+                : "0",
         starPoints: playerFromApi.starPoints,
         totalExpPoints: playerFromApi.totalExpPoints,
         challengeMaxWins: playerFromApi.challengeMaxWins,

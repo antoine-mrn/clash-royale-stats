@@ -13,7 +13,7 @@ export default async function page({
     const { tag } = await params;
 
     const recentDecks = await getRecentDecks(tag);
-    console.log("🚀 ~ page ~ recentDecks:", recentDecks);
+
     return (
         <section className="max-w-7xl grid sm:grid-cols-2 gap-8 px-6 w-full mx-auto md:justify-center md:grid-cols-3">
             {recentDecks.map((deck, index) => (
@@ -26,8 +26,8 @@ export default async function page({
                         supportCard={deck.supportCard}
                     />
                     <ul className="list">
-                        <ListRow label="Wins" value={deck.win} />
-                        <ListRow label="Losses" value={deck.lose} />
+                        <ListRow label="Wins" value={deck.wins} />
+                        <ListRow label="Losses" value={deck.losses} />
                         <ListRow label="Win rate" value={`${deck.winRate}%`} />
                     </ul>
                 </CardContainer>

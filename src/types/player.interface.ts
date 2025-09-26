@@ -68,6 +68,7 @@ export interface Player {
     losses: number;
     battleCount: number;
     threeCrownWins: number;
+    winRate: string;
     starPoints: number;
     totalExpPoints: number;
     challengeMaxWins: number;
@@ -100,6 +101,7 @@ export interface PlayerBattleStats {
     losses: number;
     threeCrownWins: number;
     battleCount: number;
+    winRate: string;
 }
 export interface ClanMemberFromApi {
     arena: Arena;

@@ -9,14 +9,12 @@ export default function PlayerWinRateChart({
 }: {
     playerStats: PlayerBattleStats;
 }) {
-    const { wins, losses } = playerStats;
+    const { wins, losses, winRate } = playerStats;
 
     const pieData = [
         { name: "Wins", value: wins, color: chartsColors.primary },
         { name: "Loss", value: losses, color: chartsColors.secondary },
     ];
-
-    const winRate = ((wins / (wins + losses)) * 100).toFixed(2);
 
     return (
         <ResponsiveContainer width="50%" height="100%">

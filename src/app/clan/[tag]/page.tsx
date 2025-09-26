@@ -23,7 +23,7 @@ export default async function page({
                 clanWarTrophies={clan.clanWarTrophies}
             />
 
-            <section className="max-w-7xl grid justify-center gap-8 px-6 w-full mx-auto md:grid-cols-2">
+            <section className="max-w-7xl grid grid-cols-1 justify-center gap-8 px-6 w-full mx-auto md:grid-cols-2">
                 <ClanInfo
                     clanScore={clan.clanScore}
                     clanWarTrophies={clan.clanWarTrophies}

@@ -15,8 +15,9 @@ export default function ClanMembers({
     memberCount,
 }: ClanMembersProps) {
     return (
-        <CardContainer className="col-span-2">
+        <CardContainer className="md:col-span-2">
             <CardHeaderContainer>
+                <CardTitle>Members {memberCount}/50</CardTitle>
                 <Image
                     src="/members.png"
                     alt="Clan member icon"
@@ -24,7 +25,6 @@ export default function ClanMembers({
                     width={114}
                     className="w-10"
                 />
-                <CardTitle>Members {memberCount}/50</CardTitle>
             </CardHeaderContainer>
             <div className="overflow-x-auto px-6">
                 <ClanMembersTable memberList={memberList} />

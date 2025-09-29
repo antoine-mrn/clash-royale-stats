@@ -6,7 +6,7 @@ export async function getLastSeasonId() {
     });
 
     if (!response.ok) {
-        throw new Error("Failed to fecth player rank");
+        throw new Error("Failed to fetch last Season id");
     }
 
     const { items } = await response.json();

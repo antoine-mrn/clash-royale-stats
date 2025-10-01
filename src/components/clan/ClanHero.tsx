@@ -1,5 +1,6 @@
 import HeroBannerWrapper from "../shared/HeroBannerWrapper";
 import Image from "next/image";
+import Badge from "../ui/Badge";
 
 interface ClanHeroProps {
     name: string;
@@ -26,6 +27,7 @@ export default function ClanHero({
                             src={badgeUrl}
                             alt={`${name} badge`}
                             fill
+                            sizes="64px"
                             className="object-contain"
                         />
                     </div>
@@ -35,19 +37,13 @@ export default function ClanHero({
                 </div>
                 <p className="text-neutral-content">{tag}</p>
 
-                <div className="badge badge-success mt-4 relative">
-                    <Image
-                        src="/clan.png"
-                        alt="Clan illustration"
-                        width={216}
-                        height={216}
-                        className="w-12 absolute -left-2"
-                    />
-
-                    <p className="pl-8 pr-1 font-semibold text-lg">
-                        {clanWarTrophies}
-                    </p>
-                </div>
+                <Badge
+                    badgeUrl="/clan.png"
+                    alt="Clan illustration"
+                    label={clanWarTrophies}
+                    badgeColor="success"
+                    size="w-12 h-12"
+                />
             </div>
         </HeroBannerWrapper>
     );

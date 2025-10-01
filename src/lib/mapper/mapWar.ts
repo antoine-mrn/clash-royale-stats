@@ -8,37 +8,41 @@ import { getBadgeUrl } from "../services/badge.service";
 export default function mapCurrentRiverRace(
     riverRace: CurrentRiverRaceFromApi
 ): CurrentRiverRace {
-    const clans: CurrentRiverRaceClan[] = riverRace.clans.map((clan) => {
-        const baseCurrentRiverRaceClan = {
-            clanScore: clan.clanScore,
-            name: clan.name,
-            badgeUrl: getBadgeUrl(clan.badgeId),
-            periodPoints: clan.periodPoints,
-            repairPoints: clan.repairPoints,
-            tag: clan.tag,
-            numberParticipants: clan.participants.length,
-        };
+    const clans = riverRace.clans
+        .map((clan) => {
+            const baseCurrentRiverRaceClan = {
+                clanScore: clan.clanScore,
+                name: clan.name,
+                badgeUrl: getBadgeUrl(clan.badgeId),
+                periodPoints: clan.periodPoints,
+                repairPoints: clan.repairPoints,
+                tag: clan.tag,
+                numberParticipants: clan.participants.length,
+            };
 
-        if (clan.tag === riverRace.clan.tag) {
+            if (clan.tag === riverRace.clan.tag) {
+                return {
+                    ...baseCurrentRiverRaceClan,
+                    participants: clan.participants,
+                    isMyClan: true,
+                };
+            }
+
             return {
                 ...baseCurrentRiverRaceClan,
-                participants: clan.participants,
-                isMyClan: true,
+                isMyClan: false,
             };
-        }
-
-        return {
-            ...baseCurrentRiverRaceClan,
-            isMyClan: false,
-        };
-    });
-
-    clans.sort((a, b) => b.periodPoints - a.periodPoints);
+        })
+        .sort((a, b) => b.periodPoints - a.periodPoints)
+        .map((clan, index) => ({
+            ...clan,
+            rank: index + 1,
+        }));
 
     return {
         state: riverRace.state,
         periodType: riverRace.periodType,
-        warEndTime: riverRace.warEndTime,
+        warEndTime: riverRace.warEndTime ?? null,
         clans,
     };
 }

@@ -60,7 +60,7 @@ export interface CurrentRiverRaceFromApi {
     clan: RiverRaceClan;
     clans: RiverRaceClan[];
     collectionEndTime: string;
-    warEndTime: string;
+    warEndTime?: string;
     sectionIndex: number;
     periodIndex: number;
     periodType: RiverRacePeriodType;
@@ -69,6 +69,7 @@ export interface CurrentRiverRaceFromApi {
 
 export interface CurrentRiverRaceClan {
     clanScore: number;
+    rank: number;
     name: string;
     badgeUrl: string;
     periodPoints: number;
@@ -81,7 +82,7 @@ export interface CurrentRiverRaceClan {
 export interface CurrentRiverRace {
     state: RiverRaceState;
     periodType: RiverRacePeriodType;
-    warEndTime: string;
+    warEndTime: string | null;
     clans: CurrentRiverRaceClan[];
 }
 

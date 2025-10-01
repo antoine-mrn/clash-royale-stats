@@ -35,6 +35,7 @@ export interface Clan {
     requiredTrophies: number;
     type: ClanType;
     description: string;
+    badgeUrl: string;
     memberList: ClanMember[];
 }
 

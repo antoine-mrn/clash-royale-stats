@@ -19,6 +19,7 @@ export default async function page({
 
             <ClanHero
                 name={clan.name}
+                badgeUrl={clan.badgeUrl}
                 tag={clan.tag}
                 clanWarTrophies={clan.clanWarTrophies}
             />

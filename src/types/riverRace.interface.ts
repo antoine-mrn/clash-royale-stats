@@ -70,6 +70,7 @@ export interface CurrentRiverRaceFromApi {
 export interface CurrentRiverRaceClan {
     clanScore: number;
     name: string;
+    badgeUrl: string;
     periodPoints: number;
     repairPoints: number;
     tag: string;

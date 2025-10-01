@@ -3,6 +3,7 @@ import {
     CurrentRiverRaceClan,
     CurrentRiverRaceFromApi,
 } from "@/types/riverRace.interface";
+import { getBadgeUrl } from "../services/badge.service";
 
 export default function mapCurrentRiverRace(
     riverRace: CurrentRiverRaceFromApi
@@ -11,6 +12,7 @@ export default function mapCurrentRiverRace(
         const baseCurrentRiverRaceClan = {
             clanScore: clan.clanScore,
             name: clan.name,
+            badgeUrl: getBadgeUrl(clan.badgeId),
             periodPoints: clan.periodPoints,
             repairPoints: clan.repairPoints,
             tag: clan.tag,

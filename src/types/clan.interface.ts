@@ -69,3 +69,10 @@ export enum ClanRole {
     ADMIN = "ADMIN",
     COLEADER = "COLEADER",
 }
+
+export interface ClanHeroBanner {
+    tag: string;
+    name: string;
+    badgeUrl: string;
+    clanWarTrophies: number;
+}

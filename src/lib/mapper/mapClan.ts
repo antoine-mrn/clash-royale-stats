@@ -1,6 +1,5 @@
-import { Clan, ClanFromApi } from "@/types/clan.interface";
+import { Clan, ClanFromApi, ClanHeroBanner } from "@/types/clan.interface";
 import { getSortedClanMembers } from "@/utils/clan";
-import moment from "moment";
 import { getBadgeUrl } from "../services/badge.service";
 
 export function mapClan(ClanFromApi: ClanFromApi): Clan {
@@ -30,5 +29,14 @@ export function mapClan(ClanFromApi: ClanFromApi): Clan {
             tag: member.tag,
             trophies: member.trophies,
         })),
+    };
+}
+
+export function mapHeroBannerClan(clan: Clan): ClanHeroBanner {
+    return {
+        tag: clan.tag,
+        name: clan.name,
+        badgeUrl: clan.badgeUrl,
+        clanWarTrophies: clan.clanWarTrophies,
     };
 }

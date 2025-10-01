@@ -1,10 +1,6 @@
-import {
-    Player,
-    PlayerFromApi,
-    PlayerHeroBanner,
-} from "@/types/player.interface";
+import { Player, PlayerFromApi } from "@/types/player.interface";
 import { fetchApi } from "../fetchApi";
-import { mapHeroBannerPlayer, mapPlayer } from "../mapper/mapPlayer";
+import { mapPlayer } from "../mapper/mapPlayer";
 import { cache } from "react";
 
 export const getPlayer = cache(async function getPlayer(

@@ -5,7 +5,6 @@ import { getLastSeasonId } from "./season";
 export async function getPlayerRanking(): Promise<PlayerPreview[]> {
     try {
         const lastSeasonId = await getLastSeasonId();
-        console.log("🚀 ~ getPlayerRanking ~ lastSeasonId:", lastSeasonId);
 
         const response = await fetchApi(
             `/locations/global/pathoflegend/${lastSeasonId}/rankings/players?limit=10`,

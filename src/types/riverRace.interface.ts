@@ -75,7 +75,8 @@ export interface CurrentRiverRaceClan {
     periodPoints: number;
     repairPoints: number;
     tag: string;
-    numberParticipants?: number;
+    participants?: CurrentRiverRaceParticipant[];
+    numberParticipants: number;
     isMyClan: boolean;
 }
 

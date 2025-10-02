@@ -23,7 +23,9 @@ export default function mapCurrentRiverRace(
             if (clan.tag === riverRace.clan.tag) {
                 return {
                     ...baseCurrentRiverRaceClan,
-                    participants: clan.participants,
+                    participants: [...clan.participants].sort(
+                        (a, b) => b.fame - a.fame
+                    ),
                     isMyClan: true,
                 };
             }

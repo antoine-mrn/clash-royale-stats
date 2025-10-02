@@ -1,13 +1,18 @@
 import { getRankingBgClass } from "@/utils/badgeClass";
 
-export default function RankMask({ rank }: { rank: number }) {
+interface RankMasKProps {
+    rank: number;
+    className?: string;
+}
+
+export default function RankMask({ rank, className }: RankMasKProps) {
     return (
-        <p
+        <span
             className={`mask mask-squircle text-2xl font-bold p-2 ${getRankingBgClass(
                 rank
-            )}`}
+            )} ${className}`}
         >
             {rank}
-        </p>
+        </span>
     );
 }

@@ -31,11 +31,11 @@ export default function ClanHero({
                             className="object-contain"
                         />
                     </div>
-                    <p className="text-primary font-extrabold text-4xl text-shadow-lg/30 md:text-6xl">
+                    <span className="mb-4 text-primary font-extrabold text-4xl text-shadow-lg/30 md:text-6xl">
                         {name}
-                    </p>
+                    </span>
                 </div>
-                <p className="text-neutral-content">{tag}</p>
+                <span className="text-neutral-content">{tag}</span>
 
                 <Badge
                     badgeUrl="/clan.png"

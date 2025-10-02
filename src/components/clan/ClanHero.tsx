@@ -17,7 +17,7 @@ export default function ClanHero({
 }: ClanHeroProps) {
     return (
         <HeroBannerWrapper
-            backgroundImage={"url(../clan-banner.png)"}
+            backgroundImage={"url(/clan-banner.png)"}
             imageClassName="bg-center"
         >
             <div>

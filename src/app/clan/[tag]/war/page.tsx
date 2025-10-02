@@ -46,9 +46,7 @@ export default async function page({
                                         />
                                     </div>
                                     <Link
-                                        href={`/player/${sanitizeTag(
-                                            clan.tag
-                                        )}`}
+                                        href={`/clan/${sanitizeTag(clan.tag)}`}
                                         className="font-bold link link-hover hover:link-primary"
                                     >
                                         {clan.name}

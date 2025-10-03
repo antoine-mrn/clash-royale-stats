@@ -96,3 +96,26 @@ export interface CurrentRiverRaceParticipant {
     decksUsed: number;
     decksUsedToday: number;
 }
+
+export interface RiverRaceLogStanding {
+    rank: number;
+    trophyChange: number;
+    clan: RiverRaceClan & { badgeUrl?: string };
+}
+
+export interface RiverRaceLogItem {
+    seasonId: number;
+    sectionIndex: number;
+    createdDate: string;
+    standings: RiverRaceLogStanding[];
+}
+
+export interface RiverRaceLog {
+    items: RiverRaceLogItem[];
+    paging: {
+        cursors: {
+            after?: string;
+            before?: string;
+        };
+    };
+}

@@ -1,10 +1,11 @@
 import {
     CurrentRiverRace,
     CurrentRiverRaceFromApi,
+    RiverRaceLog,
 } from "@/types/riverRace.interface";
 import { getBadgeUrl } from "../services/badge.service";
 
-export default function mapCurrentRiverRace(
+export function mapCurrentRiverRace(
     riverRace: CurrentRiverRaceFromApi
 ): CurrentRiverRace {
     const clans = riverRace.clans
@@ -45,5 +46,23 @@ export default function mapCurrentRiverRace(
         periodType: riverRace.periodType,
         warEndTime: riverRace.warEndTime ?? null,
         clans,
+    };
+}
+
+export function mapRiverRaceHistory(
+    riverRaceHistory: RiverRaceLog
+): RiverRaceLog {
+    return {
+        ...riverRaceHistory,
+        items: riverRaceHistory.items.map((item) => ({
+            ...item,
+            standings: item.standings.map((standing) => ({
+                ...standing,
+                clan: {
+                    ...standing.clan,
+                    badgeUrl: getBadgeUrl(standing.clan.badgeId),
+                },
+            })),
+        })),
     };
 }

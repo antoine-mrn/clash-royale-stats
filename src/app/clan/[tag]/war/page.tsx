@@ -1,14 +1,6 @@
-import ClanParticipant from "@/components/clanWar/clanParticipant";
+import ClanParticipant from "@/components/clanWar/ClanParticipant";
 import ClanWarRanking from "@/components/clanWar/ClanWarRanking";
-import CardContainer from "@/components/shared/CardContainer";
-import CardHeaderContainer from "@/components/shared/CardHeaderContainer";
-import Badge from "@/components/ui/Badge";
-import CardTitle from "@/components/ui/CardTitle";
-import RankMask from "@/components/ui/RankMask";
 import { getCurrentRiverRace } from "@/lib/serverMethod/clanWar";
-import { sanitizeTag } from "@/utils/stringMethods";
-import Image from "next/image";
-import Link from "next/link";
 
 export default async function page({
     params,

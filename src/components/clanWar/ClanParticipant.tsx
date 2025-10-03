@@ -8,7 +8,7 @@ import RankMask from "../ui/RankMask";
 import Image from "next/image";
 import { CurrentRiverRaceClan } from "@/types/riverRace.interface";
 
-export default function clanParticipant({
+export default function ClanParticipant({
     myClan,
 }: {
     myClan: CurrentRiverRaceClan | undefined;

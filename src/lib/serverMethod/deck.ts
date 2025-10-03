@@ -19,7 +19,6 @@ export default async function getRecentDecks(
 
         return decks;
     } catch (err) {
-        console.log("🚀 ~ err:", err);
         throw new Error(`Failed to fetch play: ${err}`);
     }
 }

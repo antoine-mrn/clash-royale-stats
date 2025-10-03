@@ -11,13 +11,12 @@ export default async function getPlayerBattlelog(
         });
 
         if (!response.ok) {
-            throw new Error("Failed to fecth player battlelog");
+            throw new Error("Failed to fetch player battlelog");
         }
 
         const battles: BattleFromApi[] = await response.json();
         return battles.map((battle) => mapBattlelog(battle));
     } catch (err) {
-        console.log("🚀 ~ err:", err);
-        throw new Error(`Failed to fetch play: ${err}`);
+        throw new Error(`Failed to fetch player battlelog: ${err}`);
     }
 }

@@ -35,9 +35,14 @@ export default async function page({
 
                     <ul className="list">
                         {currentRiverRace.clans.map((clan) => (
-                            <li key={clan.tag} className="list-row">
+                            <li
+                                key={clan.tag}
+                                className={`list-row ${
+                                    clan.isMyClan && "bg-success-content"
+                                }`}
+                            >
                                 <RankMask rank={clan.rank} />
-                                <div className="flex justify-between">
+                                <div className="flex flex-col gap-2 sm:flex-row sm:justify-between sm:items-center">
                                     <div className="flex items-center">
                                         <div className="w-8 h-8 relative">
                                             <Image
@@ -63,7 +68,6 @@ export default async function page({
                                             alt="Period points icon"
                                             label={clan.periodPoints}
                                             badgeColor="success"
-                                            size="w-12 h-12"
                                         />
 
                                         <Badge
@@ -71,7 +75,6 @@ export default async function page({
                                             alt="Repair boat illustration"
                                             label={clan.repairPoints}
                                             badgeColor="info"
-                                            size="w-12 h-12"
                                         />
                                     </div>
                                 </div>
@@ -96,12 +99,12 @@ export default async function page({
                         {myClan?.participants?.map((participant, index) => (
                             <li key={participant.tag} className="list-row">
                                 <RankMask rank={index + 1} />
-                                <div className="flex flex-col">
+                                <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                                     <Link
                                         href={`/player/${sanitizeTag(
                                             participant.tag
                                         )}`}
-                                        className="font-bold"
+                                        className="font-bold link link-hover hover:link-primary"
                                     >
                                         {participant.name}
                                     </Link>
@@ -111,7 +114,6 @@ export default async function page({
                                             alt="Period points icon"
                                             label={participant.fame}
                                             badgeColor="success"
-                                            size="w-12 h-12"
                                         />
 
                                         <Badge
@@ -119,7 +121,6 @@ export default async function page({
                                             alt="Boat attack icon"
                                             label={participant.boatAttacks}
                                             badgeColor="error"
-                                            size="w-12 h-12"
                                         />
 
                                         <Badge
@@ -127,7 +128,6 @@ export default async function page({
                                             alt="Repair boat icon"
                                             label={participant.repairPoints}
                                             badgeColor="info"
-                                            size="w-12 h-12"
                                         />
                                     </div>
                                 </div>

@@ -20,9 +20,9 @@ export default function PlayerHero({
     return (
         <HeroBannerWrapper backgroundImage="url(/player-banner.jpg)">
             <div className="flex items-center gap-4 sm:gap-6">
-                <p className="text-primary font-extrabold text-4xl text-shadow-lg/30 md:text-6xl">
+                <span className="text-primary font-extrabold text-4xl text-shadow-lg/30 md:text-6xl">
                     {name}
-                </p>
+                </span>
                 <div className="w-10 relative text-center md:w-16 sm:w-14">
                     <Image
                         src="/experience-icon.png"
@@ -31,12 +31,12 @@ export default function PlayerHero({
                         height={149}
                         className="w-full"
                     />
-                    <p className="absolute top-1/2 left-1/2 -translate-1/2 text-base-100 font-semibold text-md sm:font-bold sm:text-xl">
+                    <span className="absolute top-1/2 left-1/2 -translate-1/2 text-base-100 font-semibold text-md sm:font-bold sm:text-xl">
                         {level}
-                    </p>
+                    </span>
                 </div>
             </div>
-            <p className="text-neutral-content text-lg">{tag}</p>
+            <span className="text-neutral-content text-lg block">{tag}</span>
             {clanTag && (
                 <Link
                     href={`/clan/${sanitizeTag(clanTag)}`}

@@ -35,14 +35,15 @@ export default function ClanHero({
                         {name}
                     </span>
                 </div>
-                <span className="text-neutral-content">{tag}</span>
+                <span className="text-neutral-content block mb-2">{tag}</span>
 
                 <Badge
                     badgeUrl="/clan.png"
                     alt="Clan illustration"
                     label={clanWarTrophies}
                     badgeColor="success"
-                    size="w-12 h-12"
+                    textSize="text-lg"
+                    size={36}
                 />
             </div>
         </HeroBannerWrapper>

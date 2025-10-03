@@ -13,7 +13,7 @@ export default function Badge({
     label,
     badgeUrl,
     badgeColor = "primary",
-    size = 22,
+    size = 30,
     textSize = "text-sm",
 }: BadgeProps) {
     return (

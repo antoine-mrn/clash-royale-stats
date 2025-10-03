@@ -46,6 +46,13 @@ export default function ClanParticipant({
                                 />
 
                                 <Badge
+                                    badgeUrl="/cards-icon.png"
+                                    alt="Cards icon"
+                                    label={participant.decksUsed}
+                                    badgeColor="accent"
+                                />
+
+                                <Badge
                                     badgeUrl="/boat-attack-icon.png"
                                     alt="Boat attack icon"
                                     label={participant.boatAttacks}

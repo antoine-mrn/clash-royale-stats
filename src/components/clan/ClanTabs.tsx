@@ -10,6 +10,10 @@ export default function ClanTabs({ tag }: { tag: string }) {
             name: "War",
             url: `/clan/${tag}/war`,
         },
+        {
+            name: "History",
+            url: `/clan/${tag}/history`,
+        },
     ];
     return <Tabs tabs={tabs} />;
 }

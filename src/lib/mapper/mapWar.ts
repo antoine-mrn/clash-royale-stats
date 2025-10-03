@@ -1,6 +1,5 @@
 import {
     CurrentRiverRace,
-    CurrentRiverRaceClan,
     CurrentRiverRaceFromApi,
 } from "@/types/riverRace.interface";
 import { getBadgeUrl } from "../services/badge.service";

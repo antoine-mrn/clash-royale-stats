@@ -14,7 +14,7 @@ export function mapCurrentRiverRace(
                 clanScore: clan.clanScore,
                 name: clan.name,
                 badgeUrl: getBadgeUrl(clan.badgeId),
-                periodPoints: clan.periodPoints,
+                fame: clan.fame,
                 repairPoints: clan.repairPoints,
                 tag: clan.tag,
                 numberParticipants: clan.participants.length,
@@ -35,7 +35,7 @@ export function mapCurrentRiverRace(
                 isMyClan: false,
             };
         })
-        .sort((a, b) => b.periodPoints - a.periodPoints)
+        .sort((a, b) => b.fame - a.fame)
         .map((clan, index) => ({
             ...clan,
             rank: index + 1,

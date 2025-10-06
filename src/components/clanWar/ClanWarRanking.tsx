@@ -57,7 +57,7 @@ export default function ClanWarRanking({
                                 <Badge
                                     badgeUrl="/period-points-icon.png"
                                     alt="Period points icon"
-                                    label={clan.periodPoints}
+                                    label={clan.fame}
                                     badgeColor="success"
                                 />
 

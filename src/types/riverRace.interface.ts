@@ -72,7 +72,7 @@ export interface CurrentRiverRaceClan {
     rank: number;
     name: string;
     badgeUrl: string;
-    periodPoints: number;
+    fame: number;
     repairPoints: number;
     tag: string;
     participants?: CurrentRiverRaceParticipant[];

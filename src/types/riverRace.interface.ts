@@ -1,3 +1,5 @@
+import { PagingCursors } from "./common.interface";
+
 export enum RiverRaceState {
     CLAN_NOT_FOUND = "CLAN_NOT_FOUND",
     ACCESS_DENIED = "ACCESS_DENIED",
@@ -23,7 +25,7 @@ export interface RiverRaceParticipant {
     decksUsedToday: number;
 }
 
-export interface RiverRaceClan {
+export interface RiverRaceClanFromApi {
     tag: string;
     clanScore: number;
     badgeId: number;
@@ -57,8 +59,8 @@ export interface PeriodLog {
 
 export interface CurrentRiverRaceFromApi {
     state: RiverRaceState;
-    clan: RiverRaceClan;
-    clans: RiverRaceClan[];
+    clan: RiverRaceClanFromApi;
+    clans: RiverRaceClanFromApi[];
     collectionEndTime: string;
     warEndTime?: string;
     sectionIndex: number;
@@ -67,12 +69,13 @@ export interface CurrentRiverRaceFromApi {
     periodLogs: PeriodLog[];
 }
 
-export interface CurrentRiverRaceClan {
+export interface RiverRaceClan {
     clanScore: number;
     rank: number;
     name: string;
     badgeUrl: string;
     fame: number;
+    periodPoints: number;
     repairPoints: number;
     tag: string;
     participants?: CurrentRiverRaceParticipant[];
@@ -84,7 +87,7 @@ export interface CurrentRiverRace {
     state: RiverRaceState;
     periodType: RiverRacePeriodType;
     warEndTime: string | null;
-    clans: CurrentRiverRaceClan[];
+    clans: RiverRaceClan[];
 }
 
 export interface CurrentRiverRaceParticipant {
@@ -100,22 +103,28 @@ export interface CurrentRiverRaceParticipant {
 export interface RiverRaceLogStanding {
     rank: number;
     trophyChange: number;
-    clan: RiverRaceClan & { badgeUrl?: string };
+    clan: RiverRaceClanFromApi;
 }
 
-export interface RiverRaceLogItem {
+export interface RiverRaceLogItemFromApi {
     seasonId: number;
     sectionIndex: number;
     createdDate: string;
     standings: RiverRaceLogStanding[];
 }
+export interface RiverRaceLogItem {
+    seasonId: number;
+    sectionIndex: number;
+    createdDate: string;
+    standings: RiverRaceClan[];
+}
+
+export interface RiverRaceLogFromApi {
+    items: RiverRaceLogItemFromApi[];
+    paging: PagingCursors;
+}
 
 export interface RiverRaceLog {
     items: RiverRaceLogItem[];
-    paging: {
-        cursors: {
-            after?: string;
-            before?: string;
-        };
-    };
+    paging: PagingCursors;
 }

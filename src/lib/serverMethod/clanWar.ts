@@ -1,6 +1,6 @@
 import { CurrentRiverRace, RiverRaceLog } from "@/types/riverRace.interface";
 import { fetchApi } from "../fetchApi";
-import { mapCurrentRiverRace } from "../mapper/mapWar";
+import { mapCurrentRiverRace, mapRiverRaceHistory } from "../mapper/mapWar";
 
 export async function getCurrentRiverRace(
     tag: string
@@ -41,7 +41,11 @@ export async function getRiverRaceHistory(
         }
 
         const riverRaceHistoryFromApi = await response.json();
-        return riverRaceHistoryFromApi;
+        const RiverRaceHistory = mapRiverRaceHistory(
+            riverRaceHistoryFromApi,
+            `#${tag}`
+        );
+        return RiverRaceHistory;
     } catch (err) {
         throw new Error(`Failed to fetch river race history: ${err}`);
     }

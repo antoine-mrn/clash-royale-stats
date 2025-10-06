@@ -1,7 +1,8 @@
+import ClanParticipantList from "@/components/clanWar/ClanParticipantList";
+import ClanWarRow from "@/components/clanWar/ClanWarRow";
 import CardContainer from "@/components/shared/CardContainer";
 import CardHeaderContainer from "@/components/shared/CardHeaderContainer";
 import CardTitle from "@/components/ui/CardTitle";
-import RankMask from "@/components/ui/RankMask";
 import { getRiverRaceHistory } from "@/lib/serverMethod/clanWar";
 import Image from "next/image";
 
@@ -13,7 +14,10 @@ export default async function page({
     const { tag } = await params;
 
     const riverRaceHistory = await getRiverRaceHistory(tag, 2);
-    console.log("🚀 ~ page ~ riverRaceHistory:", riverRaceHistory);
+    console.log(
+        "🚀 ~ page ~ riverRaceHistory:",
+        riverRaceHistory.items[0].standings[0]
+    );
     return (
         <section className="max-w-7xl space-y-8 px-6 w-full mx-auto mt-6">
             {riverRaceHistory.items.map((riverRace, index) => (
@@ -31,24 +35,27 @@ export default async function page({
                             className="w-10"
                         />
                     </CardHeaderContainer>
-                    <ul className="list">
-                        {riverRace.standings.map((standing) => (
-                            <li key={standing.clan.tag} className="list-row">
-                                {/* <RankMask rank={standing.rank} /> */}
-                                <div className="collapse collapse-arrow join-item">
+                    <ul className="join join-vertical">
+                        {riverRace.standings.map((clan) => (
+                            <li
+                                key={clan.tag}
+                                className={`collapse ${
+                                    clan.participants ? "collapse-arrow" : ""
+                                } join-item border-b border-base-300`}
+                            >
+                                {clan.participants && (
                                     <input
-                                        type="radio"
+                                        type="checkbox"
                                         name="my-accordion-4"
-                                        defaultChecked
                                     />
-                                    <div className="collapse-title font-semibold">
-                                        How do I create an account?
-                                    </div>
-                                    <div className="collapse-content text-sm">
-                                        Click the "Sign Up" button in the top
-                                        right corner and follow the registration
-                                        process.
-                                    </div>
+                                )}
+                                <div className="collapse-title font-semibold flex items-center gap-4 p-4 pr-12">
+                                    <ClanWarRow clan={clan} />
+                                </div>
+                                <div className="collapse-content text-sm">
+                                    <ClanParticipantList
+                                        clanParticipant={clan.participants}
+                                    />
                                 </div>
                             </li>
                         ))}

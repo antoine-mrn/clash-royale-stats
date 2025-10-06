@@ -7,6 +7,7 @@ import CardTitle from "../ui/CardTitle";
 import RankMask from "../ui/RankMask";
 import Image from "next/image";
 import { CurrentRiverRaceClan } from "@/types/riverRace.interface";
+import ClanParticipantList from "./ClanParticipantList";
 
 export default function ClanParticipant({
     myClan,
@@ -26,7 +27,8 @@ export default function ClanParticipant({
                 />
             </CardHeaderContainer>
 
-            <ul className="list">
+            <ClanParticipantList clanParticipant={myClan?.participants} />
+            {/* <ul className="list">
                 {myClan?.participants?.map((participant, index) => (
                     <li key={participant.tag} className="list-row">
                         <RankMask rank={index + 1} />
@@ -69,7 +71,7 @@ export default function ClanParticipant({
                         </div>
                     </li>
                 ))}
-            </ul>
+            </ul> */}
         </CardContainer>
     );
 }

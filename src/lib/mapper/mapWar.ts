@@ -1,45 +1,20 @@
 import {
     CurrentRiverRace,
     CurrentRiverRaceFromApi,
+    RiverRaceClan,
+    RiverRaceClanFromApi,
     RiverRaceLog,
+    RiverRaceLogFromApi,
+    RiverRaceLogItem,
+    RiverRaceLogItemFromApi,
 } from "@/types/riverRace.interface";
 import { getBadgeUrl } from "../services/badge.service";
+import { sanitizeTag } from "@/utils/stringMethods";
 
 export function mapCurrentRiverRace(
     riverRace: CurrentRiverRaceFromApi
 ): CurrentRiverRace {
-    const clans = riverRace.clans
-        .map((clan) => {
-            const baseCurrentRiverRaceClan = {
-                clanScore: clan.clanScore,
-                name: clan.name,
-                badgeUrl: getBadgeUrl(clan.badgeId),
-                fame: clan.fame,
-                repairPoints: clan.repairPoints,
-                tag: clan.tag,
-                numberParticipants: clan.participants.length,
-            };
-
-            if (clan.tag === riverRace.clan.tag) {
-                return {
-                    ...baseCurrentRiverRaceClan,
-                    participants: [...clan.participants].sort(
-                        (a, b) => b.fame - a.fame
-                    ),
-                    isMyClan: true,
-                };
-            }
-
-            return {
-                ...baseCurrentRiverRaceClan,
-                isMyClan: false,
-            };
-        })
-        .sort((a, b) => b.fame - a.fame)
-        .map((clan, index) => ({
-            ...clan,
-            rank: index + 1,
-        }));
+    const clans = mapAndRankClans(riverRace.clans, riverRace.clan.tag);
 
     return {
         state: riverRace.state,
@@ -50,19 +25,67 @@ export function mapCurrentRiverRace(
 }
 
 export function mapRiverRaceHistory(
-    riverRaceHistory: RiverRaceLog
+    riverRaceHistory: RiverRaceLogFromApi,
+    myClanTag: string
 ): RiverRaceLog {
     return {
-        ...riverRaceHistory,
-        items: riverRaceHistory.items.map((item) => ({
-            ...item,
-            standings: item.standings.map((standing) => ({
-                ...standing,
-                clan: {
-                    ...standing.clan,
-                    badgeUrl: getBadgeUrl(standing.clan.badgeId),
-                },
-            })),
-        })),
+        paging: riverRaceHistory.paging,
+        items: riverRaceHistory.items.map((item) =>
+            mapRiverRaceLogItem(item, myClanTag)
+        ),
+    };
+}
+
+function mapClanToUnifiedFormat(
+    clan: RiverRaceClanFromApi,
+    myClanTag: string,
+    rank?: number
+): RiverRaceClan {
+    const baseCurrentRiverRaceClan = {
+        clanScore: clan.clanScore,
+        rank: rank ?? 0,
+        name: clan.name,
+        badgeUrl: getBadgeUrl(clan.badgeId),
+        fame: clan.fame,
+        repairPoints: clan.repairPoints,
+        tag: clan.tag,
+        numberParticipants: clan.participants.length,
+        periodPoints: clan.periodPoints ?? 0,
+        isMyClan: clan.tag === myClanTag,
+    };
+
+    if (myClanTag && clan.tag === myClanTag) {
+        return {
+            ...baseCurrentRiverRaceClan,
+            participants: [...clan.participants].sort(
+                (a, b) => b.fame - a.fame
+            ),
+        };
+    }
+
+    return baseCurrentRiverRaceClan;
+}
+
+function mapAndRankClans(clans: RiverRaceClanFromApi[], myClanTag: string) {
+    return clans
+        .map((clan) => mapClanToUnifiedFormat(clan, myClanTag))
+        .sort((a, b) => b.fame - a.fame)
+        .map((clan, index) => ({
+            ...clan,
+            rank: index + 1,
+        }));
+}
+
+function mapRiverRaceLogItem(
+    item: RiverRaceLogItemFromApi,
+    myClanTag: string
+): RiverRaceLogItem {
+    return {
+        seasonId: item.seasonId,
+        sectionIndex: item.sectionIndex,
+        createdDate: item.createdDate,
+        standings: item.standings.map((standing) =>
+            mapClanToUnifiedFormat(standing.clan, myClanTag, standing.rank)
+        ),
     };
 }

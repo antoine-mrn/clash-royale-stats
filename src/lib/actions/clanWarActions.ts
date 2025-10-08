@@ -8,6 +8,5 @@ export async function loadMoreRiverRaceHistory(
     limit: number,
     after?: string
 ): Promise<RiverRaceLog> {
-    console.log("🚀 ~ loadMoreRiverRaceHistory ~ after:", after);
     return await getRiverRaceHistory(tag, limit, after);
 }

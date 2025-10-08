@@ -8,8 +8,8 @@ import ClanParticipantList from "./ClanParticipantList";
 import ClanWarRow from "./ClanWarRow";
 import Image from "next/image";
 import { useState, useTransition } from "react";
-import { getRiverRaceHistory } from "@/lib/serverMethod/clanWar";
 import { loadMoreRiverRaceHistory } from "@/lib/actions/clanWarActions";
+import { Span } from "next/dist/trace";
 
 interface ClanWarListProps {
     tag: string;
@@ -23,17 +23,23 @@ export default function ClanWarList({ tag, initialData }: ClanWarListProps) {
     const [nextAfter, setNextAfter] = useState<string | undefined>(
         initialData.paging.cursors.after
     );
+    const [error, setError] = useState<string>("");
 
     const handleMoreRiverRace = () => {
         startTransition(async () => {
-            const newData = await loadMoreRiverRaceHistory(
-                tag,
-                LIMIT_ITEMS,
-                nextAfter
-            );
+            try {
+                const newData = await loadMoreRiverRaceHistory(
+                    tag,
+                    LIMIT_ITEMS,
+                    nextAfter
+                );
 
-            setItems((prev) => [...prev, ...newData.items]);
-            setNextAfter(newData.paging?.cursors?.after);
+                setItems((prev) => [...prev, ...newData.items]);
+                setNextAfter(newData.paging?.cursors?.after);
+                setError("");
+            } catch (error) {
+                setError("An error was occured");
+            }
         });
     };
 
@@ -86,20 +92,29 @@ export default function ClanWarList({ tag, initialData }: ClanWarListProps) {
                 ))}
             </section>
 
-            <button
-                onClick={handleMoreRiverRace}
-                disabled={isPending}
-                className="btn btn-primary mx-auto flex items-center justify-center gap-2 w-[140px]"
-            >
-                {isPending ? (
-                    <>
-                        <span className="loading loading-spinner loading-sm" />
-                        <span>Loading...</span>
-                    </>
-                ) : (
-                    <span>Load more</span>
+            <div className="space-y-2">
+                {nextAfter && (
+                    <button
+                        onClick={handleMoreRiverRace}
+                        disabled={isPending}
+                        className="btn btn-primary mx-auto flex items-center justify-center gap-2 w-[140px]"
+                    >
+                        {isPending ? (
+                            <>
+                                <span className="loading loading-spinner loading-sm" />
+                                <span>Loading...</span>
+                            </>
+                        ) : (
+                            <span>Load more</span>
+                        )}
+                    </button>
                 )}
-            </button>
+                {error && (
+                    <span className="text-sm text-center block font-semibold text-error">
+                        {error}
+                    </span>
+                )}
+            </div>
         </>
     );
 }

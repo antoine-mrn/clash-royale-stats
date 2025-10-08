@@ -2,7 +2,7 @@ import CardContainer from "../shared/CardContainer";
 import CardHeaderContainer from "../shared/CardHeaderContainer";
 import CardTitle from "../ui/CardTitle";
 import Image from "next/image";
-import { CardPreview, Deck, SupportCardPreview } from "@/types/card.interface";
+import { Deck, SupportCardPreview } from "@/types/card.interface";
 import DeckList from "../deck/DeckList";
 import DeckStats from "../deck/DeckStats";
 

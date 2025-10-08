@@ -2,7 +2,6 @@ import CardContainer from "../shared/CardContainer";
 import CardHeaderContainer from "../shared/CardHeaderContainer";
 import CardTitle from "../ui/CardTitle";
 import Image from "next/image";
-import { Location } from "@/types/location.interface";
 import ListRow from "../shared/ListRow";
 
 interface ClanInfoPorps {

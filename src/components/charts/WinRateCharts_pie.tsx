@@ -1,13 +1,6 @@
 "use client";
 
-import {
-    Label,
-    Pie,
-    PieChart,
-    ResponsiveContainer,
-    Sector,
-    SectorProps,
-} from "recharts";
+import { Label, Pie, PieChart, ResponsiveContainer, Sector } from "recharts";
 import { PieSectorDataItem } from "recharts/types/polar/Pie";
 
 const renderActiveShape = ({

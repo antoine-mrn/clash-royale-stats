@@ -1,12 +1,10 @@
 import PlayerBadges from "@/components/player/PlayerBadges";
 import PlayerClanStats from "@/components/player/PlayerClanStats";
 import PlayerCurrentDeck from "@/components/player/PlayerCurrentDeck";
-import PlayerHero from "@/components/player/PlayerHero";
 import PlayerLeagueResult from "@/components/player/PlayerLeagueResult";
 import PlayerPerformance from "@/components/player/PlayerPerformance";
 import PlayerRecentBattlePreview from "@/components/player/PlayerRecentBattlePreview";
 import PlayerStats from "@/components/player/PlayerStats";
-import SearchForm from "@/components/search/SearchForm";
 import { getPlayer } from "@/lib/serverMethod/player";
 import getPlayerBattlelog from "@/lib/serverMethod/playerBattlelog";
 import { PlayerBattleStats } from "@/types/player.interface";

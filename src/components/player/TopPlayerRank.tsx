@@ -5,7 +5,6 @@ import CardContainer from "../shared/CardContainer";
 import CardTitle from "../ui/CardTitle";
 import { sanitizeTag } from "@/utils/stringMethods";
 import CardHeaderContainer from "../shared/CardHeaderContainer";
-import { getRankingBgClass } from "@/utils/badgeClass";
 import RankMask from "../ui/RankMask";
 
 export default function TopPlayerRank({

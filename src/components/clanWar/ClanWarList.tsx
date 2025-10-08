@@ -9,7 +9,6 @@ import ClanWarRow from "./ClanWarRow";
 import Image from "next/image";
 import { useState, useTransition } from "react";
 import { loadMoreRiverRaceHistory } from "@/lib/actions/clanWarActions";
-import { Span } from "next/dist/trace";
 
 interface ClanWarListProps {
     tag: string;

@@ -1,11 +1,9 @@
 import { ClanLeaderboard } from "@/types/clan.interface";
 import Image from "next/image";
 import Link from "next/link";
-import CardListWrapper from "../shared/CardListWrapper";
 import CardTitle from "../ui/CardTitle";
 import CardContainer from "../shared/CardContainer";
 import CardHeaderContainer from "../shared/CardHeaderContainer";
-import { getRankingBgClass } from "@/utils/badgeClass";
 import RankMask from "../ui/RankMask";
 import { sanitizeTag } from "@/utils/stringMethods";
 

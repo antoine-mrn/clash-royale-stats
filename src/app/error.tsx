@@ -23,6 +23,7 @@ export default function Error({
                 height={640}
                 className="w-64"
             />
+            <h1 className="text-xl font-bold">{error.message}</h1>
             <div className="space-x-4">
                 <button onClick={reset} className="px-6 py-3 btn btn-info">
                     Retry

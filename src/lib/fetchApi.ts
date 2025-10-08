@@ -2,20 +2,19 @@ import { notFound } from "next/navigation";
 import { ApiError } from "./errors/error";
 
 export async function fetchApi(endpoint: string, options: RequestInit = {}) {
+    const response = await fetch(`${process.env.CR_BASE_URL}${endpoint}`, {
+        ...options,
+        headers: {
+            Authorization: `Bearer ${process.env.CR_API_KEY}`,
+            "Content-Type": "application/json",
+            ...options.headers,
+        },
+    });
+
+    if (response.status === 404) {
+        notFound();
+    }
     try {
-        const response = await fetch(`${process.env.CR_BASE_URL}${endpoint}`, {
-            ...options,
-            headers: {
-                Authorization: `Bearer ${process.env.CR_API_KEY}`,
-                "Content-Type": "application/json",
-                ...options.headers,
-            },
-        });
-
-        if (response.status === 404) {
-            notFound();
-        }
-
         if (!response.ok) {
             console.error({
                 path: endpoint,

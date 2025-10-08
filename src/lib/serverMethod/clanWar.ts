@@ -29,12 +29,12 @@ export async function getRiverRaceHistory(
     after?: string
 ): Promise<RiverRaceLog> {
     try {
-        const response = await fetchApi(
-            `/clans/%23${tag}/riverracelog?limit=${limit}`,
-            {
-                next: { revalidate: 600 },
-            }
-        );
+        let query = `/clans/%23${tag}/riverracelog?limit=${limit}`;
+        if (after) query += `&after=${after}`;
+
+        const response = await fetchApi(query, {
+            next: { revalidate: 600 },
+        });
 
         if (!response.ok) {
             throw new Error("Failed to fetch river race history");

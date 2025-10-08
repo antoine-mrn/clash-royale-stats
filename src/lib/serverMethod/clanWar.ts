@@ -5,22 +5,14 @@ import { mapCurrentRiverRace, mapRiverRaceHistory } from "../mapper/mapWar";
 export async function getCurrentRiverRace(
     tag: string
 ): Promise<CurrentRiverRace> {
-    try {
-        const response = await fetchApi(`/clans/%23${tag}/currentriverrace`, {
-            next: { revalidate: 600 },
-        });
+    const response = await fetchApi(`/clans/%23${tag}/currentriverrace`, {
+        next: { revalidate: 600 },
+    });
 
-        if (!response.ok) {
-            throw new Error("Failed to fetch river race");
-        }
+    const riverRaceFromApi = await response.json();
+    const riverRace = mapCurrentRiverRace(riverRaceFromApi);
 
-        const riverRaceFromApi = await response.json();
-        const riverRace = mapCurrentRiverRace(riverRaceFromApi);
-
-        return riverRace;
-    } catch (err) {
-        throw new Error(`Failed to fetch river race: ${err}`);
-    }
+    return riverRace;
 }
 
 export async function getRiverRaceHistory(
@@ -28,25 +20,17 @@ export async function getRiverRaceHistory(
     limit: number,
     after?: string
 ): Promise<RiverRaceLog> {
-    try {
-        let query = `/clans/%23${tag}/riverracelog?limit=${limit}`;
-        if (after) query += `&after=${after}`;
+    let query = `/clans/%23${tag}/riverracelog?limit=${limit}`;
+    if (after) query += `&after=${after}`;
 
-        const response = await fetchApi(query, {
-            next: { revalidate: 600 },
-        });
+    const response = await fetchApi(query, {
+        next: { revalidate: 600 },
+    });
 
-        if (!response.ok) {
-            throw new Error("Failed to fetch river race history");
-        }
-
-        const riverRaceHistoryFromApi = await response.json();
-        const RiverRaceHistory = mapRiverRaceHistory(
-            riverRaceHistoryFromApi,
-            `#${tag}`
-        );
-        return RiverRaceHistory;
-    } catch (err) {
-        throw new Error(`Failed to fetch river race history: ${err}`);
-    }
+    const riverRaceHistoryFromApi = await response.json();
+    const RiverRaceHistory = mapRiverRaceHistory(
+        riverRaceHistoryFromApi,
+        `#${tag}`
+    );
+    return RiverRaceHistory;
 }

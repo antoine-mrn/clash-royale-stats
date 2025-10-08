@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { ApiError } from "@/types/error";
+import { ApiError } from "./errors/error";
 
 export async function fetchApi(endpoint: string, options: RequestInit = {}) {
     try {

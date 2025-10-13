@@ -75,6 +75,7 @@ export interface Player {
     challengeCardsWon: number;
     lastPathOfLegendSeasonResult: PathOfLegendResult;
     bestPathOfLegendSeasonResult: PathOfLegendResult;
+    currentPathOfLegendSeasonResult: PathOfLegendResult;
     clan: {
         name: string | null;
         tag: string | null;

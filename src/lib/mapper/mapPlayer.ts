@@ -30,6 +30,8 @@ export function mapPlayer(playerFromApi: PlayerFromApi): Player {
             playerFromApi.lastPathOfLegendSeasonResult,
         bestPathOfLegendSeasonResult:
             playerFromApi.bestPathOfLegendSeasonResult,
+        currentPathOfLegendSeasonResult:
+            playerFromApi.currentPathOfLegendSeasonResult,
         clan: {
             name: playerFromApi.clan?.name ?? null,
             tag: playerFromApi.clan?.tag ?? null,

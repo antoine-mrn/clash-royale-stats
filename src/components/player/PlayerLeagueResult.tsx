@@ -8,11 +8,13 @@ import Image from "next/image";
 interface PlayerLeagueResultProps {
     lastPathOfLegendSeasonResult: PathOfLegendResult;
     bestPathOfLegendSeasonResult: PathOfLegendResult;
+    currentPathOfLegendSeasonResult: PathOfLegendResult;
 }
 
 export default function PlayerLeagueResult({
     lastPathOfLegendSeasonResult,
     bestPathOfLegendSeasonResult,
+    currentPathOfLegendSeasonResult,
 }: PlayerLeagueResultProps) {
     return (
         <CardContainer>
@@ -27,37 +29,65 @@ export default function PlayerLeagueResult({
                 />
             </CardHeaderContainer>
 
-            <h3 className="text-lg px-4 font-bold mt-4">Last season</h3>
-            <ul className="list">
-                <ListRow
-                    label="League"
-                    value={lastPathOfLegendSeasonResult.leagueNumber}
-                />
-                <ListRow
-                    label="Trophies"
-                    value={lastPathOfLegendSeasonResult.trophies ?? "0"}
-                />
-                <ListRow
-                    label="Rank"
-                    value={lastPathOfLegendSeasonResult.rank ?? "Not ranked"}
-                />
-            </ul>
+            <article className="mt-4">
+                <h3 className="text-lg px-4 font-bold">Current season</h3>
+                <ul className="list">
+                    <ListRow
+                        label="League"
+                        value={currentPathOfLegendSeasonResult.leagueNumber}
+                    />
+                    <ListRow
+                        label="Trophies"
+                        value={currentPathOfLegendSeasonResult.trophies ?? "0"}
+                    />
+                    <ListRow
+                        label="Rank"
+                        value={
+                            currentPathOfLegendSeasonResult.rank ?? "Not ranked"
+                        }
+                    />
+                </ul>
+            </article>
 
-            <h3 className="text-lg px-4 font-bold mt-4">Best season</h3>
-            <ul className="list">
-                <ListRow
-                    label="League"
-                    value={bestPathOfLegendSeasonResult.leagueNumber}
-                />
-                <ListRow
-                    label="Trophies"
-                    value={bestPathOfLegendSeasonResult.trophies ?? "0"}
-                />
-                <ListRow
-                    label="Rank"
-                    value={bestPathOfLegendSeasonResult.rank ?? "Not ranked"}
-                />
-            </ul>
+            <article className="mt-4">
+                <h3 className="text-lg px-4 font-bold">Last season</h3>
+                <ul className="list">
+                    <ListRow
+                        label="League"
+                        value={lastPathOfLegendSeasonResult.leagueNumber}
+                    />
+                    <ListRow
+                        label="Trophies"
+                        value={lastPathOfLegendSeasonResult.trophies ?? "0"}
+                    />
+                    <ListRow
+                        label="Rank"
+                        value={
+                            lastPathOfLegendSeasonResult.rank ?? "Not ranked"
+                        }
+                    />
+                </ul>
+            </article>
+            <article className="mt-4">
+                {" "}
+                <h3 className="text-lg px-4 font-bold">Best season</h3>
+                <ul className="list">
+                    <ListRow
+                        label="League"
+                        value={bestPathOfLegendSeasonResult.leagueNumber}
+                    />
+                    <ListRow
+                        label="Trophies"
+                        value={bestPathOfLegendSeasonResult.trophies ?? "0"}
+                    />
+                    <ListRow
+                        label="Rank"
+                        value={
+                            bestPathOfLegendSeasonResult.rank ?? "Not ranked"
+                        }
+                    />
+                </ul>
+            </article>
         </CardContainer>
     );
 }

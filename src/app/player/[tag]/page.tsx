@@ -63,6 +63,13 @@ export default async function page({
                     bestPathOfLegendSeasonResult={
                         player.bestPathOfLegendSeasonResult
                     }
+                    currentPathOfLegendSeasonResult={
+                        player.currentPathOfLegendSeasonResult
+                    }
+                />
+                <PlayerRecentBattlePreview
+                    battlelog={playerBattlelog}
+                    tag={tag}
                 />
 
                 <PlayerBadges badges={player.badges} />
@@ -70,11 +77,6 @@ export default async function page({
                 <PlayerCurrentDeck
                     deck={player.currentDeck}
                     supportCard={player.currentDeckSupportCards}
-                />
-
-                <PlayerRecentBattlePreview
-                    battlelog={playerBattlelog}
-                    tag={tag}
                 />
             </section>
         </div>

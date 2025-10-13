@@ -41,9 +41,9 @@ export default function PlayerBadges({ badges }: PlayerBadgesProps) {
                 ))}
             </ul>
 
-            <button className="btn btn-soft btn-secondary mx-2 mt-auto mb-2">
+            {/* <button className="btn btn-soft btn-secondary mx-2 mt-auto mb-2">
                 View all badges
-            </button>
+            </button> */}
         </CardContainer>
     );
 }

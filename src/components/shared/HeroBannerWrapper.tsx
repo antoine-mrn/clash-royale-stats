@@ -18,7 +18,7 @@ export default function HeroBannerWrapper({
         >
             <div className="hero-overlay bg-neutral-900/85"></div>
             <div className="hero-content justify-between w-full max-w-4xl">
-                <div>{children}</div>
+                <div className="w-full">{children}</div>
             </div>
         </div>
     );

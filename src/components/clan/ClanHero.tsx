@@ -1,6 +1,9 @@
+"use client";
+
 import HeroBannerWrapper from "../shared/HeroBannerWrapper";
 import Image from "next/image";
 import Badge from "../ui/Badge";
+import FavoriteButton from "../ui/FavoriteButton";
 
 interface ClanHeroProps {
     name: string;
@@ -34,6 +37,12 @@ export default function ClanHero({
                     <span className="mb-4 text-primary font-extrabold text-4xl text-shadow-lg/30 md:text-6xl">
                         {name}
                     </span>
+                    <FavoriteButton
+                        className="ml-auto"
+                        tag={tag}
+                        name={name}
+                        store="favoritesClan"
+                    />
                 </div>
                 <span className="text-neutral-content block mb-2">{tag}</span>
 

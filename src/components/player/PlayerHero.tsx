@@ -1,7 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import HeroBannerWrapper from "../shared/HeroBannerWrapper";
 import { sanitizeTag } from "@/utils/stringMethods";
+import FavoriteButton from "../ui/FavoriteButton";
 interface PlayerHeroProps {
     name: string;
     level: number;
@@ -35,6 +38,12 @@ export default function PlayerHero({
                         {level}
                     </span>
                 </div>
+                <FavoriteButton
+                    className="ml-auto"
+                    tag={tag}
+                    name={name}
+                    store="favoritesPlayer"
+                />
             </div>
             <span className="text-neutral-content text-lg block">{tag}</span>
             {clanTag && (

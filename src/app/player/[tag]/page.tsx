@@ -67,6 +67,7 @@ export default async function page({
                         player.currentPathOfLegendSeasonResult
                     }
                 />
+
                 <PlayerRecentBattlePreview
                     battlelog={playerBattlelog}
                     tag={tag}

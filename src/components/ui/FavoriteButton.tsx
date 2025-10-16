@@ -1,3 +1,6 @@
+"use client";
+
+import useIsMounted from "@/hooks/useIsMounted";
 import useLocalStorage from "@/hooks/useLocalStorage";
 import { HeartMinus, HeartPlus } from "lucide-react";
 
@@ -14,7 +17,7 @@ export default function FavoriteButton({
     store,
     className,
 }: FavoriteButtonInterface) {
-    console.log("🚀 ~ FavoriteButton ~ store:", store);
+    const isMounted = useIsMounted();
     const [items, setValue] = useLocalStorage(store);
     const isFavorite = items.some((item) => item.tag === tag);
 
@@ -22,6 +25,8 @@ export default function FavoriteButton({
         if (isFavorite) setValue(items.filter((item) => item.tag !== tag));
         else setValue([...items, { tag, name }]);
     }
+
+    if (!isMounted) return null;
 
     return (
         <div

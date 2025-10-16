@@ -1,15 +1,16 @@
+import { FavoriteItem } from "@/types/favorite.interface";
 import { useState, useEffect, useCallback } from "react";
-
-type FavoriteItem = { tag: string; name: string };
 
 const useLocalStorage = (
     key: string
 ): [FavoriteItem[], (value: FavoriteItem[]) => void, () => void] => {
     const [state, setState] = useState<FavoriteItem[]>(() => {
+        if (typeof window === "undefined") return [];
         try {
             const item = localStorage.getItem(key);
             return item ? JSON.parse(item) : [];
-        } catch {
+        } catch (error) {
+            console.error("Error reading localStorage:", error);
             return [];
         }
     });

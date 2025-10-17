@@ -1,5 +1,6 @@
 "use client";
 
+import { isValidTag, sanitizeTag } from "@/utils/stringMethods";
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 
@@ -13,14 +14,15 @@ export default function SearchForm() {
 
         const formData = new FormData(e.currentTarget);
         const type = (formData.get("type") as string).toLowerCase();
-        const tag = (formData.get("tag") as string).trim().toUpperCase();
+        const rawTag = (formData.get("tag") as string).trim();
+        const tag = sanitizeTag(rawTag);
 
         if (!tag) {
             setError("Tag is required");
             return;
         }
 
-        if (tag.length < 8 || !/^[A-Z0-9]+$/.test(tag)) {
+        if (!isValidTag(tag)) {
             setError("Invalid tag format");
             return;
         }

@@ -1,10 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import HeroBannerWrapper from "../shared/HeroBannerWrapper";
-import { sanitizeTag } from "@/utils/stringMethods";
 import FavoriteButton from "../ui/FavoriteButton";
+import TagLink from "../shared/TagLink";
 interface PlayerHeroProps {
     name: string;
     level: number;
@@ -47,12 +46,13 @@ export default function PlayerHero({
             </div>
             <span className="text-neutral-content text-lg block">{tag}</span>
             {clanTag && (
-                <Link
-                    href={`/clan/${sanitizeTag(clanTag)}`}
+                <TagLink
+                    type="clan"
+                    tag={clanTag}
                     className="link link-hover link-primary text-base-100 text-lg"
                 >
                     {clanName} <span className="font-bold text-xl">›</span>
-                </Link>
+                </TagLink>
             )}
         </HeroBannerWrapper>
     );

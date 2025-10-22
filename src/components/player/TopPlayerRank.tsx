@@ -6,6 +6,7 @@ import CardTitle from "../ui/CardTitle";
 import { sanitizeTag } from "@/utils/stringMethods";
 import CardHeaderContainer from "../shared/CardHeaderContainer";
 import RankMask from "../ui/RankMask";
+import TagLink from "../shared/TagLink";
 
 export default function TopPlayerRank({
     playerLeaderboard,
@@ -30,12 +31,11 @@ export default function TopPlayerRank({
                     <li key={player.tag} className="list-row">
                         <RankMask rank={player.rank} />
                         <div className="list-col-grow flex flex-col justify-center gap-2">
-                            <Link
-                                href={`player/${sanitizeTag(player.tag)}`}
-                                className="font-bold link link-hover hover:link-primary"
-                            >
+                            <TagLink type="player" tag={player.tag}>
                                 {player.name}
-                            </Link>
+                            </TagLink>
+
+                            {/* TODO: Voir pour ce lien */}
                             {player?.clan?.name && (
                                 <Link
                                     href={`clan/${sanitizeTag(

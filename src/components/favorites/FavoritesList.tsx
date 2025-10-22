@@ -1,7 +1,6 @@
 import { FavoriteItem } from "@/types/favorite.interface";
-import { sanitizeTag } from "@/utils/stringMethods";
 import { Trash2Icon } from "lucide-react";
-import Link from "next/link";
+import TagLink from "../shared/TagLink";
 
 type typeStorage = "player" | "clan";
 
@@ -22,12 +21,9 @@ export default function FavoritesList({
             className="list-row flex justify-between items-center hover:bg-primary/10"
         >
             <div>
-                <Link
-                    className="font-semibold text-primary link link-hover"
-                    href={`/${type}/${sanitizeTag(item.tag)}`}
-                >
+                <TagLink type="player" tag={item.tag} className="text-primary">
                     {item.name}
-                </Link>
+                </TagLink>
                 <p className="text-sm opacity-70">{item.tag}</p>
             </div>
             <button

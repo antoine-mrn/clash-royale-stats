@@ -1,11 +1,10 @@
 import { ClanLeaderboard } from "@/types/clan.interface";
 import Image from "next/image";
-import Link from "next/link";
 import CardTitle from "../ui/CardTitle";
 import CardContainer from "../shared/CardContainer";
 import CardHeaderContainer from "../shared/CardHeaderContainer";
 import RankMask from "../ui/RankMask";
-import { sanitizeTag } from "@/utils/stringMethods";
+import TagLink from "../shared/TagLink";
 
 export default function TopClanRank({
     clanLeaderboard,
@@ -30,12 +29,9 @@ export default function TopClanRank({
                     <li key={clan.tag} className="list-row">
                         <RankMask rank={clan.rank} />
                         <div className="list-col-grow flex flex-col justify-center gap-2">
-                            <Link
-                                href={`clan/${sanitizeTag(clan.tag)}`}
-                                className="font-bold link link-hover hover:link-primary"
-                            >
+                            <TagLink type="clan" tag={clan.tag}>
                                 {clan.name}
-                            </Link>
+                            </TagLink>
                             <p className="text-xs uppercase font-semibold opacity-60">
                                 {clan.members} members
                             </p>

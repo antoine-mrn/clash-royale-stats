@@ -1,8 +1,7 @@
 import { CurrentRiverRaceParticipant } from "@/types/riverRace.interface";
 import RankMask from "../ui/RankMask";
-import Link from "next/link";
-import { sanitizeTag } from "@/utils/stringMethods";
 import Badge from "../ui/Badge";
+import TagLink from "../shared/TagLink";
 
 export default function ClanParticipantList({
     clanParticipant,
@@ -15,12 +14,9 @@ export default function ClanParticipantList({
                 <li key={participant.tag} className="list-row">
                     <RankMask rank={index + 1} />
                     <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                        <Link
-                            href={`/player/${sanitizeTag(participant.tag)}`}
-                            className="font-bold link link-hover hover:link-primary"
-                        >
+                        <TagLink type="player" tag={participant.tag}>
                             {participant.name}
-                        </Link>
+                        </TagLink>
                         <div className="flex flex-wrap gap-2 sm:gap-4">
                             <Badge
                                 badgeUrl="/period-points-icon.png"

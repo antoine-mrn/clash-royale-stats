@@ -1,9 +1,8 @@
-import { sanitizeTag } from "@/utils/stringMethods";
-import Link from "next/link";
 import Badge from "../ui/Badge";
 import RankMask from "../ui/RankMask";
 import Image from "next/image";
 import { RiverRaceClan } from "@/types/riverRace.interface";
+import TagLink from "../shared/TagLink";
 
 export default function ClanWarRow({ clan }: { clan: RiverRaceClan }) {
     return (
@@ -20,12 +19,9 @@ export default function ClanWarRow({ clan }: { clan: RiverRaceClan }) {
                             className="object-contain"
                         />
                     </div>
-                    <Link
-                        href={`/clan/${sanitizeTag(clan.tag)}`}
-                        className="font-bold link link-hover hover:link-primary"
-                    >
+                    <TagLink type="clan" tag={clan.tag}>
                         {clan.name}
-                    </Link>
+                    </TagLink>
                 </div>
                 <div className="flex gap-4 sm:ml-auto">
                     <Badge

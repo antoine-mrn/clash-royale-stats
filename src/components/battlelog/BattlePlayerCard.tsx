@@ -1,8 +1,7 @@
-import Link from "next/link";
 import DeckList from "../deck/DeckList";
 import { BattlePlayer } from "@/types/battle.interface";
 import DeckStats from "../deck/DeckStats";
-import { sanitizeTag } from "@/utils/stringMethods";
+import TagLink from "../shared/TagLink";
 
 interface BattlePlayerCardProps {
     battlePlayer: BattlePlayer[];
@@ -29,19 +28,17 @@ export default function BattlePlayerCard({
                             isOpponent && "place-self-end items-end"
                         }`}
                     >
-                        <Link
-                            href={`/player/${sanitizeTag(player.tag)}`}
-                            className="font-semibold hover:text-primary"
-                        >
+                        <TagLink type="player" tag={player.tag}>
                             {player.name}
-                        </Link>
+                        </TagLink>
                         {player.clanTag ? (
-                            <Link
-                                href={`/clan/${sanitizeTag(player.clanTag)}`}
-                                className="text-blue-500 hover:text-blue-800"
+                            <TagLink
+                                type="clan"
+                                tag={player.clanTag}
+                                className="text-info hover:text-primary"
                             >
                                 {player.clanName}
-                            </Link>
+                            </TagLink>
                         ) : (
                             <p className="text-base-content/50">No clan</p>
                         )}

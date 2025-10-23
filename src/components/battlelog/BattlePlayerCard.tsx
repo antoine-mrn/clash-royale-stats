@@ -15,7 +15,7 @@ export default function BattlePlayerCard({
     return (
         <section
             className={`card rounded-box grid grow ${
-                isOpponent ? "bg-red-50" : "bg-blue-50"
+                isOpponent ? "bg-error/10" : "bg-primary/10"
             }`}
         >
             {battlePlayer.map((player, index) => (

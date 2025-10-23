@@ -44,8 +44,8 @@ export default function PlayerRecentBattlePreview({
                             <span
                                 className={`badge font-semibold ${
                                     battle.result === "win"
-                                        ? "bg-blue-50"
-                                        : "bg-red-50"
+                                        ? "bg-primary/10"
+                                        : "bg-error/10"
                                 }`}
                             >
                                 {battle.team.crowns} - {battle.opponent.crowns}

@@ -1,6 +1,7 @@
 import { Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import ThemeToggle from "../ui/ThemeToggle";
 
 export default function Header() {
     return (
@@ -29,6 +30,7 @@ export default function Header() {
                         Favorites
                     </span>
                 </Link>
+                <ThemeToggle className="ml-4" />
             </nav>
         </header>
     );

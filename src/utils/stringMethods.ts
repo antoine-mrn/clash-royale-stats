@@ -9,10 +9,6 @@ export const splitString = (str: string): string => {
 };
 
 export const sanitizeTag = (tag: string): string =>
-    tag
-        .replace(/^#/, "")
-        .toUpperCase()
-        .replace(new RegExp(`[^${TAG_CHARS}]`, "g"), "");
+    tag.replace(/^#/, "").toUpperCase();
 
-export const isValidTag = (tag: string): boolean =>
-    TAG_REGEX.test(sanitizeTag(tag));
+export const isValidTag = (tag: string): boolean => TAG_REGEX.test(tag);

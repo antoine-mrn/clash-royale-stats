@@ -1,10 +1,25 @@
+"use client";
+
+import { useTheme } from "@/context/ThemeContext";
+import { useState } from "react";
+
 export default function ThemeToggle({ className }: { className: string }) {
+    const { changeTheme } = useTheme();
+    const [checked, setChecked] = useState(false);
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const isChecked = e.target.checked;
+        setChecked(isChecked);
+
+        isChecked ? changeTheme("dark") : changeTheme("cmyk");
+    };
     return (
         <label className={`swap swap-rotate ${className}`}>
-            {/* this hidden checkbox controls the state */}
             <input
                 type="checkbox"
                 className="theme-controller"
+                checked={checked}
+                onChange={handleChange}
                 value="synthwave"
             />
 

@@ -33,7 +33,10 @@ export default function SearchForm() {
     return (
         <form onSubmit={handleSubmit} className="max-w-4xl mx-auto px-6">
             <div className="flex gap-2">
-                <select name="type" className="select select-primary w-auto">
+                <select
+                    name="type"
+                    className="select select-primary w-auto rounded-lg"
+                >
                     <option>Player</option>
                     <option>Clan</option>
                 </select>
@@ -41,9 +44,12 @@ export default function SearchForm() {
                     type="text"
                     name="tag"
                     placeholder="Your player or clan tag, ex: 8VLPULUYR"
-                    className="input input-primary w-full"
+                    className="input input-primary w-full rounded-lg"
                 />
-                <button type="submit" className="btn btn-soft btn-primary">
+                <button
+                    type="submit"
+                    className="btn btn-soft btn-primary rounded-lg"
+                >
                     Search
                 </button>
             </div>

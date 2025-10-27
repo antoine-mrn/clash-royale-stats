@@ -9,7 +9,7 @@ export default function CardContainer({
 }: CardContainerProps) {
     return (
         <div
-            className={`bg-base-100 rounded-box shadow-md flex flex-col ${className}`}
+            className={`bg-base-100 shadow-md flex flex-col rounded-2xl ${className}`}
         >
             {children}
         </div>

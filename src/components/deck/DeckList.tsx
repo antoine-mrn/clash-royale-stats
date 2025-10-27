@@ -38,10 +38,10 @@ export default function DeckList({
                             height={420}
                         />
                         <div>
-                            <p className="text-sm font-semibold text-neutral-600">
+                            <p className="text-sm font-semibold text-base-content/70">
                                 {supportCard.name}
                             </p>
-                            <p className="text-sm text-neutral-500">
+                            <p className="text-sm text-base-content/60">
                                 {`Level ${supportCard.level}`}
                             </p>
                         </div>

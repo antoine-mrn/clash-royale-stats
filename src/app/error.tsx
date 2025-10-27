@@ -25,10 +25,13 @@ export default function Error({
             />
             <h1 className="text-xl font-bold">{error.message}</h1>
             <div className="space-x-4">
-                <button onClick={reset} className="px-6 py-3 btn btn-info">
+                <button
+                    onClick={reset}
+                    className="px-6 py-3 btn btn-info rounded-lg"
+                >
                     Retry
                 </button>
-                <Link href="/" className="px-6 py-3 btn btn-success">
+                <Link href="/" className="px-6 py-3 btn btn-success rounded-lg">
                     Bak home
                 </Link>
             </div>

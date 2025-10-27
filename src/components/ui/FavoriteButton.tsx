@@ -47,7 +47,7 @@ export default function FavoriteButton({
                 {isFavorite ? (
                     <HeartMinus className="w-5 h-5" />
                 ) : (
-                    <HeartPlus className="w-5 h-5" />
+                    <HeartPlus className="w-5 h-5 text-white" />
                 )}
             </button>
         </div>

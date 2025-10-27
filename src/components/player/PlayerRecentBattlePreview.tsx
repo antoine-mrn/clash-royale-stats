@@ -57,7 +57,7 @@ export default function PlayerRecentBattlePreview({
 
             <Link
                 href={`/player/${tag}/battlelog`}
-                className="btn btn-soft btn-secondary mx-2 mt-auto mb-2"
+                className="btn btn-soft btn-secondary rounded-lg mx-2 mt-auto mb-2"
             >
                 View all your recent battles
             </Link>

@@ -45,7 +45,7 @@ export default function BattlePlayerCard({
 
                         <div className="mt-2 flex gap-2 items-center">
                             {player.startingTrophies && (
-                                <p className="text-lg font-semibold text-neutral-900">
+                                <p className="text-lg font-semibold text-base-content">
                                     {player.startingTrophies}{" "}
                                 </p>
                             )}

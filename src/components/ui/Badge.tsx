@@ -18,7 +18,7 @@ export default function Badge({
 }: BadgeProps) {
     return (
         <div
-            className={`flex items-center badge badge-${badgeColor} gap-2 px-3 py-4`}
+            className={`flex items-center badge badge-${badgeColor} gap-2 px-3 py-4 rounded-3xl`}
         >
             <Image
                 src={badgeUrl}

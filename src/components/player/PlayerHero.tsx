@@ -33,7 +33,7 @@ export default function PlayerHero({
                         height={149}
                         className="w-full"
                     />
-                    <span className="absolute top-1/2 left-1/2 -translate-1/2 text-base-100 font-semibold text-md sm:font-bold sm:text-xl">
+                    <span className="absolute top-1/2 left-1/2 -translate-1/2 text-white font-semibold text-md sm:font-bold sm:text-xl">
                         {level}
                     </span>
                 </div>
@@ -49,7 +49,7 @@ export default function PlayerHero({
                 <TagLink
                     type="clan"
                     tag={clanTag}
-                    className="link link-hover link-primary text-base-100 text-lg"
+                    className="link link-hover link-primary text-white text-lg"
                 >
                     {clanName} <span className="font-bold text-xl">›</span>
                 </TagLink>

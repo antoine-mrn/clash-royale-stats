@@ -22,7 +22,7 @@ export default function Header() {
 
                 <Link
                     href="/favorites"
-                    className="btn bg-primary text-primary-content hover:bg-primary-focus hover:text-white border-none transition-colors"
+                    className="btn bg-primary rounded-lg text-primary-content hover:bg-primary-focus hover:text-white border-none transition-colors"
                     title="Voir mes favoris"
                 >
                     <Star className="h-5 w-5" />

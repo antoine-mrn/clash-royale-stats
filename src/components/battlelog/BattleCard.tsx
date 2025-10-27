@@ -1,10 +1,11 @@
 import { Battle } from "@/types/battle.interface";
 import BattleResultScore from "./BattleResultScore";
 import BattlePlayerCard from "./BattlePlayerCard";
+import CardContainer from "../shared/CardContainer";
 
 export default function BattleCard({ battle }: { battle: Battle }) {
     return (
-        <>
+        <CardContainer className="py-4">
             <BattleResultScore
                 battleType={battle.type}
                 playerScore={battle.team.crowns}
@@ -23,6 +24,6 @@ export default function BattleCard({ battle }: { battle: Battle }) {
                     isOpponent={true}
                 />
             </div>
-        </>
+        </CardContainer>
     );
 }

@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Providers } from "@/providers/ThemeProvider";
+import { Toaster } from "sonner";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -36,6 +37,14 @@ export default function RootLayout({
                         {children}
                     </main>
                     <Footer />
+                    <Toaster
+                        toastOptions={{
+                            style: {
+                                background: "var(--color-base-100)",
+                                color: "var(--color-base-content)",
+                            },
+                        }}
+                    />
                 </Providers>
             </body>
         </html>

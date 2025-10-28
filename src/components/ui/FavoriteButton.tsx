@@ -3,6 +3,7 @@
 import useIsMounted from "@/hooks/useIsMounted";
 import useLocalStorage from "@/hooks/useLocalStorage";
 import { HeartMinus, HeartPlus } from "lucide-react";
+import { toast } from "sonner";
 
 interface FavoriteButtonInterface {
     tag: string;
@@ -22,8 +23,18 @@ export default function FavoriteButton({
     const isFavorite = items.some((item) => item.tag === tag);
 
     function handleClick() {
-        if (isFavorite) setValue(items.filter((item) => item.tag !== tag));
-        else setValue([...items, { tag, name }]);
+        try {
+            if (isFavorite) setValue(items.filter((item) => item.tag !== tag));
+            else setValue([...items, { tag, name }]);
+
+            toast.success(
+                isFavorite
+                    ? "Account removed from favorites"
+                    : "Account add to favorites"
+            );
+        } catch {
+            toast.error("Error !");
+        }
     }
 
     if (!isMounted) return null;

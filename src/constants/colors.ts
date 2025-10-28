@@ -1,6 +1,6 @@
 export const chartsColors = {
-    primary: "#45AEEE",
-    secondary: "#E8488A",
-    accent: "#FFF232",
-    info: "#64a6bd",
+    primary: "var(--color-primary)",
+    secondary: "var(--color-secondary)",
+    accent: "var(--color-accent)",
+    info: "var(--color-info)",
 } as const;

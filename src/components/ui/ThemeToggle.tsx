@@ -6,11 +6,9 @@ import { useEffect, useState } from "react";
 export default function ThemeToggle({ className }: { className: string }) {
     const [mounted, setMounted] = useState(false);
     const { theme, setTheme } = useTheme();
-    console.log("🚀 ~ ThemeToggle ~ theme:", theme);
 
     useEffect(() => {
         setMounted(true);
-        console.log("🚀 ~ ThemeToggle ~ theme:", theme);
     }, [theme]);
 
     if (!mounted) {

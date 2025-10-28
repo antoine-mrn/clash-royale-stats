@@ -1,26 +1,29 @@
 "use client";
 
-import { useTheme } from "@/context/ThemeContext";
-import { useState } from "react";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 export default function ThemeToggle({ className }: { className: string }) {
-    const { changeTheme } = useTheme();
-    const [checked, setChecked] = useState(false);
+    const [mounted, setMounted] = useState(false);
+    const { theme, setTheme } = useTheme();
+    console.log("🚀 ~ ThemeToggle ~ theme:", theme);
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const isChecked = e.target.checked;
-        setChecked(isChecked);
+    useEffect(() => {
+        setMounted(true);
+        console.log("🚀 ~ ThemeToggle ~ theme:", theme);
+    }, [theme]);
 
-        isChecked ? changeTheme("dark") : changeTheme("cmyk");
-    };
+    if (!mounted) {
+        return null;
+    }
+
     return (
         <label className={`swap swap-rotate ${className}`}>
             <input
                 type="checkbox"
                 className="theme-controller"
-                checked={checked}
-                onChange={handleChange}
-                value="synthwave"
+                checked={theme === "dark"}
+                onChange={() => setTheme(theme === "dark" ? "light" : "dark")}
             />
 
             {/* sun icon */}

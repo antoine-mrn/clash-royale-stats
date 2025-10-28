@@ -3,9 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import localFont from "next/font/local";
-import { ThemeProvider } from "@/context/ThemeContext";
-import ClientThemeWrapper from "@/context/ClientThemeWrapper";
+import { Providers } from "@/providers/ThemeProvider";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -28,19 +26,17 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" className="h-full">
+        <html lang="en" className="h-full" suppressHydrationWarning>
             <body
-                className={`${geistSans.variable} ${geistMono.variable} antialiased bg-neutral-50 flex min-h-full flex-col`}
+                className={`${geistSans.variable} ${geistMono.variable} antialiased flex min-h-full flex-col`}
             >
-                <ThemeProvider>
-                    <ClientThemeWrapper>
-                        <Header />
-                        <main className="flex flex-col grow pb-10 bg-base-200">
-                            {children}
-                        </main>
-                        <Footer />
-                    </ClientThemeWrapper>
-                </ThemeProvider>
+                <Providers>
+                    <Header />
+                    <main className="flex flex-col grow pb-10 bg-base-200">
+                        {children}
+                    </main>
+                    <Footer />
+                </Providers>
             </body>
         </html>
     );

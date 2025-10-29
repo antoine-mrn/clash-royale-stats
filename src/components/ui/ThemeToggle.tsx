@@ -16,7 +16,7 @@ export default function ThemeToggle({ className }: { className: string }) {
     }
 
     return (
-        <label className={`swap swap-rotate ${className}`}>
+        <label className={`swap swap-rotate text-primary-content ${className}`}>
             <input
                 type="checkbox"
                 className="theme-controller"

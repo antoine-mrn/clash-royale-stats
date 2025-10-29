@@ -11,7 +11,7 @@ export default function ClanDescription({ description }: ClanDescriptionProps) {
     return (
         <CardContainer>
             <CardHeaderContainer>
-                <CardTitle>Clan info</CardTitle>
+                <CardTitle>Clan description</CardTitle>
                 <Image
                     src="/clan-flame.png"
                     alt="Clan flame icon"
@@ -21,7 +21,7 @@ export default function ClanDescription({ description }: ClanDescriptionProps) {
                 />
             </CardHeaderContainer>
 
-            <p className="p-4 text-primary-content">{description}</p>
+            <p className="p-4">{description}</p>
         </CardContainer>
     );
 }

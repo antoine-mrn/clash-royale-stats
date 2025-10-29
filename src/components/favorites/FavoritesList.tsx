@@ -21,7 +21,7 @@ export default function FavoritesList({
             className="list-row flex justify-between items-center hover:bg-primary/10"
         >
             <div>
-                <TagLink type="player" tag={item.tag} className="text-primary">
+                <TagLink type={type} tag={item.tag} className="text-primary">
                     {item.name}
                 </TagLink>
                 <p className="text-sm opacity-70">{item.tag}</p>

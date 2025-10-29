@@ -1,6 +1,6 @@
 export default function Footer() {
     return (
-        <footer className="bg-primary text-base-100 p-4">
+        <footer className="bg-primary text-primary-content p-4">
             <div className="footer sm:footer-horizontal items-center max-w-8xl mx-auto">
                 <aside className="grid-flow-col items-center">
                     <svg

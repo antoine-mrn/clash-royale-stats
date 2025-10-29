@@ -8,10 +8,10 @@ export default function CardContainer({
     className,
 }: CardContainerProps) {
     return (
-        <div
+        <section
             className={`bg-base-100 shadow-md flex flex-col rounded-2xl ${className}`}
         >
             {children}
-        </div>
+        </section>
     );
 }

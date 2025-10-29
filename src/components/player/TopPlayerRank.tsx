@@ -31,7 +31,11 @@ export default function TopPlayerRank({
                     <li key={player.tag} className="list-row">
                         <RankMask rank={player.rank} />
                         <div className="list-col-grow flex flex-col justify-center gap-2">
-                            <TagLink type="player" tag={player.tag}>
+                            <TagLink
+                                type="player"
+                                tag={player.tag}
+                                aria-label={`View profile of ${player.name}`}
+                            >
                                 {player.name}
                             </TagLink>
 
@@ -42,6 +46,7 @@ export default function TopPlayerRank({
                                         player.clan?.tag
                                     )}`}
                                     className="text-xs uppercase font-semibold opacity-60"
+                                    aria-label={`View clan ${player.clan.name}`}
                                 >
                                     {player?.clan?.name}
                                 </Link>

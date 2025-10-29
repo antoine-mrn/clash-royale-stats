@@ -28,7 +28,7 @@ export default function FavoritesPage() {
     if (!isMounted) return null;
 
     return (
-        <main className="min-h-screen p-4 lg:p-8 flex flex-col gap-6 lg:flex-row">
+        <div className="min-h-screen p-4 lg:p-8 flex flex-col gap-6 lg:flex-row">
             <CardContainer className="flex-1">
                 <CardHeaderContainer>
                     <CardTitle>Favorites player</CardTitle>
@@ -82,6 +82,6 @@ export default function FavoritesPage() {
                     )}
                 </ul>
             </CardContainer>
-        </main>
+        </div>
     );
 }

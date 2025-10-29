@@ -6,7 +6,7 @@ export default function FavoritesHero() {
             backgroundImage="url(/favorites-banner.png)"
             imageClassName="bg-top"
         >
-            <h1 className="text-primary font-extrabold text-4xl text-shadow-lg/30 md:text-6xl">
+            <h1 className="text-primary font-clash-royale font-extrabold text-4xl text-shadow-lg/30 md:text-6xl">
                 Favorites
             </h1>
         </HeroBannerWrapper>

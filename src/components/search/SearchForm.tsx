@@ -31,8 +31,15 @@ export default function SearchForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit} className="max-w-4xl mx-auto px-6">
+        <form
+            onSubmit={handleSubmit}
+            className="max-w-4xl mx-auto px-6"
+            aria-label="Search for player or clan"
+        >
             <div className="flex gap-2">
+                <label htmlFor="type" className="sr-only">
+                    Type
+                </label>
                 <select
                     name="type"
                     className="select select-primary w-auto rounded-lg"
@@ -40,6 +47,9 @@ export default function SearchForm() {
                     <option>Player</option>
                     <option>Clan</option>
                 </select>
+                <label htmlFor="tag" className="sr-only">
+                    Tag
+                </label>
                 <input
                     type="text"
                     name="tag"
@@ -54,7 +64,10 @@ export default function SearchForm() {
                 </button>
             </div>
             {error && (
-                <p className="text-center text-error font-bold text-sm mt-1">
+                <p
+                    role="alert"
+                    className="text-center text-error font-bold text-sm mt-1"
+                >
                     {error}
                 </p>
             )}

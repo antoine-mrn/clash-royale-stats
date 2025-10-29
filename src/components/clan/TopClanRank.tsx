@@ -29,7 +29,11 @@ export default function TopClanRank({
                     <li key={clan.tag} className="list-row">
                         <RankMask rank={clan.rank} />
                         <div className="list-col-grow flex flex-col justify-center gap-2">
-                            <TagLink type="clan" tag={clan.tag}>
+                            <TagLink
+                                type="clan"
+                                tag={clan.tag}
+                                aria-label={`View clan ${clan.name}`}
+                            >
                                 {clan.name}
                             </TagLink>
                             <p className="text-xs uppercase font-semibold opacity-60">

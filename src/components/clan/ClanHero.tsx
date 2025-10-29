@@ -24,7 +24,7 @@ export default function ClanHero({
             imageClassName="bg-center"
         >
             <div>
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-4 mb-4">
                     <div className="w-16 h-16 relative">
                         <Image
                             src={badgeUrl}
@@ -34,7 +34,7 @@ export default function ClanHero({
                             className="object-contain"
                         />
                     </div>
-                    <span className="mb-4 text-primary font-extrabold text-4xl text-shadow-lg/30 md:text-6xl">
+                    <span className="text-primary font-clash-royale font-extrabold text-4xl text-shadow-lg/30 md:text-6xl">
                         {name}
                     </span>
                     <FavoriteButton

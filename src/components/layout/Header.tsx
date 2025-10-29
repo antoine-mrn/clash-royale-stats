@@ -15,7 +15,7 @@ export default function Header() {
                         height={72}
                         className="rounded-xl"
                     />
-                    <span className="text-lg font-semibold text-primary-content hidden sm:inline drop-shadow-sm">
+                    <span className="text-lg font-clash-royale font-semibold text-primary-content hidden sm:inline drop-shadow-sm">
                         Clash Royale Stats
                     </span>
                 </Link>

@@ -5,6 +5,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Providers } from "@/providers/ThemeProvider";
 import { Toaster } from "sonner";
+import localFont from "next/font/local";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -14,6 +15,17 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
     variable: "--font-geist-mono",
     subsets: ["latin"],
+});
+
+const clashRoyale = localFont({
+    src: [
+        {
+            path: "./fonts/clash-regular.woff2",
+            weight: "400",
+            style: "normal",
+        },
+    ],
+    variable: "--font-clash-royale",
 });
 
 export const metadata: Metadata = {
@@ -29,7 +41,7 @@ export default function RootLayout({
     return (
         <html lang="en" className="h-full" suppressHydrationWarning>
             <body
-                className={`${geistSans.variable} ${geistMono.variable} antialiased flex min-h-full flex-col`}
+                className={`${geistSans.variable} ${geistMono.variable} ${clashRoyale.variable} antialiased flex min-h-full flex-col`}
             >
                 <Providers>
                     <Header />

@@ -2,3 +2,7 @@
 @plugin "daisyui" {
   themes: cmyk --default, night --prefersdark;
 }
+
+@theme {
+  --font-clash-royale: var(--font-clash-royale), sans-serif;
+}

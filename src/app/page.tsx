@@ -21,8 +21,8 @@ export default async function Home() {
             >
                 <div className="hero-overlay"></div>
                 <div className="hero-content text-neutral-50 text-center">
-                    <div className="max-w-lg">
-                        <h1 className="mb-5 text-5xl font-bold">
+                    <div className="max-w-2xl">
+                        <h1 className="mb-5 text-5xl font-bold font-clash-royale">
                             Clash Royale statistics
                         </h1>
                         <p className="mb-5">

@@ -14,9 +14,14 @@ export default function PlayerPerformance({
     playerStats,
 }: PlayerPerformanceProps) {
     return (
-        <CardContainer className="w-full h-[500px] sm:h-[350px]">
+        <CardContainer
+            ariaLabelledBy="player-performance-title"
+            className="w-full h-[500px] sm:h-[350px]"
+        >
             <CardHeaderContainer>
-                <CardTitle>Performance</CardTitle>
+                <CardTitle titleId="player-performance-title">
+                    Performance
+                </CardTitle>
                 <Image
                     src="/king_chesscheck.png"
                     alt="Battle illustration"

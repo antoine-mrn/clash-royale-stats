@@ -12,10 +12,6 @@ export async function getPlayerRanking(): Promise<PlayerPreview[]> {
         }
     );
 
-    if (!response.ok) {
-        throw new Error("Failed to fecth player rank");
-    }
-
     const { items } = await response.json();
     return items;
 }

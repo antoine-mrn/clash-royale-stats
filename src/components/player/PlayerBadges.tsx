@@ -11,9 +11,9 @@ interface PlayerBadgesProps {
 
 export default function PlayerBadges({ badges }: PlayerBadgesProps) {
     return (
-        <CardContainer>
+        <CardContainer ariaLabelledBy="player-badges-title">
             <CardHeaderContainer>
-                <CardTitle>Badges</CardTitle>
+                <CardTitle titleId="player-badges-title">Badges</CardTitle>
                 <Image
                     src="/badge.png"
                     alt="Badge image"
@@ -32,7 +32,7 @@ export default function PlayerBadges({ badges }: PlayerBadgesProps) {
                     >
                         <Image
                             src={badge.iconUrls.large || ""}
-                            alt={`${badge.name} image`}
+                            alt={`${badge.name}`}
                             width={512}
                             height={512}
                             className="w-28"

@@ -7,8 +7,8 @@ interface ListRowProps {
 export default function ListRow({ label, value, key }: ListRowProps) {
     return (
         <li key={key} className="list-row flex justify-between">
-            <h4 className="font-semibold">{label}</h4>
-            <p>{value}</p>
+            <span className="font-semibold">{label}</span>
+            <span>{value}</span>
         </li>
     );
 }

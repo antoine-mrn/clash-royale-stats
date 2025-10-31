@@ -15,9 +15,11 @@ export default function PlayerRecentBattlePreview({
     tag,
 }: PlayerRecentBattlePreviewProps) {
     return (
-        <CardContainer>
+        <CardContainer ariaLabelledBy="player-recenter-battles-title">
             <CardHeaderContainer>
-                <CardTitle>Recent battles</CardTitle>
+                <CardTitle titleId="player-recenter-battles-title">
+                    Recent battles
+                </CardTitle>
                 <Image
                     src="/crown.png"
                     alt="Battle icon"
@@ -34,10 +36,10 @@ export default function PlayerRecentBattlePreview({
                         className="flex justify-between items-center p-4"
                     >
                         <div>
-                            <p className="font-semibold">{battle.type}</p>
-                            <p className="text-sm opacity-60">
+                            <span className="font-semibold">{battle.type}</span>
+                            <span className="text-sm opacity-60">
                                 {battle.battleTime} • Arena {battle.arena}
-                            </p>
+                            </span>
                         </div>
 
                         <div className="flex items-center gap-2">

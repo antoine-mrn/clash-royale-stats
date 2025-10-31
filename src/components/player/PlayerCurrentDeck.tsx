@@ -16,9 +16,11 @@ export default function PlayerCurrentDeck({
     supportCard,
 }: PlayerCurrentDeckProps) {
     return (
-        <CardContainer>
+        <CardContainer ariaLabelledBy="player-current-deck-title">
             <CardHeaderContainer>
-                <CardTitle>Current deck</CardTitle>
+                <CardTitle titleId="player-current-deck-title">
+                    Current deck
+                </CardTitle>
                 <Image
                     src="/deck.png"
                     alt="Deck image"

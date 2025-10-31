@@ -17,9 +17,11 @@ export default function PlayerLeagueResult({
     currentPathOfLegendSeasonResult,
 }: PlayerLeagueResultProps) {
     return (
-        <CardContainer>
+        <CardContainer ariaLabelledBy="player-league-result-title">
             <CardHeaderContainer>
-                <CardTitle>League result</CardTitle>
+                <CardTitle titleId="player-league-result-title">
+                    League result
+                </CardTitle>
                 <Image
                     src="/elo.png"
                     alt="Elo illustration"

@@ -22,9 +22,11 @@ export default function PlayerClanStats({
     clan,
 }: PlayerClanStatsProps) {
     return (
-        <CardContainer>
+        <CardContainer ariaLabelledBy="clan-statistics-title">
             <CardHeaderContainer>
-                <CardTitle>Clan statistics</CardTitle>
+                <CardTitle titleId="clan-statistics-title">
+                    Clan statistics
+                </CardTitle>
                 <Image
                     src="/clan.png"
                     alt="Clan illustration"

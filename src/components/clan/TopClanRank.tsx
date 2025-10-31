@@ -45,8 +45,8 @@ export default function TopClanRank({
                                 src="/clanwars-trophy.png"
                                 alt="Elo image"
                                 className="w-6"
-                                width={19}
-                                height={20}
+                                width={113}
+                                height={122}
                             />
                             <p className="font-semibold">{clan.clanScore}</p>
                         </div>

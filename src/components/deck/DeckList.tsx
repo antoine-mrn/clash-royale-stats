@@ -23,7 +23,7 @@ export default function DeckList({
                                     ? card.iconUrls.evolutionMedium
                                     : card.iconUrls.medium
                             }
-                            alt={`${card.name} image`}
+                            alt={`${card.name}`}
                             width={285}
                             height={420}
                         />
@@ -33,7 +33,7 @@ export default function DeckList({
                     <li className="mx-auto max-w-16 flex items-center mt-4 md:mt-8">
                         <Image
                             src={supportCard?.iconUrls.medium}
-                            alt="Support card illustration"
+                            alt={supportCard.name}
                             width={285}
                             height={420}
                         />

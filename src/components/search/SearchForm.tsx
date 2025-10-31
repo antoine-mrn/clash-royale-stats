@@ -41,6 +41,7 @@ export default function SearchForm() {
                     Type
                 </label>
                 <select
+                    id="type"
                     name="type"
                     className="select select-primary w-auto rounded-lg"
                 >
@@ -53,6 +54,7 @@ export default function SearchForm() {
                 <input
                     type="text"
                     name="tag"
+                    id="tag"
                     placeholder="Your player or clan tag, ex: 8VLPULUYR"
                     className="input input-primary w-full rounded-lg"
                 />

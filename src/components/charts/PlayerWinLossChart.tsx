@@ -38,7 +38,11 @@ export default function PlayerWinLossChart({
     ];
 
     return (
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer
+            width="100%"
+            height="100%"
+            aria-label={`Chart showing a total of ${playerStats.battleCount} battles, with ${playerStats.wins} wins, ${playerStats.losses} losses, and ${playerStats.threeCrownWins} three-crown wins`}
+        >
             <BarChart
                 data={barData}
                 margin={{ top: 16, right: 10, bottom: 35, left: 10 }}

@@ -17,11 +17,12 @@ export default function DeckStats({
             <div
                 className="flex items-center tooltip flex-1 justify-center"
                 data-tip="Average elixir"
+                aria-label={`Average elixir: ${averageElixir}`}
             >
                 <p className="font-bold text-sm">{averageElixir}</p>
                 <Image
                     src="/elixir.png"
-                    alt="Elixir image"
+                    alt="Average elixir"
                     width={288}
                     height={288}
                     className="w-8"
@@ -30,11 +31,12 @@ export default function DeckStats({
             <div
                 className="flex items-center tooltip flex-1 justify-center"
                 data-tip="Four cards cycle elixir"
+                aria-label={`Four cards cycle elixir: ${elixirFourCardCycle}`}
             >
                 <p className="font-bold text-sm">{elixirFourCardCycle}</p>
                 <Image
                     src="/four-card-cycle.png"
-                    alt="Four card cycle image"
+                    alt="Four card cycle elixir"
                     width={288}
                     height={288}
                     className="w-8"
@@ -45,11 +47,12 @@ export default function DeckStats({
                 <div
                     className="flex items-center tooltip flex-1 justify-center"
                     data-tip="Elixir leaked"
+                    aria-label={`Elixir leaked: ${elixirLeaked}`}
                 >
                     <p className="font-bold text-sm">{elixirLeaked}</p>
                     <Image
                         src="/elixir-leaked.png"
-                        alt="Elixir leaked image"
+                        alt="Elixir leaked"
                         width={288}
                         height={288}
                         className="w-8"

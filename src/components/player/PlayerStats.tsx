@@ -26,9 +26,11 @@ export default function PlayerStats({
     challengeCardsWon,
 }: PlayerStatsProps) {
     return (
-        <CardContainer>
+        <CardContainer ariaLabelledBy="player-statistics-title">
             <CardHeaderContainer>
-                <CardTitle>Fighter statistics</CardTitle>
+                <CardTitle titleId="player-statistics-title">
+                    Fighter statistics
+                </CardTitle>
                 <Image
                     src="/battle.png"
                     alt="Battle illustration"

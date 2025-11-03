@@ -15,9 +15,14 @@ export default function ClanMembers({
     memberCount,
 }: ClanMembersProps) {
     return (
-        <CardContainer className="md:col-span-2">
+        <CardContainer
+            className="md:col-span-2"
+            ariaLabelledBy="clan-members-title"
+        >
             <CardHeaderContainer>
-                <CardTitle>Members {memberCount}/50</CardTitle>
+                <CardTitle titleId="clan-members-title">
+                    Members {memberCount}/50
+                </CardTitle>
                 <Image
                     src="/members.png"
                     alt="Clan member icon"

@@ -40,10 +40,7 @@ export default function RootLayout({
             >
                 <Providers>
                     <Header />
-                    <main
-                        role="main"
-                        className="flex flex-col grow pb-10 bg-base-200"
-                    >
+                    <main className="flex flex-col grow pb-10 bg-base-200">
                         {children}
                     </main>
                     <Footer />

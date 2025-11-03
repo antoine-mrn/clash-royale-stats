@@ -52,8 +52,9 @@ export default function FavoriteButton({
                         : "btn-ghost text-base-100 bg-error/30 hover:bg-error/80"
                 }`}
                 aria-label={
-                    isFavorite ? "Retirer des favoris" : "Ajouter aux favoris"
+                    isFavorite ? "Remove to favorites" : "Add to favorites"
                 }
+                aria-pressed={isFavorite}
             >
                 {isFavorite ? (
                     <HeartMinus className="w-5 h-5" />

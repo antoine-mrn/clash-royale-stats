@@ -22,9 +22,9 @@ export default function PlayerHero({
     return (
         <HeroBannerWrapper backgroundImage="url(/player-banner.jpg)">
             <div className="flex items-center gap-4 sm:gap-6">
-                <span className="text-primary font-clash-royale font-extrabold text-4xl text-shadow-lg/30 md:text-6xl">
+                <h1 className="text-primary font-clash-royale font-extrabold text-4xl text-shadow-lg/30 md:text-6xl">
                     {name}
-                </span>
+                </h1>
                 <div className="w-10 relative text-center md:w-16 sm:w-14">
                     <Image
                         src="/experience-icon.png"

@@ -29,8 +29,8 @@ export default function ClanMembersTable({
                 <TableHeader tableColumns={tableColumns} />
             </thead>
             <tbody>
-                {memberList.map((member, index) => (
-                    <tr key={index}>
+                {memberList.map((member) => (
+                    <tr key={member.tag}>
                         <td>
                             <RankMask rank={member.clanRank} />
                         </td>

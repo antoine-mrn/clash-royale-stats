@@ -34,9 +34,9 @@ export default function ClanHero({
                             className="object-contain"
                         />
                     </div>
-                    <span className="text-primary font-clash-royale font-extrabold text-4xl text-shadow-lg/30 md:text-6xl">
+                    <h1 className="text-primary font-clash-royale font-extrabold text-4xl text-shadow-lg/30 md:text-6xl">
                         {name}
-                    </span>
+                    </h1>
                     <FavoriteButton
                         className="ml-auto"
                         tag={tag}

@@ -9,9 +9,11 @@ interface ClanDescriptionProps {
 
 export default function ClanDescription({ description }: ClanDescriptionProps) {
     return (
-        <CardContainer>
+        <CardContainer ariaLabelledBy="clan-description-title">
             <CardHeaderContainer>
-                <CardTitle>Clan description</CardTitle>
+                <CardTitle titleId="clan-description-title">
+                    Clan description
+                </CardTitle>
                 <Image
                     src="/clan-flame.png"
                     alt="Clan flame icon"

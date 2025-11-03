@@ -22,9 +22,9 @@ export default function ClanInfo({
     locationName,
 }: ClanInfoPorps) {
     return (
-        <CardContainer>
+        <CardContainer ariaLabelledBy="clan-info-title">
             <CardHeaderContainer>
-                <CardTitle>Clan info</CardTitle>
+                <CardTitle titleId="clan-info-title">Clan info</CardTitle>
                 <Image
                     src="/clan.png"
                     alt="Clan illustration icon"

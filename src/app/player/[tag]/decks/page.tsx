@@ -17,9 +17,14 @@ export default async function page({
     return (
         <section className="max-w-7xl grid sm:grid-cols-2 gap-8 px-6 w-full mx-auto md:justify-center md:grid-cols-3">
             {recentDecks.map((deck, index) => (
-                <CardContainer key={index}>
+                <CardContainer
+                    key={index}
+                    ariaLabelledBy={`deck-stats-title-${index}`}
+                >
                     <CardHeaderContainer>
-                        <CardTitle>Deck stats</CardTitle>
+                        <CardTitle titleId={`deck-stats-title-${index}`}>
+                            Deck stats
+                        </CardTitle>
                     </CardHeaderContainer>
                     <DeckList
                         cards={deck.cards}

@@ -22,10 +22,16 @@ export default function Footer() {
                     </p>
                 </aside>
                 <nav className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
-                    <a href="https://github.com/antoine-mrn">
+                    <a
+                        href="https://github.com/antoine-mrn"
+                        aria-label="Visit Antoine Marion’s GitHub profile"
+                    >
                         <Github />
                     </a>
-                    <a href="https://www.linkedin.com/in/antoine-marion-dev/">
+                    <a
+                        href="https://www.linkedin.com/in/antoine-marion-dev/"
+                        aria-label="Visit Antoine Marion’s LinkedIn profile"
+                    >
                         <Linkedin />
                     </a>
                 </nav>

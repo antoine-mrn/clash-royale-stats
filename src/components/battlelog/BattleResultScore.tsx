@@ -28,13 +28,16 @@ export default function BattleResultScore({
                     {splitString(battleType)}
                 </h2>
             </div>
-            <div className="flex items-center justify-center">
+            <div
+                className="flex items-center justify-center"
+                aria-label={`Score: ${playerScore} to ${opponentScore}`}
+            >
                 <Image
                     src="/crown.png"
-                    alt="Blue crown illustration"
+                    alt="Player crown icon"
                     width={400}
                     height={300}
-                    className="w-18"
+                    className="w-16"
                 />
 
                 <p className="font-semibold">{playerScore}</p>
@@ -42,7 +45,7 @@ export default function BattleResultScore({
                 <p className="font-semibold">{opponentScore}</p>
                 <Image
                     src="/red-crown.png"
-                    alt="Blue crown illustration"
+                    alt="Opponent crown icon"
                     width={400}
                     height={300}
                     className="w-16"

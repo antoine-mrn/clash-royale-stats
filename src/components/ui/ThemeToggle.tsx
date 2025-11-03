@@ -16,9 +16,15 @@ export default function ThemeToggle({ className }: { className: string }) {
     }
 
     return (
-        <label className={`swap swap-rotate text-primary-content ${className}`}>
+        <label
+            htmlFor="switch-theme"
+            aria-label="Toggle dark and light theme"
+            className={`swap swap-rotate text-primary-content ${className}`}
+        >
             <input
                 type="checkbox"
+                id="switch-theme"
+                name="switch-theme"
                 className="theme-controller"
                 checked={theme === "dark"}
                 onChange={() => setTheme(theme === "dark" ? "light" : "dark")}

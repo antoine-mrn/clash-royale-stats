@@ -45,7 +45,10 @@ export default function BattlePlayerCard({
 
                         <div className="mt-2 flex gap-2 items-center">
                             {player.startingTrophies && (
-                                <p className="text-lg font-semibold text-base-content">
+                                <p
+                                    className="text-lg font-semibold text-base-content"
+                                    aria-label={`Starting trophies: ${player.startingTrophies}`}
+                                >
                                     {player.startingTrophies}{" "}
                                 </p>
                             )}
@@ -57,6 +60,7 @@ export default function BattlePlayerCard({
                                             ? "badge-primary"
                                             : "badge-error"
                                     }`}
+                                    aria-label={`Trophies changes: ${player.trophyChange}`}
                                 >
                                     {player.trophyChange &&
                                         (player.trophyChange > 0 ? "+" : "") +

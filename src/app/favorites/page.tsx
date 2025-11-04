@@ -29,9 +29,14 @@ export default function FavoritesPage() {
 
     return (
         <div className="min-h-screen p-4 lg:p-8 flex flex-col gap-6 lg:flex-row">
-            <CardContainer className="flex-1">
+            <CardContainer
+                ariaLabelledBy="favorites-player-title"
+                className="flex-1"
+            >
                 <CardHeaderContainer>
-                    <CardTitle>Favorites player</CardTitle>
+                    <CardTitle titleId="favorites-player-title">
+                        Favorites player
+                    </CardTitle>
                     <Image
                         src="/king.png"
                         alt="King icon"
@@ -56,9 +61,14 @@ export default function FavoritesPage() {
                 </ul>
             </CardContainer>
 
-            <CardContainer className="flex-1">
+            <CardContainer
+                ariaLabelledBy="favorites-clan-title"
+                className="flex-1"
+            >
                 <CardHeaderContainer>
-                    <CardTitle>Favorites clan</CardTitle>
+                    <CardTitle titleId="favorites-clan-title">
+                        Favorites clan
+                    </CardTitle>
                     <Image
                         src="/clan.png"
                         alt="Clan icon"

@@ -9,10 +9,11 @@ export default function Header() {
             <nav className="navbar max-w-7xl mx-auto px-3 sm:px-6">
                 <Link href="/" className="flex items-center gap-2 flex-1">
                     <Image
-                        src="/logo.png"
+                        src="/assets/logo.webp"
                         alt="Logo Clash Royale dashboard"
                         width={72}
                         height={72}
+                        sizes="72px"
                         className="rounded-xl"
                     />
                     <span className="text-lg font-clash-royale font-semibold text-primary-content hidden sm:inline drop-shadow-sm">

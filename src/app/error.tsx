@@ -17,10 +17,10 @@ export default function Error({
     return (
         <div className="h-full flex flex-1 flex-col items-center justify-center gap-4">
             <Image
-                src="/tears.png"
-                alt="Skeleton cries image"
-                width={640}
-                height={640}
+                src="/assets/tears.webp"
+                alt="Crying skeleton illustration symbolizing an error"
+                width={512}
+                height={512}
                 className="w-64"
             />
             <h1 className="text-xl font-bold">{error.message}</h1>

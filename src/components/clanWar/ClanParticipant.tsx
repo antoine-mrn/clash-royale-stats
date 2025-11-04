@@ -17,10 +17,10 @@ export default function ClanParticipant({
                     Participants
                 </CardTitle>
                 <Image
-                    src="/prince-lance.png"
-                    alt="Prince lance icon"
-                    width={640}
-                    height={640}
+                    src="/assets/prince-lance.webp"
+                    alt="Prince's lance icon"
+                    width={80}
+                    height={80}
                     className="w-10"
                 />
             </CardHeaderContainer>

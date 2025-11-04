@@ -56,10 +56,10 @@ export default function ClanWarList({ tag, initialData }: ClanWarListProps) {
                                 {riverRace.sectionIndex + 1}
                             </CardTitle>
                             <Image
-                                src="/clan.png"
-                                alt="Clan illustration"
-                                width={216}
-                                height={216}
+                                src="/assets/clan.webp"
+                                alt="Clan illustration icon"
+                                width={80}
+                                height={80}
                                 className="w-10"
                             />
                         </CardHeaderContainer>

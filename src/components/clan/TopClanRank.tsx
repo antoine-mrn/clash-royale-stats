@@ -16,10 +16,10 @@ export default function TopClanRank({
             <CardHeaderContainer>
                 <CardTitle>Clan statistics</CardTitle>
                 <Image
-                    src="/clan.png"
-                    alt="Clan illustration"
-                    width={216}
-                    height={216}
+                    src="/assets/clan.webp"
+                    alt="Clan illustration icon"
+                    width={80}
+                    height={80}
                     className="w-10"
                 />
             </CardHeaderContainer>
@@ -42,11 +42,11 @@ export default function TopClanRank({
                         </div>
                         <div className="flex gap-2 items-center">
                             <Image
-                                src="/clanwars-trophy.png"
-                                alt="Elo image"
+                                src="/assets/clanwars-trophy.webp"
+                                alt="Clan War trophy icon"
                                 className="w-6"
-                                width={113}
-                                height={122}
+                                width={48}
+                                height={52}
                             />
                             <p className="font-semibold">{clan.clanScore}</p>
                         </div>

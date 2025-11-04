@@ -15,8 +15,8 @@ export default function ClanDescription({ description }: ClanDescriptionProps) {
                     Clan description
                 </CardTitle>
                 <Image
-                    src="/clan-flame.png"
-                    alt="Clan flame icon"
+                    src="/assets/clan-flame.webp"
+                    alt="Flaming clan emblem icon"
                     width={80}
                     height={80}
                     className="w-10"

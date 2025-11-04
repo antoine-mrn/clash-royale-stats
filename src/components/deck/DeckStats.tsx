@@ -21,10 +21,10 @@ export default function DeckStats({
             >
                 <p className="font-bold text-sm">{averageElixir}</p>
                 <Image
-                    src="/elixir.png"
-                    alt="Average elixir"
-                    width={288}
-                    height={288}
+                    src="/assets/elixir.webp"
+                    alt="Average elixir icon"
+                    width={16}
+                    height={16}
                     className="w-8"
                 />
             </div>

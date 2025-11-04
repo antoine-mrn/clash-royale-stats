@@ -15,7 +15,7 @@ export default function ClanWarRow({ clan }: { clan: RiverRaceClan }) {
                             src={clan.badgeUrl}
                             alt={`${clan.name} badge`}
                             fill
-                            sizes="64px"
+                            sizes="32px"
                             className="object-contain"
                         />
                     </div>
@@ -25,15 +25,15 @@ export default function ClanWarRow({ clan }: { clan: RiverRaceClan }) {
                 </div>
                 <div className="flex gap-4 sm:ml-auto">
                     <Badge
-                        badgeUrl="/period-points-icon.png"
+                        badgeUrl="/assets/period-points-icon.webp"
                         alt="Period points icon"
                         label={clan.fame}
                         badgeColor="success"
                     />
 
                     <Badge
-                        badgeUrl="/repair-icon.png"
-                        alt="Repair boat illustration"
+                        badgeUrl="/assets/repair-icon.webp"
+                        alt="Repair boat icon"
                         label={clan.repairPoints}
                         badgeColor="info"
                     />

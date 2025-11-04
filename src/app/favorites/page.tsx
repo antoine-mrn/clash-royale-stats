@@ -38,10 +38,10 @@ export default function FavoritesPage() {
                         Favorites player
                     </CardTitle>
                     <Image
-                        src="/king.png"
-                        alt="King icon"
-                        height={640}
-                        width={640}
+                        src="/assets/king.webp"
+                        alt="King character icon"
+                        height={80}
+                        width={80}
                         className="w-10"
                     />
                 </CardHeaderContainer>
@@ -70,10 +70,10 @@ export default function FavoritesPage() {
                         Favorites clan
                     </CardTitle>
                     <Image
-                        src="/clan.png"
-                        alt="Clan icon"
-                        height={216}
-                        width={216}
+                        src="/assets/clan.webp"
+                        alt="Clan emblem icon"
+                        height={80}
+                        width={80}
                         className="w-10"
                     />
                 </CardHeaderContainer>

@@ -47,8 +47,8 @@ export default function ClanHero({
                 <span className="text-neutral-content block mb-2">{tag}</span>
 
                 <Badge
-                    badgeUrl="/clan.png"
-                    alt="Clan illustration"
+                    badgeUrl="/assets/clan.webp"
+                    alt="Clan emblem icon"
                     label={clanWarTrophies}
                     badgeColor="success"
                     textSize="text-lg"

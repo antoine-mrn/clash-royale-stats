@@ -33,10 +33,10 @@ export default function BattleResultScore({
                 aria-label={`Score: ${playerScore} to ${opponentScore}`}
             >
                 <Image
-                    src="/crown.png"
+                    src="/assets/crown.webp"
                     alt="Player crown icon"
-                    width={400}
-                    height={300}
+                    width={128}
+                    height={96}
                     className="w-16"
                 />
 
@@ -44,10 +44,10 @@ export default function BattleResultScore({
                 <span className="px-1">-</span>
                 <p className="font-semibold">{opponentScore}</p>
                 <Image
-                    src="/red-crown.png"
+                    src="/assets/red-crown.webp"
                     alt="Opponent crown icon"
-                    width={400}
-                    height={300}
+                    width={128}
+                    height={96}
                     className="w-16"
                 />
             </div>

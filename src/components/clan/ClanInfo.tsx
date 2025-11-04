@@ -26,10 +26,10 @@ export default function ClanInfo({
             <CardHeaderContainer>
                 <CardTitle titleId="clan-info-title">Clan info</CardTitle>
                 <Image
-                    src="/clan.png"
+                    src="/assets/clan.webp"
                     alt="Clan illustration icon"
-                    width={216}
-                    height={216}
+                    width={80}
+                    height={80}
                     className="w-10"
                 />
             </CardHeaderContainer>

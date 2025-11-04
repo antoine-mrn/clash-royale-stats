@@ -15,11 +15,11 @@ export default function PlayerBadges({ badges }: PlayerBadgesProps) {
             <CardHeaderContainer>
                 <CardTitle titleId="player-badges-title">Badges</CardTitle>
                 <Image
-                    src="/badge.png"
-                    alt="Badge image"
+                    src="/assets/badge.webp"
+                    alt="Achievement badge icon"
+                    width={80}
+                    height={83}
                     className="w-10"
-                    width={342}
-                    height={356}
                 />
             </CardHeaderContainer>
 

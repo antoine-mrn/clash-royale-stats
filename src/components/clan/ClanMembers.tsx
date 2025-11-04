@@ -24,10 +24,10 @@ export default function ClanMembers({
                     Members {memberCount}/50
                 </CardTitle>
                 <Image
-                    src="/members.png"
-                    alt="Clan member icon"
-                    height={120}
-                    width={114}
+                    src="/assets/members.webp"
+                    alt="Clan members icon"
+                    height={80}
+                    width={76}
                     className="w-10"
                 />
             </CardHeaderContainer>

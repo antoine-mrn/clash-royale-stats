@@ -4,8 +4,8 @@ export default function NotFoundPage() {
     return (
         <div className="h-full flex flex-1 flex-col items-center justify-center gap-4">
             <Image
-                src="/why.png"
-                alt="Bowler dont't know image"
+                src="/assets/why.webp"
+                alt="Bowler confused illustration"
                 width={640}
                 height={640}
                 className="w-64"

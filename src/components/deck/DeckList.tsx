@@ -26,6 +26,7 @@ export default function DeckList({
                             alt={`${card.name}`}
                             width={285}
                             height={420}
+                            sizes="(max-width: 768px) 128px, 160px"
                         />
                     </li>
                 ))}
@@ -36,6 +37,7 @@ export default function DeckList({
                             alt={supportCard.name}
                             width={285}
                             height={420}
+                            sizes="64px"
                         />
                         <div>
                             <p className="text-sm font-semibold text-base-content/70">

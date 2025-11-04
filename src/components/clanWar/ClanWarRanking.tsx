@@ -15,10 +15,10 @@ export default function ClanWarRanking({
             <CardHeaderContainer>
                 <CardTitle titleId="clan-ranking-title">Clan ranking</CardTitle>
                 <Image
-                    src="/clan.png"
-                    alt="Clan illustration"
-                    width={216}
-                    height={216}
+                    src="/assets/clan.webp"
+                    alt="Clan illustration icon"
+                    width={80}
+                    height={80}
                     className="w-10"
                 />
             </CardHeaderContainer>

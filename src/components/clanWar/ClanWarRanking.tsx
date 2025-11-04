@@ -11,9 +11,9 @@ export default function ClanWarRanking({
     riverRaceClans: RiverRaceClan[];
 }) {
     return (
-        <CardContainer>
+        <CardContainer ariaLabelledBy="clan-ranking-title">
             <CardHeaderContainer>
-                <CardTitle>Clan ranking</CardTitle>
+                <CardTitle titleId="clan-ranking-title">Clan ranking</CardTitle>
                 <Image
                     src="/clan.png"
                     alt="Clan illustration"

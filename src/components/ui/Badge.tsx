@@ -3,10 +3,10 @@ import Image from "next/image";
 interface BadgeProps {
     badgeUrl: string;
     label: string | number;
+    alt: string;
     badgeColor?: string;
     size?: number;
     textSize?: string;
-    alt?: string;
 }
 
 export default function Badge({
@@ -15,6 +15,7 @@ export default function Badge({
     badgeColor = "primary",
     size = 30,
     textSize = "text-sm",
+    alt,
 }: BadgeProps) {
     return (
         <div
@@ -22,7 +23,7 @@ export default function Badge({
         >
             <Image
                 src={badgeUrl}
-                alt="icon"
+                alt={alt}
                 width={size}
                 height={size}
                 className="object-contain"

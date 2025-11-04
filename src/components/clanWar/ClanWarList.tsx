@@ -46,9 +46,12 @@ export default function ClanWarList({ tag, initialData }: ClanWarListProps) {
         <>
             <section className="max-w-7xl space-y-8 px-6 w-full mx-auto mt-6">
                 {items.map((riverRace, index) => (
-                    <CardContainer key={index}>
+                    <CardContainer
+                        key={index}
+                        ariaLabelledBy="river-race-title"
+                    >
                         <CardHeaderContainer>
-                            <CardTitle>
+                            <CardTitle titleId="river-race-title">
                                 River race {riverRace.seasonId} - week{" "}
                                 {riverRace.sectionIndex + 1}
                             </CardTitle>
@@ -97,6 +100,7 @@ export default function ClanWarList({ tag, initialData }: ClanWarListProps) {
                         onClick={handleMoreRiverRace}
                         disabled={isPending}
                         className="btn btn-primary mx-auto flex items-center justify-center gap-2 w-[140px]"
+                        aria-label="Load more river race history"
                     >
                         {isPending ? (
                             <>

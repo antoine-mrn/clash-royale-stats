@@ -11,12 +11,14 @@ export default function ClanParticipant({
     myClan: RiverRaceClan | undefined;
 }) {
     return (
-        <CardContainer>
+        <CardContainer ariaLabelledBy="clan-participant-title">
             <CardHeaderContainer>
-                <CardTitle>Participants</CardTitle>
+                <CardTitle titleId="clan-participant-title">
+                    Participants
+                </CardTitle>
                 <Image
                     src="/prince-lance.png"
-                    alt="Prince lance illustration"
+                    alt="Prince lance icon"
                     width={640}
                     height={640}
                     className="w-10"

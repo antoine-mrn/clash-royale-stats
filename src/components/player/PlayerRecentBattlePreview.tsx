@@ -36,8 +36,10 @@ export default function PlayerRecentBattlePreview({
                         className="flex justify-between items-center p-4"
                     >
                         <div>
-                            <span className="font-semibold">{battle.type}</span>
-                            <span className="text-sm opacity-60">
+                            <span className="font-semibold block">
+                                {battle.type}
+                            </span>
+                            <span className="text-sm opacity-60 block">
                                 {battle.battleTime} • Arena {battle.arena}
                             </span>
                         </div>

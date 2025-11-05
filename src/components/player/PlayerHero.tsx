@@ -20,17 +20,17 @@ export default function PlayerHero({
     clanTag,
 }: PlayerHeroProps) {
     return (
-        <HeroBannerWrapper backgroundImage="url(/player-banner.jpg)">
+        <HeroBannerWrapper backgroundImage="url(/assets/player-banner.webp)">
             <div className="flex items-center gap-4 sm:gap-6">
                 <h1 className="text-primary font-clash-royale font-extrabold text-4xl text-shadow-lg/30 md:text-6xl">
                     {name}
                 </h1>
                 <div className="w-10 relative text-center md:w-16 sm:w-14">
                     <Image
-                        src="/experience-icon.png"
-                        alt="Experience icon"
-                        width={144}
-                        height={149}
+                        src="/assets/experience-icon.webp"
+                        alt="Player experience level icon"
+                        width={128}
+                        height={135}
                         className="w-full"
                     />
                     <span className="absolute top-1/2 left-1/2 -translate-1/2 text-white font-semibold text-md sm:font-bold sm:text-xl">

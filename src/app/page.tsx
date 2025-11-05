@@ -15,7 +15,7 @@ export default async function Home() {
             <div
                 className="hero min-h-72 max-w-8xl mx-auto"
                 style={{
-                    backgroundImage: "url(../banner-img.jpg)",
+                    backgroundImage: "url(../assets/banner-img.webp)",
                     backgroundPosition: "top",
                 }}
             >

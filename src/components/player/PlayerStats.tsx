@@ -32,10 +32,10 @@ export default function PlayerStats({
                     Fighter statistics
                 </CardTitle>
                 <Image
-                    src="/battle.png"
-                    alt="Battle illustration"
-                    width={216}
-                    height={216}
+                    src="/assets/battle.webp"
+                    alt="Battle swords illustration"
+                    width={128}
+                    height={128}
                     className="w-10"
                 />
             </CardHeaderContainer>

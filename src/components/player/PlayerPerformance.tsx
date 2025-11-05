@@ -23,10 +23,10 @@ export default function PlayerPerformance({
                     Performance
                 </CardTitle>
                 <Image
-                    src="/king_chesscheck.png"
-                    alt="Battle illustration"
-                    width={640}
-                    height={640}
+                    src="/assets/king-chesscheck.webp"
+                    alt="King holding chess piece illustration"
+                    width={128}
+                    height={128}
                     className="w-10"
                 />
             </CardHeaderContainer>

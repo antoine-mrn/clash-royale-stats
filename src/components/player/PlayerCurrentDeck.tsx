@@ -22,11 +22,11 @@ export default function PlayerCurrentDeck({
                     Current deck
                 </CardTitle>
                 <Image
-                    src="/deck.png"
-                    alt="Deck image"
+                    src="/assets/deck.webp"
+                    alt="Player deck icon"
                     className="w-10"
-                    width={216}
-                    height={216}
+                    width={80}
+                    height={80}
                 />
             </CardHeaderContainer>
 

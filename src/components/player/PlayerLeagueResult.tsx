@@ -23,11 +23,11 @@ export default function PlayerLeagueResult({
                     League result
                 </CardTitle>
                 <Image
-                    src="/elo.png"
-                    alt="Elo illustration"
+                    src="/assets/elo.webp"
+                    alt="Elo ranking illustration"
                     className="w-10"
-                    width={500}
-                    height={500}
+                    width={128}
+                    height={128}
                 />
             </CardHeaderContainer>
 

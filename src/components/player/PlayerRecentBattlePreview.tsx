@@ -21,11 +21,11 @@ export default function PlayerRecentBattlePreview({
                     Recent battles
                 </CardTitle>
                 <Image
-                    src="/crown.png"
-                    alt="Battle icon"
+                    src="/assets/crown.webp"
+                    alt="Player battle crown icon"
                     className="w-10"
-                    width={400}
-                    height={300}
+                    width={128}
+                    height={96}
                 />
             </CardHeaderContainer>
 

@@ -5,10 +5,16 @@ import { getClanRanking } from "@/lib/serverMethod/clanRanking";
 import { getPlayerRanking } from "@/lib/serverMethod/playerRanking";
 
 export default async function Home() {
-    const [playerLeaderboard, clanLeaderboard] = await Promise.all([
+    const [playerResult, clanResult] = await Promise.allSettled([
         getPlayerRanking(),
         getClanRanking(),
     ]);
+
+    const playerLeaderboard =
+        playerResult.status === "fulfilled" ? playerResult.value : [];
+
+    const clanLeaderboard =
+        clanResult.status === "fulfilled" ? clanResult.value : [];
 
     return (
         <div className="space-y-6">

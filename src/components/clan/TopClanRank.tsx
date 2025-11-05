@@ -5,6 +5,7 @@ import CardContainer from "../shared/CardContainer";
 import CardHeaderContainer from "../shared/CardHeaderContainer";
 import RankMask from "../ui/RankMask";
 import TagLink from "../shared/TagLink";
+import RankUnavailable from "../shared/RankUnavailable";
 
 export default function TopClanRank({
     clanLeaderboard,
@@ -24,35 +25,41 @@ export default function TopClanRank({
                 />
             </CardHeaderContainer>
 
-            <ul className="list">
-                {clanLeaderboard.map((clan) => (
-                    <li key={clan.tag} className="list-row">
-                        <RankMask rank={clan.rank} />
-                        <div className="list-col-grow flex flex-col justify-center gap-2">
-                            <TagLink
-                                type="clan"
-                                tag={clan.tag}
-                                aria-label={`View clan ${clan.name}`}
-                            >
-                                {clan.name}
-                            </TagLink>
-                            <p className="text-xs uppercase font-semibold opacity-60">
-                                {clan.members} members
-                            </p>
-                        </div>
-                        <div className="flex gap-2 items-center">
-                            <Image
-                                src="/assets/clanwars-trophy.webp"
-                                alt="Clan War trophy icon"
-                                className="w-6"
-                                width={48}
-                                height={52}
-                            />
-                            <p className="font-semibold">{clan.clanScore}</p>
-                        </div>
-                    </li>
-                ))}
-            </ul>
+            {clanLeaderboard.length === 0 ? (
+                <RankUnavailable />
+            ) : (
+                <ul className="list">
+                    {clanLeaderboard.map((clan) => (
+                        <li key={clan.tag} className="list-row">
+                            <RankMask rank={clan.rank} />
+                            <div className="list-col-grow flex flex-col justify-center gap-2">
+                                <TagLink
+                                    type="clan"
+                                    tag={clan.tag}
+                                    aria-label={`View clan ${clan.name}`}
+                                >
+                                    {clan.name}
+                                </TagLink>
+                                <p className="text-xs uppercase font-semibold opacity-60">
+                                    {clan.members} members
+                                </p>
+                            </div>
+                            <div className="flex gap-2 items-center">
+                                <Image
+                                    src="/assets/clanwars-trophy.webp"
+                                    alt="Clan War trophy icon"
+                                    className="w-6"
+                                    width={48}
+                                    height={52}
+                                />
+                                <p className="font-semibold">
+                                    {clan.clanScore}
+                                </p>
+                            </div>
+                        </li>
+                    ))}
+                </ul>
+            )}
         </CardContainer>
     );
 }

@@ -1,4 +1,4 @@
-import { PagingCursors } from "./common.interface";
+import { PagingCursors } from "./common";
 
 export enum RiverRaceState {
     CLAN_NOT_FOUND = "CLAN_NOT_FOUND",

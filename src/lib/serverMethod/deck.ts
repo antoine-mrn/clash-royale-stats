@@ -1,4 +1,4 @@
-import { RecentDeck } from "@/types/card.interface";
+import { RecentDeck } from "@/types/card";
 import { fetchApi } from "../fetchApi";
 import computeDeckStats from "../services/deckStats.service";
 

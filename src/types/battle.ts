@@ -1,7 +1,7 @@
-import { Arena } from "./arena.interface";
-import { Card, Deck, SupportCard } from "./card.interface";
-import { ClanPreview } from "./clan.interface";
-import { GameMode } from "./gameMode.interface";
+import { Arena } from "./arena";
+import { Card, SupportCard, Deck } from "./card";
+import { ClanPreview } from "./clan";
+import { GameMode } from "./gameMode";
 
 export interface BattleFromApi {
     arena: Arena;

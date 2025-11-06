@@ -1,15 +1,9 @@
-import { Achievement, Badge, BadgePreview } from "./achievement.interface";
-import { Arena } from "./arena.interface";
-import {
-    Card,
-    CardPreview,
-    Deck,
-    SupportCard,
-    SupportCardPreview,
-} from "./card.interface";
-import { ClanPreview, ClanRole } from "./clan.interface";
-import { PathOfLegendResult } from "./result.interface";
-import { statistics } from "./statistics.interface";
+import { Badge, Achievement, BadgePreview } from "./achievement";
+import { Arena } from "./arena";
+import { Card, SupportCard, Deck, SupportCardPreview } from "./card";
+import { ClanPreview, ClanRole } from "./clan";
+import { PathOfLegendResult } from "./result";
+import { statistics } from "./statistics";
 
 export interface PlayerPreview {
     clan?: ClanPreview;

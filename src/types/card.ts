@@ -1,5 +1,5 @@
-import { Icon } from "./icon.interface";
-import { Rarity } from "./rarity.enum";
+import { Icon } from "./icon";
+import { Rarity } from "./rarity";
 
 export interface Card {
     count: number;

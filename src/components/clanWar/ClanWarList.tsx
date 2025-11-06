@@ -1,6 +1,6 @@
 "use client";
 
-import { RiverRaceLog, RiverRaceLogItem } from "@/types/riverRace.interface";
+import { RiverRaceLog, RiverRaceLogItem } from "@/types/riverRace";
 import CardContainer from "../shared/CardContainer";
 import CardHeaderContainer from "../shared/CardHeaderContainer";
 import CardTitle from "../ui/CardTitle";

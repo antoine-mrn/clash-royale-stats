@@ -1,4 +1,4 @@
-import { Clan, ClanFromApi } from "@/types/clan.interface";
+import { Clan, ClanFromApi } from "@/types/clan";
 import { fetchApi } from "../fetchApi";
 import { mapClan } from "../mapper/mapClan";
 import { cache } from "react";

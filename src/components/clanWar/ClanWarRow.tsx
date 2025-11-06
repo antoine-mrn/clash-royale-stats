@@ -1,7 +1,7 @@
 import Badge from "../ui/Badge";
 import RankMask from "../ui/RankMask";
 import Image from "next/image";
-import { RiverRaceClan } from "@/types/riverRace.interface";
+import { RiverRaceClan } from "@/types/riverRace";
 import TagLink from "../shared/TagLink";
 
 export default function ClanWarRow({ clan }: { clan: RiverRaceClan }) {

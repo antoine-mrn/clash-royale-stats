@@ -1,4 +1,4 @@
-import { PathOfLegendResult } from "@/types/result.interface";
+import { PathOfLegendResult } from "@/types/result";
 import CardContainer from "../shared/CardContainer";
 import CardHeaderContainer from "../shared/CardHeaderContainer";
 import ListRow from "../shared/ListRow";

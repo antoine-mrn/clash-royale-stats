@@ -1,5 +1,5 @@
 import DeckList from "../deck/DeckList";
-import { BattlePlayer } from "@/types/battle.interface";
+import { BattlePlayer } from "@/types/battle";
 import DeckStats from "../deck/DeckStats";
 import TagLink from "../shared/TagLink";
 

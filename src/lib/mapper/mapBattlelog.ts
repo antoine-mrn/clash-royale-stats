@@ -1,4 +1,4 @@
-import { Battle, BattleFromApi } from "@/types/battle.interface";
+import { Battle, BattleFromApi } from "@/types/battle";
 import { formatDate } from "@/utils/dateMethods";
 import { splitString } from "@/utils/stringMethods";
 import { getAverageElixir, getCycleElixirCost } from "../services/deck.service";

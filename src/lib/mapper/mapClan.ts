@@ -1,4 +1,4 @@
-import { Clan, ClanFromApi, ClanHeroBanner } from "@/types/clan.interface";
+import { Clan, ClanFromApi, ClanHeroBanner } from "@/types/clan";
 import { getSortedClanMembers } from "@/utils/clan";
 import { getBadgeUrl } from "../services/badge.service";
 

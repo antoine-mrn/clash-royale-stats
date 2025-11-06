@@ -1,8 +1,4 @@
-import {
-    Player,
-    PlayerFromApi,
-    PlayerHeroBanner,
-} from "@/types/player.interface";
+import { Player, PlayerFromApi, PlayerHeroBanner } from "@/types/player";
 import { getAverageElixir, getCycleElixirCost } from "../services/deck.service";
 
 export function mapPlayer(playerFromApi: PlayerFromApi): Player {

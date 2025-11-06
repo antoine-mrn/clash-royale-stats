@@ -1,4 +1,3 @@
-import { Deck } from "@/types/card.interface";
 import Image from "next/image";
 
 interface DeckStatsProps {

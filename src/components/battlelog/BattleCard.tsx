@@ -1,4 +1,4 @@
-import { Battle } from "@/types/battle.interface";
+import { Battle } from "@/types/battle";
 import BattleResultScore from "./BattleResultScore";
 import BattlePlayerCard from "./BattlePlayerCard";
 import CardContainer from "../shared/CardContainer";

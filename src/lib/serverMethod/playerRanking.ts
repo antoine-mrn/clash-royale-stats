@@ -1,4 +1,4 @@
-import { PlayerPreview } from "@/types/player.interface";
+import { PlayerPreview } from "@/types/player";
 import { fetchApi } from "../fetchApi";
 import { getLastSeasonId } from "./season";
 

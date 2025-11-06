@@ -1,4 +1,4 @@
-import { CurrentRiverRace, RiverRaceLog } from "@/types/riverRace.interface";
+import { CurrentRiverRace, RiverRaceLog } from "@/types/riverRace";
 import { fetchApi } from "../fetchApi";
 import { mapCurrentRiverRace, mapRiverRaceHistory } from "../mapper/mapWar";
 

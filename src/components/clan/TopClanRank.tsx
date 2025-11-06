@@ -1,4 +1,4 @@
-import { ClanLeaderboard } from "@/types/clan.interface";
+import { ClanLeaderboard } from "@/types/clan";
 import Image from "next/image";
 import CardTitle from "../ui/CardTitle";
 import CardContainer from "../shared/CardContainer";

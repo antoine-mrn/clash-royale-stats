@@ -1,4 +1,4 @@
-import { CurrentRiverRaceParticipant } from "@/types/riverRace.interface";
+import { CurrentRiverRaceParticipant } from "@/types/riverRace";
 import RankMask from "../ui/RankMask";
 import Badge from "../ui/Badge";
 import TagLink from "../shared/TagLink";

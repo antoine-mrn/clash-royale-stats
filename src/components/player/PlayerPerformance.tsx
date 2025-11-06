@@ -1,4 +1,4 @@
-import { PlayerBattleStats } from "@/types/player.interface";
+import { PlayerBattleStats } from "@/types/player";
 import PlayerWinLossChart from "../charts/PlayerWinLossChart";
 import PlayerWinRateChart from "../charts/PlayerWinRateChart";
 import CardContainer from "../shared/CardContainer";

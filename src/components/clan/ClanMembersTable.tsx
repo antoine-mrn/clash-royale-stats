@@ -3,7 +3,7 @@ import RankMask from "../ui/RankMask";
 import Table from "../ui/table/Table";
 import TableHeader from "../ui/table/TableHeader";
 import { getRoleBgClass } from "@/utils/badgeClass";
-import { ClanMember } from "@/types/player.interface";
+import { ClanMember } from "@/types/player";
 import TagLink from "../shared/TagLink";
 
 export default function ClanMembersTable({

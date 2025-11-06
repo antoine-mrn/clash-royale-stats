@@ -1,4 +1,4 @@
-import { Battle, BattleFromApi } from "@/types/battle.interface";
+import { Battle, BattleFromApi } from "@/types/battle";
 import { fetchApi } from "../fetchApi";
 import { mapBattlelog } from "../mapper/mapBattlelog";
 

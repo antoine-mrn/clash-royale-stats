@@ -7,9 +7,8 @@ import {
     RiverRaceLogFromApi,
     RiverRaceLogItem,
     RiverRaceLogItemFromApi,
-} from "@/types/riverRace.interface";
+} from "@/types/riverRace";
 import { getBadgeUrl } from "../services/badge.service";
-import { sanitizeTag } from "@/utils/stringMethods";
 
 export function mapCurrentRiverRace(
     riverRace: CurrentRiverRaceFromApi

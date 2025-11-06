@@ -2,7 +2,7 @@ import CardContainer from "../shared/CardContainer";
 import CardHeaderContainer from "../shared/CardHeaderContainer";
 import CardTitle from "../ui/CardTitle";
 import Image from "next/image";
-import { RiverRaceClan } from "@/types/riverRace.interface";
+import { RiverRaceClan } from "@/types/riverRace";
 import ClanParticipantList from "./ClanParticipantList";
 
 export default function ClanParticipant({

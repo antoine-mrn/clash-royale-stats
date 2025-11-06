@@ -7,7 +7,7 @@ import PlayerRecentBattlePreview from "@/components/player/PlayerRecentBattlePre
 import PlayerStats from "@/components/player/PlayerStats";
 import { getPlayer } from "@/lib/serverMethod/player";
 import getPlayerBattlelog from "@/lib/serverMethod/playerBattlelog";
-import { PlayerBattleStats } from "@/types/player.interface";
+import { PlayerBattleStats } from "@/types/player";
 
 export default async function page({
     params,

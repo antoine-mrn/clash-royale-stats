@@ -1,7 +1,7 @@
 "use client";
 
 import { chartsColors } from "@/constants/colors";
-import { PlayerBattleStats } from "@/types/player.interface";
+import { PlayerBattleStats } from "@/types/player";
 import { Cell, Label, Pie, PieChart, ResponsiveContainer } from "recharts";
 
 export default function PlayerWinRateChart({

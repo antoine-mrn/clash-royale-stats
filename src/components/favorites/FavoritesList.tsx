@@ -1,4 +1,4 @@
-import { FavoriteItem } from "@/types/favorite.interface";
+import { FavoriteItem } from "@/types/favorite";
 import { Trash2Icon } from "lucide-react";
 import TagLink from "../shared/TagLink";
 

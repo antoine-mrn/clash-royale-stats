@@ -1,4 +1,4 @@
-import { FavoriteItem } from "@/types/favorite.interface";
+import { FavoriteItem } from "@/types/favorite";
 import { useState, useEffect, useCallback } from "react";
 
 const useLocalStorage = (

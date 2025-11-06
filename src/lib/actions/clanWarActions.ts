@@ -1,7 +1,7 @@
 "use server";
 
 import { getRiverRaceHistory } from "@/lib/serverMethod/clanWar";
-import { RiverRaceLog } from "@/types/riverRace.interface";
+import { RiverRaceLog } from "@/types/riverRace";
 
 export async function loadMoreRiverRaceHistory(
     tag: string,

@@ -1,4 +1,4 @@
-import { Icon } from "./icon.interface";
+import { Icon } from "./icon";
 
 export interface Badge {
     iconUrls: Icon;

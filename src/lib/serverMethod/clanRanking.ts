@@ -1,4 +1,4 @@
-import { ClanLeaderboard } from "@/types/clan.interface";
+import { ClanLeaderboard } from "@/types/clan";
 import { fetchApi } from "../fetchApi";
 
 export async function getClanRanking(

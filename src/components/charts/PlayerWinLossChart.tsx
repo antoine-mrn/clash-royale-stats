@@ -1,7 +1,7 @@
 "use client";
 
 import { chartsColors } from "@/constants/colors";
-import { PlayerBattleStats } from "@/types/player.interface";
+import { PlayerBattleStats } from "@/types/player";
 import {
     BarChart,
     Bar,

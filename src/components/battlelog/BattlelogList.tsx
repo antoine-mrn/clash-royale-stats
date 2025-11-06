@@ -1,5 +1,5 @@
 "use client";
-import { Battle } from "@/types/battle.interface";
+import { Battle } from "@/types/battle";
 import BattleCard from "./BattleCard";
 import { useEffect, useState } from "react";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";

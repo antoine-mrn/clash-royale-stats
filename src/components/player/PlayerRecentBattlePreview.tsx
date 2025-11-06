@@ -2,7 +2,7 @@ import CardContainer from "../shared/CardContainer";
 import CardHeaderContainer from "../shared/CardHeaderContainer";
 import CardTitle from "../ui/CardTitle";
 import Image from "next/image";
-import { Battle } from "@/types/battle.interface";
+import { Battle } from "@/types/battle";
 import Link from "next/link";
 
 interface PlayerRecentBattlePreviewProps {

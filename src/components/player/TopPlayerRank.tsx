@@ -1,4 +1,4 @@
-import { PlayerPreview } from "@/types/player.interface";
+import { PlayerPreview } from "@/types/player";
 import Image from "next/image";
 import Link from "next/link";
 import CardContainer from "../shared/CardContainer";

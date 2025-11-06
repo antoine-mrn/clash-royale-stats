@@ -1,6 +1,6 @@
-import { ClanChestStatus } from "./chest.types";
-import { Location } from "./location.interface";
-import { ClanMember, ClanMemberFromApi } from "./player.interface";
+import { ClanChestStatus } from "./chest";
+import { ClanMemberFromApi, ClanMember } from "./player";
+import { Location } from "./location";
 
 export interface ClanFromApi {
     tag: string;

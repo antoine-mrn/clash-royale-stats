@@ -1,4 +1,4 @@
-import { Season } from "./season.interface";
+import { Season } from "./season";
 
 export interface statistics {
     bestSeason: string;

@@ -1,4 +1,4 @@
-import { Player, PlayerFromApi } from "@/types/player.interface";
+import { Player, PlayerFromApi } from "@/types/player";
 import { fetchApi } from "../fetchApi";
 import { mapPlayer } from "../mapper/mapPlayer";
 import { cache } from "react";

@@ -43,7 +43,7 @@ export interface BattlePlayerFromApi {
     princessTowerHitPoints: number | null;
     supportCards: SupportCard[];
     tag: string;
-    rounds?: any;
+    rounds?: unknown;
     startingTrophies?: number;
     trophyChange?: number;
 }

@@ -29,17 +29,17 @@ export function useIntersectionObserver<T extends HTMLElement>(
     }, []);
 
     useEffect(() => {
-        if (!isMounted) return;
+        if (!isMounted || !targetRef.current) return;
 
         const observer = new IntersectionObserver(callback, options);
-        if (targetRef.current) observer.observe(targetRef.current);
+        observer.observe(targetRef.current);
 
         return () => {
             if (targetRef.current) {
                 observer.unobserve(targetRef.current);
             }
         };
-    }, [targetRef.current, isMounted]);
+    }, [isMounted, options]);
 
     return { targetRef, isMounted, isIntersecting };
 }

@@ -51,7 +51,7 @@ export interface PlayerFromApi {
     currentPathOfLegendSeasonResult: PathOfLegendResult;
     lastPathOfLegendSeasonResult: PathOfLegendResult;
     bestPathOfLegendSeasonResult: PathOfLegendResult;
-    progress: any;
+    progress: unknown;
 }
 
 export interface Player {

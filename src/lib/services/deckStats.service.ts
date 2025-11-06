@@ -6,7 +6,7 @@ export default function computeDeckStats(
     tag: string,
     battlelog: BattleFromApi[]
 ): RecentDeck[] {
-    let decks: RecentDeck[] = [];
+    const decks: RecentDeck[] = [];
 
     battlelog.forEach((battle) => {
         const currentDeck = battle.team.find((el) => el.tag === `#${tag}`);

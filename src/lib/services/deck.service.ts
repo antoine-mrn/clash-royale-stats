@@ -1,5 +1,3 @@
-import { CardPreview } from "@/types/card.interface";
-
 export const getAverageElixir = (deck: (number | undefined)[]): number => {
     return parseFloat(
         (

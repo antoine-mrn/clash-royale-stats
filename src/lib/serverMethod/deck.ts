@@ -9,10 +9,6 @@ export default async function getRecentDecks(
         next: { revalidate: 300 },
     });
 
-    if (!response.ok) {
-        throw new Error("Failed to fecth player battlelog");
-    }
-
     const battle = await response.json();
     const decks = computeDeckStats(tag, battle);
 

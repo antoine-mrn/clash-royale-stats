@@ -1,4 +1,4 @@
-import { BattleResult } from "@/types/battle.interface";
+import { BattleResult } from "@/types/battle";
 
 export const getBattleResult = (
     teamCrowns: number,

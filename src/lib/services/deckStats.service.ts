@@ -1,5 +1,5 @@
-import { BattleFromApi } from "@/types/battle.interface";
-import { RecentDeck } from "@/types/card.interface";
+import { BattleFromApi } from "@/types/battle";
+import { RecentDeck } from "@/types/card";
 import { getBattleResult } from "./battle.service";
 
 export default function computeDeckStats(

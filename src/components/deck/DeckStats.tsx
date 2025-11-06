@@ -22,8 +22,8 @@ export default function DeckStats({
                 <Image
                     src="/assets/elixir.webp"
                     alt="Average elixir icon"
-                    width={16}
-                    height={16}
+                    width={64}
+                    height={64}
                     className="w-8"
                 />
             </div>
@@ -34,10 +34,10 @@ export default function DeckStats({
             >
                 <p className="font-bold text-sm">{elixirFourCardCycle}</p>
                 <Image
-                    src="/four-card-cycle.png"
+                    src="/assets/four-card-cycle.webp"
                     alt="Four card cycle elixir"
-                    width={288}
-                    height={288}
+                    width={64}
+                    height={64}
                     className="w-8"
                 />
             </div>

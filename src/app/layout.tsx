@@ -24,8 +24,33 @@ const clashRoyale = localFont({
 });
 
 export const metadata: Metadata = {
-    title: "Clash royale stats",
-    description: "Clash Royale statistics tracker",
+    title: {
+        default: "Clash Royale Statistics App",
+        template: "%s | Clash Royale Statistics App",
+    },
+    description:
+        "Track, compare and analyze Clash Royale clans and players in real time.",
+    openGraph: {
+        title: "Clash Royale Statistics App",
+        description:
+            "Track, compare and analyze Clash Royale clans and players in real time.",
+        url: "",
+        siteName: "Clash Royale Statistics App",
+        images: ["/og-image.png"],
+        locale: "en_US",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Clash Royale App",
+        description:
+            "Track, compare and analyze Clash Royale clans and players in real time.",
+        images: ["/og-image.png"],
+    },
+    icons: {
+        icon: "/favicon.ico",
+        apple: "/apple-touch-icon.png",
+    },
 };
 
 export default function RootLayout({

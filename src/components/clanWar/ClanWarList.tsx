@@ -36,7 +36,8 @@ export default function ClanWarList({ tag, initialData }: ClanWarListProps) {
                 setItems((prev) => [...prev, ...newData.items]);
                 setNextAfter(newData.paging?.cursors?.after);
                 setError("");
-            } catch (error) {
+            } catch (err) {
+                console.error(err);
                 setError("An error was occured");
             }
         });

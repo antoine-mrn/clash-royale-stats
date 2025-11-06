@@ -33,7 +33,7 @@ export default function PlayerWinRateChart({
                     paddingAngle={2}
                     dataKey="value"
                 >
-                    {pieData.map((entry, index) => (
+                    {pieData.map((entry) => (
                         <Cell key={`cell-${entry.name}`} fill={entry.color} />
                     ))}
                 </Pie>

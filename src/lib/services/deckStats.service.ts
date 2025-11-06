@@ -10,7 +10,7 @@ export default function computeDeckStats(
 
     battlelog.forEach((battle) => {
         const currentDeck = battle.team.find((el) => el.tag === `#${tag}`);
-        let indexDeckFind = decks.findIndex((deck) => {
+        const indexDeckFind = decks.findIndex((deck) => {
             return deck.cards.every((card) =>
                 currentDeck?.cards.some(
                     (currentCard) => card.id === currentCard.id

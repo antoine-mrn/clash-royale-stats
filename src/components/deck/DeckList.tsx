@@ -1,4 +1,4 @@
-import { CardPreview, Deck, SupportCardPreview } from "@/types/card";
+import { CardPreview, SupportCardPreview } from "@/types/card";
 import Image from "next/image";
 
 interface DeckListProps {

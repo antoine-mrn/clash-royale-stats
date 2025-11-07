@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
             new URL("https://royaleapi.github.io/cr-api-assets/badges/**"),
         ],
     },
+    output: "standalone",
 };
 
 export default nextConfig;

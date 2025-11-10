@@ -19,7 +19,7 @@ export default async function Home() {
     return (
         <div className="space-y-6">
             <div
-                className="hero min-h-72 max-w-8xl mx-auto"
+                className="hero min-h-72 max-w-7xl mx-auto"
                 style={{
                     backgroundImage: "url(../assets/banner-img.webp)",
                     backgroundPosition: "top",

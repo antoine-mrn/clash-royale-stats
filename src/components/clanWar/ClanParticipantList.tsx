@@ -19,28 +19,28 @@ export default function ClanParticipantList({
                         </TagLink>
                         <div className="flex flex-wrap gap-2 sm:gap-4">
                             <Badge
-                                badgeUrl="/period-points-icon.png"
+                                badgeUrl="/assets/period-points-icon.webp"
                                 alt="Period points icon"
                                 label={participant.fame}
                                 badgeColor="success"
                             />
 
                             <Badge
-                                badgeUrl="/cards-icon.png"
+                                badgeUrl="/assets/cards-icon.webp"
                                 alt="Cards icon"
                                 label={participant.decksUsed}
                                 badgeColor="accent"
                             />
 
                             <Badge
-                                badgeUrl="/boat-attack-icon.png"
+                                badgeUrl="/assets/boat-attack-icon.webp"
                                 alt="Boat attack icon"
                                 label={participant.boatAttacks}
                                 badgeColor="error"
                             />
 
                             <Badge
-                                badgeUrl="/repair-icon.png"
+                                badgeUrl="/assets/repair-icon.webp"
                                 alt="Repair boat icon"
                                 label={participant.repairPoints}
                                 badgeColor="info"

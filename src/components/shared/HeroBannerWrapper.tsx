@@ -11,7 +11,7 @@ export default function HeroBannerWrapper({
 }: HeroBannerWrapperProps) {
     return (
         <div
-            className={`hero min-h-72 ${imageClassName}`}
+            className={`hero min-h-72 mx-auto max-w-7xl ${imageClassName}`}
             style={{
                 backgroundImage: `${backgroundImage}`,
             }}

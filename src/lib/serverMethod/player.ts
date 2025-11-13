@@ -11,5 +11,6 @@ export const getPlayer = cache(async function getPlayer(
     });
 
     const PlayerFromApi: PlayerFromApi = await response.json();
+    console.log("🚀 ~ getPlayer ~ PlayerFromApi:", PlayerFromApi);
     return mapPlayer(PlayerFromApi);
 });

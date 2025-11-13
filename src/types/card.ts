@@ -7,7 +7,7 @@ export interface Card {
     evolutionLevel?: number;
     iconUrls: Icon;
     id: number;
-    level: number;
+    level: number | string;
     maxEvolutionLevel: number;
     maxLevel: number;
     name: string;

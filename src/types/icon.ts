@@ -1,5 +1,5 @@
 export interface Icon {
     evolutionMedium?: string;
-    medium: string;
+    medium?: string;
     large?: string;
 }

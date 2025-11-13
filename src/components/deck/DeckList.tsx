@@ -19,9 +19,10 @@ export default function DeckList({
                     <li key={card.id} className="mx-auto max-w-16">
                         <Image
                             src={
-                                card.iconUrls.evolutionMedium && index < 2
+                                (card.iconUrls.evolutionMedium && index < 2
                                     ? card.iconUrls.evolutionMedium
-                                    : card.iconUrls.medium
+                                    : card.iconUrls.medium) ??
+                                "assets/default_card.webp"
                             }
                             alt={`${card.name}`}
                             width={285}
@@ -33,11 +34,13 @@ export default function DeckList({
                 {supportCard && (
                     <li className="mx-auto max-w-16 flex items-center mt-4 md:mt-8">
                         <Image
-                            src={supportCard?.iconUrls.medium}
+                            src={
+                                supportCard?.iconUrls.medium ??
+                                "/assets/default_tower.webp"
+                            }
                             alt={supportCard.name}
                             width={285}
                             height={420}
-                            sizes="64px"
                         />
                         <div>
                             <p className="text-sm font-semibold text-base-content/70">

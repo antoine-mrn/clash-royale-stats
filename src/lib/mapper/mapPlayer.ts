@@ -66,15 +66,17 @@ export function mapPlayer(playerFromApi: PlayerFromApi): Player {
         currentDeckSupportCards: {
             iconUrls: {
                 evolutionMedium:
-                    playerFromApi.supportCards[0].iconUrls.evolutionMedium ||
+                    playerFromApi?.supportCards[0]?.iconUrls.evolutionMedium ??
                     undefined,
-                medium: playerFromApi.supportCards[0].iconUrls.medium,
+                medium:
+                    playerFromApi?.supportCards[0]?.iconUrls.medium ??
+                    undefined,
                 large:
-                    playerFromApi.supportCards[0].iconUrls.large || undefined,
+                    playerFromApi?.supportCards[0]?.iconUrls.large ?? undefined,
             },
-            id: playerFromApi.supportCards[0].id,
-            name: playerFromApi.supportCards[0].name,
-            level: playerFromApi.supportCards[0].level,
+            id: playerFromApi?.supportCards[0]?.id ?? 0,
+            name: playerFromApi?.supportCards[0]?.name ?? "No support card",
+            level: playerFromApi?.supportCards[0]?.level ?? "",
         },
     };
 }

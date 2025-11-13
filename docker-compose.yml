@@ -10,7 +10,8 @@ services:
     env_file:
       - .env.prod
     networks:
-      - my_network
+      - nginx-network
 
 networks:
-  my_network: {}
+  nginx-network:
+    external: true

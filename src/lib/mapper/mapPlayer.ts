@@ -76,7 +76,7 @@ export function mapPlayer(playerFromApi: PlayerFromApi): Player {
             },
             id: playerFromApi?.supportCards[0]?.id ?? 0,
             name: playerFromApi?.supportCards[0]?.name ?? "No support card",
-            level: playerFromApi?.supportCards[0]?.level ?? "",
+            level: playerFromApi?.supportCards[0]?.level ?? 0,
         },
     };
 }

@@ -39,8 +39,7 @@ export default function PlayerWinLossChart({
 
     return (
         <ResponsiveContainer
-            width="100%"
-            height="100%"
+            className="md:flex-2"
             aria-label={`Chart showing a total of ${playerStats.battleCount} battles, with ${playerStats.wins} wins, ${playerStats.losses} losses, and ${playerStats.threeCrownWins} three-crown wins`}
         >
             <BarChart

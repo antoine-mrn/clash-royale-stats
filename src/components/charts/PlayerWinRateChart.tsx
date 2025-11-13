@@ -18,8 +18,8 @@ export default function PlayerWinRateChart({
 
     return (
         <ResponsiveContainer
-            width="50%"
             height="100%"
+            className="md:flex-1"
             aria-label={`Pie chart showing a win rate of ${playerStats.winRate}%, with ${playerStats.wins} wins and ${playerStats.losses} losses`}
         >
             <PieChart>

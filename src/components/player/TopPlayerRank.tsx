@@ -58,7 +58,7 @@ export default function TopPlayerRank({
                             </div>
                             <div className="flex gap-2 items-center">
                                 <Image
-                                    src="/elo.png"
+                                    src="/assets/elo.webp"
                                     alt="Elo image"
                                     className="w-6"
                                     width={72}

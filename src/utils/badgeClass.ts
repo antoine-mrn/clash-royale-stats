@@ -3,11 +3,11 @@ export function getRankingBgClass(rank: number): string {
         case 1:
             return "bg-yellow-400"; // Or
         case 2:
-            return "bg-gray-300"; // Argent
+            return "bg-gray-400"; // Argent
         case 3:
             return "bg-orange-400"; // Bronze
         default:
-            return "bg-base-200"; // Neutre
+            return "bg-neutral-content/90"; // Neutre
     }
 }
 

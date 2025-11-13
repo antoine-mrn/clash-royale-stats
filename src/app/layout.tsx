@@ -23,6 +23,8 @@ const clashRoyale = localFont({
     variable: "--font-clash-royale",
 });
 
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+
 export const metadata: Metadata = {
     title: {
         default: "Clash Royale Statistics App",
@@ -34,9 +36,9 @@ export const metadata: Metadata = {
         title: "Clash Royale Statistics App",
         description:
             "Track, compare and analyze Clash Royale clans and players in real time.",
-        url: "",
+        url: BASE_URL,
         siteName: "Clash Royale Statistics App",
-        images: ["/og-image.png"],
+        images: [`${BASE_URL}/og-image.png`],
         locale: "en_US",
         type: "website",
     },
@@ -45,11 +47,11 @@ export const metadata: Metadata = {
         title: "Clash Royale App",
         description:
             "Track, compare and analyze Clash Royale clans and players in real time.",
-        images: ["/og-image.png"],
+        images: [`${BASE_URL}/og-image.png`],
     },
     icons: {
-        icon: "/favicon.ico",
-        apple: "/apple-touch-icon.png",
+        icon: `${BASE_URL}/favicon.ico`,
+        apple: `${BASE_URL}/apple-touch-icon.png`,
     },
 };
 

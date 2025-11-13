@@ -24,7 +24,7 @@ export default function ClanHero({
             imageClassName="bg-center"
         >
             <div>
-                <div className="flex items-center gap-4 mb-4">
+                <div className="flex items-center gap-2 mb-4 md:gap-4">
                     <div className="w-16 h-16 relative">
                         <Image
                             src={badgeUrl}

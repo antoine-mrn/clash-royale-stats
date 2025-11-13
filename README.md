@@ -1,36 +1,149 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Clash Royale Stats Dashboard
 
-## Getting Started
+Application for viewing Clash Royale player and clan statistics built with Next.js 15 and TypeScript.
 
-First, run the development server:
+This repository contains a web dashboard that queries Clash Royale data (via a backend API) and presents player profiles, clan pages, battle logs, charts and a favorites system.
+
+## Table of Contents
+
+- About
+- Features
+- Tech stack
+- Requirements
+- Environment variables
+- Quick start (local)
+- Docker
+- Available scripts
+- Project structure
+
+## About
+
+The app is a Next.js application (App Router) designed to provide an easy-to-use UI to browse Clash Royale statistics. It includes:
+
+- Player lookup with recent battles and performance charts
+- Clan pages with member lists and clan war views
+- Favorites and local persistence for quick access
+- Reusable UI components and charts for statistics visualization
+
+## Features
+
+- Search players and clans by tag
+- Battle log preview and battle replay links
+- Player win/loss charts and win rate visualization
+- Clan member tables, clan descriptions, and ranking info
+- Local favorites storage and client-side caching
+
+## Tech stack
+
+- Next.js
+- TypeScript
+- Tailwind CSS & DaisyUI
+- Recharts for charts
+- Fetch for API calls (cached)
+- Docker and docker-compose for containerized runs
+
+## Requirements
+
+- Node.js 18+ (LTS) recommended
+- npm, yarn or pnpm
+- Docker & docker-compose (optional, for containerized runs)
+
+## Environment variables
+
+This project expects a Clash Royale API base URL and an API key. The code references the following environment variables (see `src/lib/fetchApi.ts`):
+
+- `CR_BASE_URL` — the base URL for the Clash Royale API (example: `https://api.clashroyale.com/v1`)
+- `CR_API_KEY` — the Bearer API key/token used in the Authorization header
+
+Create a `.env.local` file in the project root for local development and add these values (do NOT commit secrets):
+
+```env
+CR_BASE_URL=https://api.clashroyale.com/v1
+CR_API_KEY=your_api_key_here
+```
+
+If you run the app in Docker or CI, provide these variables via an environment file or secrets manager. Example for macOS / zsh (temporary in current shell session):
+
+```bash
+export CR_BASE_URL="https://api.clashroyale.com/v1"
+export CR_API_KEY="your_api_key_here"
+npm run dev
+```
+
+## Quick start (local)
+
+1. Clone the repo and change into the directory:
+
+```bash
+git clone <repo-url>
+cd clash-royale-stats
+```
+
+2. Install dependencies (choose your package manager):
+
+```bash
+npm install
+# or
+pnpm install
+# or
+yarn install
+```
+
+3. Create `.env.local` with the required variables (see above).
+
+4. Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# The app will be available at http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Build & Production
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Build the app and run it in production mode:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+## Docker
 
-To learn more about Next.js, take a look at the following resources:
+This repo includes a `Dockerfile` and `docker-compose.yml` for running the app in a container. To run with Docker Compose (example):
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Create a `.env` file next to `docker-compose.yml` with the environment variables used by the service (`CR_BASE_URL`, `CR_API_KEY`).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. Start with Docker Compose:
 
-## Deploy on Vercel
+```bash
+docker compose up --build -d
+# or
+docker-compose up --build -d
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. To view logs:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+docker compose logs -f
+```
+
+Note: The exact service name and environment wiring are defined in `docker-compose.yml`. Use `docker compose ps` to inspect running containers.
+
+## Available scripts
+
+These scripts are defined in `package.json`:
+
+- `npm run dev` — start Next.js in development (with turbopack)
+- `npm run build` — create a production build
+- `npm run start` — start the production server
+- `npm run lint` — run ESLint
+
+Adjust commands to `pnpm`/`yarn` if you prefer those package managers.
+
+## Project structure (high level)
+
+- `src/app` — Next.js App Router pages and layouts
+- `src/components` — React components organized by feature
+- `src/lib` — small utilities and API helper (`fetchApi.ts` contains the CR_BASE_URL/CR_API_KEY usage)
+- `src/types` — TypeScript types for API responses and domain models
+- `docker-compose.yml`, `Dockerfile` — container setup

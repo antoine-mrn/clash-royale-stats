@@ -32,7 +32,7 @@ export default function Error({
                     Retry
                 </button>
                 <Link href="/" className="px-6 py-3 btn btn-success rounded-lg">
-                    Bak home
+                    Back home
                 </Link>
             </div>
         </div>

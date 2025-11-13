@@ -50,7 +50,7 @@ export default function DeckStats({
                 >
                     <p className="font-bold text-sm">{elixirLeaked}</p>
                     <Image
-                        src="/elixir-leaked.png"
+                        src="/assets/elixir-leaked.webp"
                         alt="Elixir leaked"
                         width={288}
                         height={288}

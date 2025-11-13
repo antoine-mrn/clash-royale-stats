@@ -33,7 +33,7 @@ export default function PlayerRecentBattlePreview({
                 {battlelog.slice(0, 7).map((battle, index) => (
                     <li
                         key={index}
-                        className="flex justify-between items-center p-4"
+                        className="flex justify-between items-center p-4 gap-2 flex-nowrap"
                     >
                         <div>
                             <span className="font-semibold block">
@@ -44,17 +44,15 @@ export default function PlayerRecentBattlePreview({
                             </span>
                         </div>
 
-                        <div className="flex items-center gap-2">
-                            <span
-                                className={`badge font-semibold ${
-                                    battle.result === "win"
-                                        ? "bg-primary/10"
-                                        : "bg-error/10"
-                                }`}
-                            >
-                                {battle.team.crowns} - {battle.opponent.crowns}
-                            </span>
-                        </div>
+                        <span
+                            className={`badge font-semibold w-16 ${
+                                battle.result === "win"
+                                    ? "bg-primary/10"
+                                    : "bg-error/10"
+                            }`}
+                        >
+                            {battle.team.crowns} - {battle.opponent.crowns}
+                        </span>
                     </li>
                 ))}
             </ul>

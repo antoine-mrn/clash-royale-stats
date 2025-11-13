@@ -14,7 +14,7 @@ export default async function page({
 
     return (
         <div className="mt-6 space-y-6">
-            <section className="max-w-7xl space-y-8 px-6 w-full mx-auto">
+            <section className="max-w-7xl space-y-8 px-2 w-full mx-auto md:px-6">
                 <ClanWarRanking riverRaceClans={currentRiverRace.clans} />
 
                 <ClanParticipant myClan={myClan} />

@@ -45,7 +45,7 @@ export default function ClanWarList({ tag, initialData }: ClanWarListProps) {
 
     return (
         <>
-            <section className="max-w-7xl space-y-8 px-6 w-full mx-auto mt-6">
+            <section className="max-w-7xl space-y-8 px-2 w-full mx-auto mt-6 md:px-6">
                 {items.map((riverRace, index) => (
                     <CardContainer
                         key={index}

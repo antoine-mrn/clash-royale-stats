@@ -31,11 +31,11 @@ export default async function page({
 
     return (
         <div className="mt-6 space-y-6">
-            <section className="max-w-7xl mx-auto px-6">
+            <section className="max-w-7xl mx-auto px-2 md:px-6">
                 <PlayerPerformance playerStats={playerStats} />
             </section>
 
-            <section className="max-w-7xl grid gap-8 px-6 w-full mx-auto md:justify-center md:grid-cols-2">
+            <section className="max-w-7xl grid gap-8 px-2 w-full mx-auto md:justify-center md:grid-cols-2 md:px-6">
                 <PlayerStats
                     wins={player.wins}
                     losses={player.losses}

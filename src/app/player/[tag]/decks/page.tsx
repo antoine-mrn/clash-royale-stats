@@ -15,7 +15,7 @@ export default async function page({
     const recentDecks = await getRecentDecks(tag);
 
     return (
-        <section className="max-w-7xl grid sm:grid-cols-2 gap-8 px-6 w-full mx-auto md:justify-center md:grid-cols-3">
+        <section className="max-w-7xl grid sm:grid-cols-2 gap-8 px-2 w-full mx-auto md:justify-center md:grid-cols-3 md:px-6">
             {recentDecks.map((deck, index) => (
                 <CardContainer
                     key={index}

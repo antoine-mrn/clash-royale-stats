@@ -13,7 +13,7 @@ export default async function page({
 
     return (
         <div className="mt-6 space-y-6">
-            <section className="max-w-7xl grid grid-cols-1 justify-center gap-8 px-6 w-full mx-auto md:grid-cols-2">
+            <section className="max-w-7xl grid grid-cols-1 justify-center gap-8 px-2 w-full mx-auto md:grid-cols-2 md:px-6">
                 <ClanInfo
                     clanScore={clan.clanScore}
                     clanWarTrophies={clan.clanWarTrophies}

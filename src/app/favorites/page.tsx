@@ -28,7 +28,7 @@ export default function FavoritesPage() {
     if (!isMounted) return null;
 
     return (
-        <div className="min-h-screen p-4 lg:p-8 flex flex-col gap-6 lg:flex-row">
+        <div className="min-h-screen py-4 px-2 lg:p-8 flex flex-col gap-6 md:px-6 lg:flex-row">
             <CardContainer
                 ariaLabelledBy="favorites-player-title"
                 className="flex-1"

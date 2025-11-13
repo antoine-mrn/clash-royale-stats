@@ -30,8 +30,8 @@ export default function BattlelogList({
     if (!isMounted) return null;
 
     return (
-        <section className="max-w-7xl px-6 mx-auto">
-            <ul className="w-full p-6 mx-auto grid lg:grid-cols-2 gap-4">
+        <section className="max-w-7xl px-2 mx-auto md:px-6">
+            <ul className="w-full py-6 mx-auto grid lg:grid-cols-2 gap-4">
                 {battleToRender.map((battle, index) => (
                     <li key={index}>
                         <BattleCard battle={battle} />

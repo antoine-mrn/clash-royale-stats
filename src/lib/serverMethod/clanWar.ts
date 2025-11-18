@@ -23,9 +23,7 @@ export async function getRiverRaceHistory(
     let query = `/clans/%23${tag}/riverracelog?limit=${limit}`;
     if (after) query += `&after=${after}`;
 
-    const response = await fetchApi(query, {
-        next: { revalidate: 600 },
-    });
+    const response = await fetchApi(query);
 
     const riverRaceHistoryFromApi = await response.json();
     const RiverRaceHistory = mapRiverRaceHistory(

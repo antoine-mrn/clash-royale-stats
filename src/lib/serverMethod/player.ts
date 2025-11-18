@@ -6,11 +6,8 @@ import { cache } from "react";
 export const getPlayer = cache(async function getPlayer(
     tag: string
 ): Promise<Player> {
-    const response = await fetchApi(`/players/%23${tag}`, {
-        next: { revalidate: 300 },
-    });
+    const response = await fetchApi(`/players/%23${tag}`);
 
     const PlayerFromApi: PlayerFromApi = await response.json();
-    console.log("🚀 ~ getPlayer ~ PlayerFromApi:", PlayerFromApi);
     return mapPlayer(PlayerFromApi);
 });

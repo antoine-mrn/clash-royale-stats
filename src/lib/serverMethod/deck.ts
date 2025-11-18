@@ -5,9 +5,7 @@ import computeDeckStats from "../services/deckStats.service";
 export default async function getRecentDecks(
     tag: string
 ): Promise<RecentDeck[]> {
-    const response = await fetchApi(`/players/%23${tag}/battlelog`, {
-        next: { revalidate: 300 },
-    });
+    const response = await fetchApi(`/players/%23${tag}/battlelog`);
 
     const battle = await response.json();
     const decks = computeDeckStats(tag, battle);

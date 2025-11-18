@@ -1,9 +1,7 @@
 import { fetchApi } from "../fetchApi";
 
 export async function getLastSeasonId() {
-    const response = await fetchApi(`/locations/global/seasons`, {
-        cache: "no-store",
-    });
+    const response = await fetchApi(`/locations/global/seasons`);
 
     const { items } = await response.json();
 

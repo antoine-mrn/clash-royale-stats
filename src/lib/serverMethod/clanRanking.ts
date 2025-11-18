@@ -5,10 +5,7 @@ export async function getClanRanking(
     location: number = 57000000
 ): Promise<ClanLeaderboard[]> {
     const response = await fetchApi(
-        `/locations/${location}/rankings/clanwars?limit=10`,
-        {
-            next: { revalidate: 300 },
-        }
+        `/locations/${location}/rankings/clanwars?limit=10`
     );
 
     const { items } = await response.json();

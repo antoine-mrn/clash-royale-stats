@@ -36,7 +36,10 @@ export default function PlayerLeagueResult({
                 <ul className="list">
                     <ListRow
                         label="League"
-                        value={currentPathOfLegendSeasonResult.leagueNumber}
+                        value={
+                            currentPathOfLegendSeasonResult.leagueNumber ??
+                            "No league available"
+                        }
                     />
                     <ListRow
                         label="Trophies"
@@ -56,7 +59,10 @@ export default function PlayerLeagueResult({
                 <ul className="list">
                     <ListRow
                         label="League"
-                        value={lastPathOfLegendSeasonResult.leagueNumber}
+                        value={
+                            lastPathOfLegendSeasonResult.leagueNumber ??
+                            "No league available"
+                        }
                     />
                     <ListRow
                         label="Trophies"
@@ -76,7 +82,10 @@ export default function PlayerLeagueResult({
                 <ul className="list">
                     <ListRow
                         label="League"
-                        value={bestPathOfLegendSeasonResult.leagueNumber}
+                        value={
+                            bestPathOfLegendSeasonResult.leagueNumber ??
+                            "No league available"
+                        }
                     />
                     <ListRow
                         label="Trophies"

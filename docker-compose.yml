@@ -11,6 +11,8 @@ services:
       - .env.prod
     networks:
       - nginx-network
+    tmpfs:
+      - /app/.next/cache:size=1G,mode=1777
 
 networks:
   nginx-network:

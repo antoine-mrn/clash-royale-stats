@@ -23,11 +23,11 @@ export default function PlayerBadges({ badges }: PlayerBadgesProps) {
                 />
             </CardHeaderContainer>
 
-            <ul className="grid grid-cols-4">
+            <ul className="grid grid-cols-3 sm:grid-cols-4 overflow-x-hidden">
                 {badges.slice(0, 12).map((badge) => (
                     <li
                         key={badge.name}
-                        className="tooltip"
+                        className="tooltip mx-auto"
                         data-tip={splitString(badge.name)}
                     >
                         <Image
@@ -35,7 +35,7 @@ export default function PlayerBadges({ badges }: PlayerBadgesProps) {
                             alt={`${badge.name}`}
                             width={512}
                             height={512}
-                            className="w-28"
+                            className="w-22 md:w-28"
                         />
                     </li>
                 ))}

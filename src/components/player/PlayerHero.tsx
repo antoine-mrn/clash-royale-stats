@@ -20,7 +20,10 @@ export default function PlayerHero({
     clanTag,
 }: PlayerHeroProps) {
     return (
-        <HeroBannerWrapper backgroundImage="url(/assets/player-banner.webp)">
+        <HeroBannerWrapper
+            backgroundImage="url(/assets/player-banner.webp)"
+            imageClassName="bg-center"
+        >
             <div className="flex items-center gap-4 sm:gap-6">
                 <h1 className="text-primary font-clash-royale font-extrabold text-4xl text-shadow-lg/30 md:text-6xl">
                     {name}

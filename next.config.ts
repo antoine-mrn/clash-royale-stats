@@ -3,8 +3,16 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
     images: {
         remotePatterns: [
-            new URL("https://api-assets.clashroyale.com/**"),
-            new URL("https://royaleapi.github.io/cr-api-assets/badges/**"),
+            {
+                protocol: "https",
+                hostname: "api-assets.clashroyale.com",
+                pathname: "/**",
+            },
+            {
+                protocol: "https",
+                hostname: "royaleapi.github.io",
+                pathname: "/cr-api-assets/badges/**",
+            },
         ],
     },
     output: "standalone",

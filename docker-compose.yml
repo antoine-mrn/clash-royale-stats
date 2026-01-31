@@ -23,3 +23,7 @@ services:
 
     tmpfs:
       - /app/.next/cache:size=128M,mode=1777
+
+networks:
+  nginx-network:
+    name: nginx-network

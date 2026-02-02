@@ -1,10 +1,12 @@
+# Base image
 FROM node:20-alpine AS base
-
-# Dependencies
-FROM base AS deps
-RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
+# Add libc6-compat (pour certaines dépendances)
+RUN apk add --no-cache libc6-compat
+
+# Install dependencies
+FROM base AS deps
 COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* .npmrc* ./
 RUN \
     if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
@@ -15,12 +17,9 @@ RUN \
 
 # Build
 FROM base AS builder
-WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-
 ENV NEXT_TELEMETRY_DISABLED=1
-
 RUN \
     if [ -f yarn.lock ]; then yarn build; \
     elif [ -f package-lock.json ]; then npm run build; \
@@ -28,29 +27,23 @@ RUN \
     else echo "Lockfile not found." && exit 1; \
     fi
 
-# Runtime (PROD)
+# Runtime / Production
 FROM node:20-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
-
-# LIMITES NODE (CRITIQUE)
-ENV NODE_OPTIONS="--max-old-space-size=384"
-ENV UV_THREADPOOL_SIZE=2
-
-# User non-root
-RUN addgroup --system --gid 1001 nodejs \
-    && adduser --system --uid 1001 nextjs
-
-COPY --from=builder /app/public ./public
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-
-USER nextjs
-
-EXPOSE 3000
 ENV PORT=3000
-ENV HOSTNAME=0.0.0.0
 
+# Copy public folder (assets)
+COPY --from=builder /app/public ./public
+
+# Copy Next.js standalone and static files
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./.next/static
+
+# Expose port
+EXPOSE 3000
+
+# Start server
 CMD ["node", "server.js"]

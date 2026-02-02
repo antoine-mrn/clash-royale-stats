@@ -25,9 +25,9 @@ export default function DeckList({
                                 "assets/default_card.webp"
                             }
                             alt={`${card.name}`}
-                            width={285}
-                            height={420}
-                            sizes="(max-width: 768px) 128px, 160px"
+                            width={64}
+                            height={94}
+                            sizes="64px"
                         />
                     </li>
                 ))}
@@ -39,8 +39,9 @@ export default function DeckList({
                                 "/assets/default_tower.webp"
                             }
                             alt={supportCard.name}
-                            width={285}
-                            height={420}
+                            width={64}
+                            height={94}
+                            sizes="64px"
                         />
                         <div>
                             <p className="text-sm font-semibold text-base-content/70">

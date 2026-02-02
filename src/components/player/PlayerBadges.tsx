@@ -27,15 +27,14 @@ export default function PlayerBadges({ badges }: PlayerBadgesProps) {
                 {badges.slice(0, 12).map((badge) => (
                     <li
                         key={badge.name}
-                        className="tooltip mx-auto"
+                        className="tooltip mx-auto w-22 md:w-28"
                         data-tip={splitString(badge.name)}
                     >
                         <Image
                             src={badge.iconUrls.large || ""}
                             alt={`${badge.name}`}
-                            width={512}
-                            height={512}
-                            className="w-22 md:w-28"
+                            width={112}
+                            height={112}
                         />
                     </li>
                 ))}

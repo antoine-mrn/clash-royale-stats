@@ -28,6 +28,7 @@ export default function DeckList({
                             width={64}
                             height={94}
                             sizes="64px"
+                            unoptimized
                         />
                     </li>
                 ))}
@@ -42,6 +43,7 @@ export default function DeckList({
                             width={64}
                             height={94}
                             sizes="64px"
+                            unoptimized
                         />
                         <div>
                             <p className="text-sm font-semibold text-base-content/70">

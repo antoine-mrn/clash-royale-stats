@@ -35,6 +35,7 @@ export default function PlayerBadges({ badges }: PlayerBadgesProps) {
                             alt={`${badge.name}`}
                             width={112}
                             height={112}
+                            unoptimized
                         />
                     </li>
                 ))}

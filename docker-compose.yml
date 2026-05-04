@@ -5,25 +5,20 @@ services:
       context: .
       dockerfile: Dockerfile
     restart: unless-stopped
-
-    ports:
-      - "3000:3000"
-
+    expose:
+      - "3000"
     env_file:
       - .env.prod
-
     networks:
       - nginx-network
-
     deploy:
       resources:
         limits:
           cpus: "0.75"
           memory: 512M
-
     tmpfs:
       - /app/.next/cache:size=128M,mode=1777
 
 networks:
   nginx-network:
-    name: nginx-network
+    external: true

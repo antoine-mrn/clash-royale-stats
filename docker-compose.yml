@@ -17,7 +17,7 @@ services:
           cpus: "0.75"
           memory: 512M
     tmpfs:
-      - /app/.next/cache:size=128M,mode=1777
+      - /app/.next/cache:size=256M,mode=1777
 
 networks:
   nginx-network:

@@ -6,8 +6,11 @@ import { unstable_cache } from "next/cache";
 
 const fetchPlayer = unstable_cache(
     async (tag: string): Promise<Player> => {
-        const res = await fetchApi(`/players/%23${tag}`);
-        return mapPlayer(await res.json());
+        const response = await fetchApi(`/players/%23${tag}`);
+
+        const PlayerFromApi: PlayerFromApi = await response.json();
+
+        return mapPlayer(PlayerFromApi);
     },
     ["player"],
     { revalidate: 300 },

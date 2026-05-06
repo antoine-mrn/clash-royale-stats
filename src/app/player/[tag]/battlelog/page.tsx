@@ -1,5 +1,5 @@
 import BattlelogList from "@/components/battlelog/BattlelogList";
-import getPlayerBattlelog from "@/lib/serverMethod/playerBattlelog";
+import { getPlayerBattlelog } from "@/lib/serverMethod/playerBattlelog";
 
 export default async function page({
     params,

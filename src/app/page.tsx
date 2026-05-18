@@ -4,6 +4,8 @@ import SearchForm from "@/components/search/SearchForm";
 import { getClanRanking } from "@/lib/serverMethod/clanRanking";
 import { getPlayerRanking } from "@/lib/serverMethod/playerRanking";
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
     const [playerResult, clanResult] = await Promise.allSettled([
         getPlayerRanking(),

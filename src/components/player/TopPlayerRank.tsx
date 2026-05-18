@@ -17,7 +17,7 @@ export default function TopPlayerRank({
     return (
         <CardContainer>
             <CardHeaderContainer>
-                <CardTitle>Previous season leaderboard</CardTitle>
+                <CardTitle>Current season leaderboard</CardTitle>
                 <Image
                     src="/assets/battle.webp"
                     alt="Battle swords illustration"
@@ -47,7 +47,7 @@ export default function TopPlayerRank({
                                 {player?.clan?.name && (
                                     <Link
                                         href={`clan/${sanitizeTag(
-                                            player.clan?.tag
+                                            player.clan?.tag,
                                         )}`}
                                         className="text-xs uppercase font-semibold opacity-60"
                                         aria-label={`View clan ${player.clan.name}`}

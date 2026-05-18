@@ -8,7 +8,7 @@ export async function getPlayerRanking(): Promise<PlayerPreview[]> {
     const response = await fetchApi(
         `/locations/global/pathoflegend/players?limit=10`,
         {
-            next: { revalidate: 86400 },
+            next: { revalidate: 600 },
         },
     );
 

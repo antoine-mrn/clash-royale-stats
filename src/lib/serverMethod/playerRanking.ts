@@ -1,6 +1,6 @@
 import { PlayerPreview } from "@/types/player";
 import { fetchApi } from "../fetchApi";
-import { getLastSeasonId } from "./season";
+// import { getLastSeasonId } from "./season";
 
 export async function getPlayerRanking(): Promise<PlayerPreview[]> {
     // const lastSeasonId = await getLastSeasonId();

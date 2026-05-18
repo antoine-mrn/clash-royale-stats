@@ -13,6 +13,5 @@ export async function getPlayerRanking(): Promise<PlayerPreview[]> {
     );
 
     const { items } = await response.json();
-    console.log("🚀 ~ getPlayerRanking ~ items:", items);
     return items;
 }
